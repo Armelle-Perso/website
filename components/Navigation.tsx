@@ -154,7 +154,8 @@ export default function Navigation() {
               )
             )}
           </ul>
-          <div className="px-6 pb-4">
+          <div className="px-6 pb-4 flex items-center gap-6">
+            <LanguageSwitcher />
             <DarkModeToggle />
           </div>
         </div>

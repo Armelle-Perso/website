@@ -5,7 +5,7 @@ export async function POST(request: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY)
   try {
     const body = await request.json()
-    const { name, email, subject, message, howFound, drewToWork } = body
+    const { name, email, subject, message, howFound, drawnTo } = body
 
     if (!name || !email || !message) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
@@ -16,7 +16,7 @@ export async function POST(request: Request) {
       `Email: ${email}`,
       subject ? `Subject: ${subject}` : null,
       howFound ? `How they found you: ${howFound}` : null,
-      drewToWork ? `What drew them to the work: ${drewToWork}` : null,
+      drawnTo ? `What drew them to the work: ${drawnTo}` : null,
       '',
       'Message:',
       message,
