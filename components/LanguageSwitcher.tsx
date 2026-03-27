@@ -49,7 +49,7 @@ export default function LanguageSwitcher() {
         {current?.short || locale.toUpperCase()}
       </button>
       {open && (
-        <ul className="absolute top-full right-0 mt-3 border border-[--color-border] min-w-[10rem] z-50 shadow-lg" style={{ backgroundColor: 'var(--color-cream)' }}>
+        <ul className="absolute bottom-full left-0 mb-3 border border-[--color-border] min-w-[10rem] z-50 shadow-lg md:bottom-auto md:top-full md:left-auto md:right-0 md:mb-0 md:mt-3" style={{ backgroundColor: 'var(--color-cream)' }}>
           {locales.map((l) => {
             const cfg = localeConfig[l]
             return (
