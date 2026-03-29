@@ -67,7 +67,7 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
               className="group p-10 border-b border-r border-[--color-border] hover:bg-[--color-gold-light] transition-colors"
             >
               <h2 className="font-serif text-3xl mb-3 group-hover:text-[--color-charcoal]">{t(section.labelKey)}</h2>
-              <p className="text-sm text-[--color-muted] font-sans leading-relaxed">{t(section.descKey)}</p>
+              {t(section.descKey) && <p className="text-sm text-[--color-muted] font-sans leading-relaxed">{t(section.descKey)}</p>}
               <span className="inline-block mt-6 text-xs tracking-widest text-[--color-gold] transition-opacity">→</span>
             </Link>
           ))}
