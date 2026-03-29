@@ -108,13 +108,22 @@ export default function Navigation() {
             {navLinks.map((link) =>
               link.children ? (
                 <li key={link.href}>
-                  <button
-                    onClick={() => setArtOpen(!artOpen)}
-                    className="w-full text-left py-3 text-[11px] font-sans font-light tracking-[0.18em] uppercase flex justify-between items-center border-b border-[--color-border]"
-                  >
-                    {link.label}
-                    <span className="text-[--color-muted]">{artOpen ? '−' : '+'}</span>
-                  </button>
+                  <div className="flex items-center border-b border-[--color-border]">
+                    <Link
+                      href={link.href}
+                      className="flex-1 py-3 text-[11px] font-sans font-light tracking-[0.18em] uppercase hover:text-[--color-gold] transition-colors"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                    <button
+                      onClick={() => setArtOpen(!artOpen)}
+                      className="px-3 py-3 text-[--color-muted]"
+                      aria-label="Toggle submenu"
+                    >
+                      {artOpen ? '−' : '+'}
+                    </button>
+                  </div>
                   {artOpen && (
                     <ul className="py-2 pl-4">
                       {link.children.map((child: any) => (

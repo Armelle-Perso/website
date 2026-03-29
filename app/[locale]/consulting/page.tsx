@@ -33,7 +33,7 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
 
   const professionalPath = [
     { org: 'Life Itself', role: t('lifeItselfRole'), dates: t('lifeItselfDates'), desc: t('lifeItselfDesc'), href: 'https://lifeitself.org/', external: true, logo: '/logos/lifeitself.svg' },
-    { org: 'SIA', role: t('siaRole'), dates: t('siaDates'), desc: t('siaDesc'), href: 'https://entersia.com/', external: true, logo: '/logos/sia.png' },
+    { org: t('siaOrg'), role: t('siaRole'), dates: t('siaDates'), desc: t('siaDesc'), href: 'https://entersia.com/', external: true, logo: '/logos/sia.png' },
     { org: 'Seed2Shirt', role: t('seed2shirtRole'), dates: t('seed2shirtDates'), desc: t('seed2shirtDesc'), href: 'https://seed2shirt.com/fep/', external: true, logo: '/logos/seed2shirt.png' },
     { org: 'Existence', role: t('existenceRole'), dates: t('existenceDates'), desc: t('existenceDesc'), href: 'https://existence.fr/', external: true, logo: '/logos/existence.ico' },
     { org: 'Orinko & Vibratis', role: t('orinkoRole'), dates: t('orinkoDates'), desc: t('orinkoDesc'), href: 'https://orinko.org/', external: true, logo: '/logos/orinko.png' },
