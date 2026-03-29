@@ -36,9 +36,9 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
     { org: t('siaOrg'), role: t('siaRole'), dates: t('siaDates'), desc: t('siaDesc'), href: 'https://entersia.com/', external: true, logo: '/logos/sia.png' },
     { org: 'Seed2Shirt', role: t('seed2shirtRole'), dates: t('seed2shirtDates'), desc: t('seed2shirtDesc'), href: 'https://seed2shirt.com/fep/', external: true, logo: '/logos/seed2shirt.png' },
     { org: 'Existence', role: t('existenceRole'), dates: t('existenceDates'), desc: t('existenceDesc'), href: 'https://existence.fr/', external: true, logo: '/logos/existence.ico' },
-    { org: 'Orinko & Vibratis', role: t('orinkoRole'), dates: t('orinkoDates'), desc: t('orinkoDesc'), href: 'https://orinko.org/', external: true, logo: '/logos/orinko.png' },
+    { org: 'Orinko', org2: 'Vibratis', href2: 'https://vibratis.fr/', role: t('orinkoRole'), dates: t('orinkoDates'), desc: t('orinkoDesc'), href: 'https://orinko.org/', external: true, logo: '/logos/orinko.png' },
     { org: 'Sunseed Desert Technology', role: t('sunseedRole'), dates: t('sunseedDates'), desc: t('sunseedDesc'), href: 'https://www.sunseed.org.uk/', external: true, logo: '/logos/sunseed.png' },
-    { org: 'M33', role: t('m33Role'), dates: t('m33Dates'), desc: t('m33Desc'), href: '/art/collectives' as const, external: false, logo: '/logos/m33.png' },
+    { org: 'M33', role: t('m33Role'), dates: t('m33Dates'), desc: t('m33Desc'), href: 'https://www.instagram.com/atelierm33/', external: true, logo: '/logos/m33.png' },
   ]
 
   const education = [
@@ -125,9 +125,19 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
                   <div>
                     <div className="flex flex-wrap items-baseline gap-x-3">
                       {item.external ? (
-                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="font-serif text-base font-light hover:text-[--color-gold] transition-colors">
-                          {item.org}
-                        </a>
+                        <>
+                          <a href={item.href} target="_blank" rel="noopener noreferrer" className="font-serif text-base font-light hover:text-[--color-gold] transition-colors">
+                            {item.org}
+                          </a>
+                          {item.org2 && (
+                            <>
+                              <span className="font-serif text-base font-light">&</span>
+                              <a href={item.href2} target="_blank" rel="noopener noreferrer" className="font-serif text-base font-light hover:text-[--color-gold] transition-colors">
+                                {item.org2}
+                              </a>
+                            </>
+                          )}
+                        </>
                       ) : (
                         <Link href={item.href} className="font-serif text-base font-light hover:text-[--color-gold] transition-colors">
                           {item.org}
