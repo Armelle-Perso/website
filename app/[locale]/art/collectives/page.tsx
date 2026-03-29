@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 const collectives = [
   {
     name: 'Artmixture',
-    location: { en: 'Alpujarra, Spain', fr: 'Alpujarra, Espagne', es: 'Alpujarra, España' },
+    location: { en: 'International', fr: 'International', es: 'Internacional' },
     years: '2025',
     description: {
       en: 'A creative collective bringing together artists for collaborative performances and projects.',
