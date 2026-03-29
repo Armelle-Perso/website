@@ -248,6 +248,8 @@
   },
   "research": {
     "title": "Research",
+    "subtitle": "Academic Work",
+    "publications": "Publications",
     "comingSoon": "Research items coming soon."
   },
   "imprint": {

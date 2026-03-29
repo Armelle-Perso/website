@@ -25,7 +25,7 @@ export default async function ResearchPage({ params }: { params: Promise<{ local
     <>
       <PageHeader
         title={t('title')}
-        subtitle="Academic Work"
+        subtitle={t('subtitle')}
       />
 
       <div className="max-w-7xl mx-auto px-6 pb-24">
@@ -34,7 +34,7 @@ export default async function ResearchPage({ params }: { params: Promise<{ local
           {/* Publications — main column */}
           <section>
             <p className="text-[10px] uppercase tracking-[0.3em] text-[--color-gold] font-sans font-light mb-10">
-              Publications
+              {t('publications')}
             </p>
             {research?.length ? (
               <div className="space-y-0">

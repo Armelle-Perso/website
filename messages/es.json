@@ -188,10 +188,10 @@
     "seed2shirtRole": "Directora de sistemas regenerativos & Traductora principal",
     "seed2shirtDates": "2018–2022",
     "seed2shirtDesc": "Dirección de implementación de sistemas regenerativos y facilitación de comunicación multilingüe para el programa de enriquecimiento de agricultores.",
-    "lifeItselfRole": "Intendente de vida & estudio — Facilitadora",
+    "lifeItselfRole": "Coordinadora Vida colectiva y Estudio — Facilitadora",
     "lifeItselfDates": "2026–presente",
     "lifeItselfDesc": "",
-    "siaOrg": "SIA, la App de Intuición Sensible",
+    "siaOrg": "SIA, the Sensitive Insight App",
     "siaRole": "Directora de operaciones",
     "siaDates": "2023–presente",
     "siaDesc": "Apoyo en la creación de una aplicación diseñada para personas altamente sensibles, proporcionando recursos comunitarios neurodiversos.",
@@ -248,6 +248,8 @@
   },
   "research": {
     "title": "Investigación",
+    "subtitle": "Trabajo académico",
+    "publications": "Publicaciones",
     "comingSoon": "Publicaciones próximamente."
   },
   "imprint": {
