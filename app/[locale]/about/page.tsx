@@ -81,6 +81,16 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
       <div className="max-w-7xl mx-auto px-6 pb-32">
 
+        {/* Path */}
+        <section className="mb-28 pb-28 border-b border-[--color-border]">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-[--color-gold] font-sans font-light mb-10">
+            {t('path')}
+          </p>
+          <p className="font-sans font-light text-sm leading-relaxed text-[--color-charcoal] max-w-3xl">
+            {t('pathDesc')}
+          </p>
+        </section>
+
         {/* Fields of practice */}
         <section className="mb-28 pb-28 border-b border-[--color-border]">
           <p className="text-[10px] uppercase tracking-[0.3em] text-[--color-gold] font-sans font-light mb-10">
