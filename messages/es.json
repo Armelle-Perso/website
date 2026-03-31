@@ -18,6 +18,7 @@
   "home": {
     "artistConsultant": "Consultora, Facilitadora & Artista · FR · EN · ES",
     "defaultTagline": "Equilibrando innovación y saberes ancestrales.",
+    "heroAnchor": "Mirada analítica, sensibilidad creativa y fluidez intercultural al servicio de proyectos con sentido.",
     "viewArt": "Obras",
     "getInTouch": "Contactar",
     "nowShowing": "Ahora",
@@ -190,7 +191,7 @@
     "seed2shirtDesc": "Dirección de implementación de sistemas regenerativos y facilitación de comunicación multilingüe para el programa de enriquecimiento de agricultores.",
     "lifeItselfRole": "Coordinadora Vida colectiva y Estudio — Facilitadora",
     "lifeItselfDates": "2026–presente",
-    "lifeItselfDesc": "Facilitación de la vida cotidiana y las operaciones de una comunidad intencional en la confluencia de la investigación, la práctica colectiva y el activismo cultural.",
+    "lifeItselfDesc": "Facilitación de la vida cotidiana y las operaciones de un colectivo en la confluencia de la investigación, la práctica colectiva y el activismo cultural.",
     "siaOrg": "SIA, the Sensitive Insight App",
     "siaRole": "Directora de operaciones",
     "siaDates": "2023–presente",
@@ -249,6 +250,7 @@
   "research": {
     "title": "Investigación",
     "subtitle": "Trabajo académico",
+    "intro": "Mi investigación se sitúa en la confluencia de la lingüística, la semántica computacional y las ciencias cognitivas.",
     "publications": "Publicaciones",
     "comingSoon": "Publicaciones próximamente."
   },

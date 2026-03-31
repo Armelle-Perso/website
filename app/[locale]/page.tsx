@@ -61,8 +61,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-[#C4A882] font-sans font-light mb-8">
             {t('artistConsultant')}
           </p>
-          <p className="font-sans font-light text-sm sm:text-base text-[#EDE0CC] leading-relaxed whitespace-pre-line max-w-lg mx-auto mb-10">
+          <p className="font-sans font-light text-sm sm:text-base text-[#EDE0CC] leading-relaxed whitespace-pre-line max-w-lg mx-auto mb-4">
             {tagline || t('defaultTagline')}
+          </p>
+          <p className="font-sans font-light text-xs sm:text-sm text-[#EDE0CC]/70 leading-relaxed max-w-md mx-auto mb-10">
+            {t('heroAnchor')}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link

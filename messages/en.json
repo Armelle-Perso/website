@@ -18,6 +18,7 @@
   "home": {
     "artistConsultant": "Consultant, Facilitator & Artist · FR · EN · ES",
     "defaultTagline": "Balancing innovation and ancestral knowledge.",
+    "heroAnchor": "Bringing analytical depth, creative sensibility, and cross-cultural fluency to meaningful projects.",
     "viewArt": "Artworks",
     "getInTouch": "Get in touch",
     "nowShowing": "Now showing",
@@ -190,7 +191,7 @@
     "seed2shirtDesc": "Directed regenerative systems implementation and facilitated multilingual communication for the Farmer Enrichment Program.",
     "lifeItselfRole": "Life & Studio Steward — Steward of Flow",
     "lifeItselfDates": "2026–present",
-    "lifeItselfDesc": "Facilitating the daily life and operations of an intentional community at the crossroads of research, collective practice, and cultural activism.",
+    "lifeItselfDesc": "Facilitating the daily life and operations of a collective at the crossroads of research, collective practice, and cultural activism.",
     "siaOrg": "SIA, the Sensitive Insight App",
     "siaRole": "Chief Operating Officer",
     "siaDates": "2023–present",
@@ -249,6 +250,7 @@
   "research": {
     "title": "Research",
     "subtitle": "Academic Work",
+    "intro": "My research sits at the crossroads of linguistics, computational semantics, and cognitive science.",
     "publications": "Publications",
     "comingSoon": "Research items coming soon."
   },

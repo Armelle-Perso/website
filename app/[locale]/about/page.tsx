@@ -25,12 +25,6 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
   const settings = await safeFetch<any>(siteSettingsQuery)
 
-  const disciplines = [
-    { label: t('facilitation'), desc: t('facilitationDesc') },
-    { label: t('translation'), desc: t('translationDesc') },
-    { label: t('visualArt'), desc: t('visualArtDesc') },
-  ]
-
   return (
     <>
       {/* Hero — portrait + intro, fits one screen */}
@@ -80,21 +74,6 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       </section>
 
       <div className="max-w-7xl mx-auto px-6 pb-32">
-
-        {/* Fields of practice */}
-        <section className="mb-28 pb-28 border-b border-[--color-border]">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-[--color-gold] font-sans font-light mb-10">
-            {t('fieldsOfPractice')}
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-            {disciplines.map((d) => (
-              <div key={d.label}>
-                <h3 className="font-serif text-xl font-light mb-1">{d.label}</h3>
-                <p className="text-[11px] uppercase tracking-[0.15em] text-[--color-muted] font-sans font-light">{d.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
 
         {/* Explore */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-6">

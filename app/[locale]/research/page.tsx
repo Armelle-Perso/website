@@ -29,6 +29,9 @@ export default async function ResearchPage({ params }: { params: Promise<{ local
       />
 
       <div className="max-w-7xl mx-auto px-6 pb-24">
+        <p className="font-sans font-light text-sm text-[--color-muted] leading-relaxed max-w-2xl mb-16">
+          {t('intro')}
+        </p>
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-16 lg:gap-20">
 
           {/* Publications — main column */}

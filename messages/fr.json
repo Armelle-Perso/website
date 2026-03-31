@@ -18,6 +18,7 @@
   "home": {
     "artistConsultant": "Consultante, Facilitatrice & Artiste · FR · EN · ES",
     "defaultTagline": "Entre innovation et savoirs ancestraux.",
+    "heroAnchor": "Regard analytique, sensibilité créative et fluidité interculturelle au service de projets porteurs de sens.",
     "viewArt": "Œuvres",
     "getInTouch": "Me contacter",
     "nowShowing": "En ce moment",
@@ -190,7 +191,7 @@
     "seed2shirtDesc": "Direction de la mise en œuvre de systèmes régénératifs et facilitation de la communication multilingue pour le programme d'enrichissement des agriculteurs.",
     "lifeItselfRole": "Coordinatrice Vie collective et Studio — Facilitatrice",
     "lifeItselfDates": "2026–présent",
-    "lifeItselfDesc": "Facilitation de la vie quotidienne et des opérations d'une communauté intentionnelle au croisement de la recherche, de la pratique collective et de l'activisme culturel.",
+    "lifeItselfDesc": "Facilitation de la vie quotidienne et des opérations d'un collectif au croisement de la recherche, de la pratique collective et de l'activisme culturel.",
     "siaOrg": "SIA, the Sensitive Insight App",
     "siaRole": "Directrice des opérations",
     "siaDates": "2023–présent",
@@ -199,7 +200,7 @@
     "phdTitle": "Doctorat en Sciences Cognitives — Linguistique",
     "phdPlace": "Université de Lyon · CNRS · Institut des Sciences Cognitives · L2C2",
     "phdDate": "2013",
-    "phdDetail": "Plus haute distinction. Bourse « Créativité et Innovation — Cible », région Rhône-Alpes.",
+    "phdDetail": "Félicitations du jury. Bourse « Créativité et Innovation — Cible », région Rhône-Alpes.",
     "maTitle": "Master of Arts en Linguistique Appliquée",
     "maPlace": "Université de Sussex, Royaume-Uni",
     "maDate": "2007",
@@ -249,6 +250,7 @@
   "research": {
     "title": "Recherche",
     "subtitle": "Travaux académiques",
+    "intro": "Mes recherches se situent au croisement de la linguistique, de la sémantique computationnelle et des sciences cognitives.",
     "publications": "Publications",
     "comingSoon": "Publications à venir."
   },
