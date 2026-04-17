@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Script from 'next/script'
 import { Cormorant_Garamond, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 
@@ -35,6 +34,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html className={`${cormorant.variable} ${plusJakarta.variable}`} suppressHydrationWarning>
       <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7K82NCPMV3"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-7K82NCPMV3');`,
+          }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('theme');if(t!=='light')document.documentElement.setAttribute('data-theme','dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})()`,
@@ -42,10 +47,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-7K82NCPMV3" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-7K82NCPMV3');`}
-        </Script>
         {children}
       </body>
     </html>
