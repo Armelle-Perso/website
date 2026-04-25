@@ -179,12 +179,6 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
                   </div>
                 ))}
               </div>
-              <Link
-                href="/consulting/publications"
-                className="inline-flex items-center gap-2 mt-6 text-[11px] uppercase tracking-[0.2em] font-sans font-light text-[--color-gold] hover:text-[--color-charcoal] transition-colors"
-              >
-                {nav('research')} →
-              </Link>
             </div>
 
             {/* Additional Training */}
@@ -223,6 +217,29 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
                 <p className="text-[11px] uppercase tracking-[0.15em] text-[--color-muted] font-sans font-light">{item.level}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Publications */}
+        <section className="mb-28 pb-28 border-b border-[--color-border]">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-[--color-gold] font-sans font-light mb-10">
+            {nav('research')}
+          </p>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div className="max-w-2xl">
+              <h3 className="font-serif text-2xl md:text-3xl font-light text-[--color-charcoal] mb-3 leading-tight">
+                Academic publications
+              </h3>
+              <p className="font-sans font-light text-sm text-[--color-muted] leading-relaxed">
+                Peer-reviewed work in linguistics, computational semantics & cognitive science.
+              </p>
+            </div>
+            <Link
+              href="/consulting/publications"
+              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] font-sans font-light text-[--color-gold] hover:text-[--color-charcoal] transition-colors shrink-0"
+            >
+              View publications →
+            </Link>
           </div>
         </section>
 
