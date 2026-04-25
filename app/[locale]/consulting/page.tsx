@@ -21,6 +21,7 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations('consulting')
+  const nav = await getTranslations('nav')
 
   const projects = await safeFetch<any[]>(consultingProjectsQuery)
   const featured = projects?.filter((p: any) => p.featured) || []
@@ -178,6 +179,12 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
                   </div>
                 ))}
               </div>
+              <Link
+                href="/consulting/publications"
+                className="inline-flex items-center gap-2 mt-6 text-[11px] uppercase tracking-[0.2em] font-sans font-light text-[--color-gold] hover:text-[--color-charcoal] transition-colors"
+              >
+                {nav('research')} →
+              </Link>
             </div>
 
             {/* Additional Training */}

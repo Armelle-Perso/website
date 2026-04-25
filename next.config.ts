@@ -24,6 +24,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/research',
+        destination: '/consulting/publications',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|fr|es)/research',
+        destination: '/:locale/consulting/publications',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default withNextIntl(nextConfig)

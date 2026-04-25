@@ -25,15 +25,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const nav = await getTranslations('nav')
 
   const settings = await safeFetch<any>(siteSettingsQuery)
-
   const tagline = settings ? localized(settings, 'tagline', locale) : ''
 
   const cards = [
-    {
-      title: nav('about'),
-      desc: t('aboutDesc'),
-      href: '/about' as const,
-    },
     {
       title: nav('consulting'),
       desc: t('consultingDesc'),
@@ -47,71 +41,73 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   ]
 
   return (
-    <>
-      {/* ── Hero ── */}
-      <section className="relative h-svh flex items-center justify-center bg-[#1C1C1C]">
-        {/* Content */}
-        <div className="text-center px-6 max-w-3xl">
-          <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl font-light text-[#C4A882] tracking-tight leading-[0.9] mb-4">
-            Armelle
-            <br />
-            Boussidan
+    <section className="h-svh flex items-center justify-center bg-[#FAF9F6] px-6 overflow-hidden">
+      <div className="w-full max-w-5xl flex flex-col items-center gap-8">
+
+        {/* ── Hero text ── */}
+        <div className="text-center max-w-2xl">
+          <h1 className="font-serif italic text-5xl sm:text-6xl md:text-7xl font-light text-[#C4A882] tracking-tight leading-[0.95] mb-3">
+            Armelle Boussidan
           </h1>
-          <div className="w-10 h-px bg-[#C4A882] mx-auto my-6" />
-          <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-[#C4A882] font-sans font-light mb-8">
+
+          {/* ornamented divider */}
+          <div className="flex items-center justify-center gap-3 my-4">
+            <span className="block w-12 h-px bg-[#C4A882]" />
+            <span className="text-[#C4A882] text-[10px]">◆</span>
+            <span className="block w-12 h-px bg-[#C4A882]" />
+          </div>
+
+          <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#8A7A55] font-sans font-light mb-5">
             {t('artistConsultant')}
           </p>
-          <p className="font-sans font-light text-sm sm:text-base text-[#EDE0CC] leading-relaxed whitespace-pre-line max-w-lg mx-auto mb-4">
+          <p className="font-serif italic text-lg sm:text-xl text-[#1C1C1C] leading-snug whitespace-pre-line max-w-md mx-auto">
             {tagline || t('defaultTagline')}
           </p>
-          <p className="font-sans font-light text-xs sm:text-sm text-[#EDE0CC]/70 leading-relaxed max-w-md mx-auto mb-10">
-            {t('heroAnchor')}
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              href="/about"
-              className="px-6 py-2.5 border border-[#C4A882]/50 text-[#C4A882] text-xs uppercase tracking-[0.2em] font-sans font-light hover:bg-[#C4A882] hover:text-white transition-all duration-300"
-            >
-              {t('aboutMe')}
-            </Link>
-            <Link
-              href="/art/paintings"
-              className="px-6 py-2.5 border border-[#C4A882]/50 text-[#C4A882] text-xs uppercase tracking-[0.2em] font-sans font-light hover:bg-[#C4A882] hover:text-white transition-all duration-300"
-            >
-              {t('viewArt')}
-            </Link>
-            <Link
-              href="/contact"
-              className="px-6 py-2.5 border border-[#C4A882]/50 text-[#C4A882] text-xs uppercase tracking-[0.2em] font-sans font-light hover:bg-[#C4A882] hover:text-white transition-all duration-300"
-            >
-              {t('getInTouch')}
-            </Link>
-          </div>
         </div>
-      </section>
 
-      {/* ── Cards ── */}
-      <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* ── Two floating doors ── magazine-style links */}
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 max-w-3xl relative">
+          <span
+            aria-hidden
+            className="hidden md:block absolute left-1/2 top-2 bottom-2 w-px bg-[#C4A882]/30"
+          />
           {cards.map((card) => (
             <Link
               key={card.href}
               href={card.href}
-              className="group block border border-[--color-border] p-8 hover:border-[--color-gold] transition-colors duration-300"
+              className="group block text-center"
             >
-              <h2 className="font-serif text-2xl font-light text-[--color-charcoal] mb-3 group-hover:text-[--color-gold] transition-colors">
+              <h2 className="font-serif text-2xl md:text-3xl font-light text-[#1C1C1C] mb-1 inline-block relative pb-1">
                 {card.title}
+                <span
+                  aria-hidden
+                  className="absolute left-1/2 -translate-x-1/2 bottom-0 h-px bg-[#C4A882] w-0 group-hover:w-full transition-all duration-500"
+                />
               </h2>
-              <p className="font-sans font-light text-sm text-[--color-muted] leading-relaxed mb-6">
+              <p className="font-sans font-light text-xs text-[#6B6B6B] leading-snug max-w-xs mx-auto mt-2 mb-3">
                 {card.desc}
               </p>
-              <span className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted] group-hover:text-[--color-gold] transition-colors">
-                {t('view')}
+              <span
+                aria-hidden
+                className="inline-block text-[#C4A882] text-base transition-transform duration-300 group-hover:translate-x-1.5"
+              >
+                →
               </span>
             </Link>
           ))}
         </div>
-      </section>
-    </>
+
+        {/* ── Quiet text links ── */}
+        <div className="flex flex-wrap justify-center gap-x-5 gap-y-1 text-[10px] uppercase tracking-[0.2em] font-sans font-light text-[#6B6B6B]">
+          <Link href="/about" className="hover:text-[#C4A882] transition-colors">
+            {t('aboutMe')}
+          </Link>
+          <span className="text-[#C4A882]/40">◆</span>
+          <Link href="/contact" className="hover:text-[#C4A882] transition-colors">
+            {t('getInTouch')}
+          </Link>
+        </div>
+      </div>
+    </section>
   )
 }

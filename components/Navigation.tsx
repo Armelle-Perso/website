@@ -28,7 +28,6 @@ export default function Navigation() {
         { label: t('shop'), href: '/shop' as const },
       ],
     },
-    { label: t('research'), href: '/research' as const },
     { label: t('contact'), href: '/contact' as const },
   ]
 

@@ -12,7 +12,7 @@
     "about": "Sobre mí",
     "consulting": "Consultoría",
     "contact": "Contacto",
-    "research": "Investigación",
+    "research": "Publicaciones",
     "shop": "Tienda"
   },
   "home": {
@@ -33,7 +33,7 @@
     "followAlong": "Sígueme",
     "professionalServices": "Servicios profesionales",
     "consultingTitle": "Traducción,\nfacilitación &\ncoordinación",
-    "consultingDesc": "Arte, ciencia & sensibilidad al servicio de proyectos con sentido",
+    "consultingDesc": "Coordinación de proyectos, facilitación y acompañamiento estratégico",
     "aboutMe": "Sobre mí",
     "learnMore": "Saber más →",
     "view": "Ver →",
@@ -248,7 +248,7 @@
     "comingSoon": "Joyería próximamente."
   },
   "research": {
-    "title": "Investigación",
+    "title": "Publicaciones",
     "subtitle": "Trabajo académico",
     "intro": "Mi investigación se sitúa en la confluencia de la lingüística, la semántica computacional y las ciencias cognitivas.",
     "publications": "Publicaciones",

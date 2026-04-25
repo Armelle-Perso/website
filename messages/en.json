@@ -12,7 +12,7 @@
     "about": "About",
     "consulting": "Consulting",
     "contact": "Contact",
-    "research": "Research",
+    "research": "Publications",
     "shop": "Shop"
   },
   "home": {
@@ -33,7 +33,7 @@
     "followAlong": "Follow along",
     "professionalServices": "Professional services",
     "consultingTitle": "Translation,\nfacilitation &\ncoordination",
-    "consultingDesc": "Art, science & sensitivity at the service of meaningful projects",
+    "consultingDesc": "Project coordination, facilitation & strategic support",
     "aboutMe": "About me",
     "learnMore": "Learn more →",
     "view": "View →",
@@ -248,11 +248,11 @@
     "comingSoon": "Jewelry coming soon."
   },
   "research": {
-    "title": "Research",
+    "title": "Publications",
     "subtitle": "Academic Work",
     "intro": "My research sits at the crossroads of linguistics, computational semantics, and cognitive science.",
     "publications": "Publications",
-    "comingSoon": "Research items coming soon."
+    "comingSoon": "Publications coming soon."
   },
   "imprint": {
     "title": "Imprint",
