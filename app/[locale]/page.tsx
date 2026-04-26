@@ -98,12 +98,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
 
         {/* ── Quiet text links ── */}
-        <div className="flex flex-wrap justify-center gap-x-5 gap-y-1 text-[10px] uppercase tracking-[0.2em] font-sans font-light text-[#6B6B6B]">
-          <Link href="/about" className="hover:text-[#C4A882] transition-colors">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-x-5 text-[10px] uppercase tracking-[0.2em] font-sans font-light text-[#6B6B6B]">
+          <Link href="/about" className="hover:text-[#C4A882] transition-colors justify-self-end">
             {t('aboutMe')}
           </Link>
           <span className="text-[#C4A882]/40">◆</span>
-          <Link href="/contact" className="hover:text-[#C4A882] transition-colors">
+          <Link href="/contact" className="hover:text-[#C4A882] transition-colors justify-self-start">
             {t('getInTouch')}
           </Link>
         </div>
