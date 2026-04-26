@@ -46,7 +46,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
         {/* ── Hero text ── */}
         <div className="text-center max-w-2xl">
-          <h1 className="font-serif italic text-5xl sm:text-6xl md:text-7xl font-light text-[#C4A882] tracking-tight leading-[0.95] mb-3">
+          <h1 className="font-serif italic text-5xl sm:text-6xl md:text-7xl font-light text-[#C9A961] tracking-tight leading-[0.95] mb-3">
             Armelle Boussidan
           </h1>
 
