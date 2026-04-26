@@ -98,11 +98,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
 
         {/* ── Quiet text links ── */}
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-x-5 text-[10px] uppercase tracking-[0.2em] font-sans font-light text-[#6B6B6B]">
+        <div className="w-full max-w-md grid grid-cols-[1fr_auto_1fr] items-center gap-x-5 text-[10px] uppercase tracking-[0.2em] font-sans font-light text-[#6B6B6B]">
           <Link href="/about" className="hover:text-[#C4A882] transition-colors justify-self-end">
             {t('aboutMe')}
           </Link>
-          <span className="text-[#C4A882]/40">◆</span>
+          <span className="text-[#C4A882]/40 justify-self-center">◆</span>
           <Link href="/contact" className="hover:text-[#C4A882] transition-colors justify-self-start">
             {t('getInTouch')}
           </Link>
