@@ -229,7 +229,10 @@
     "selectedProjects": "Selected Projects",
     "collaboratorTitle": "Let's stay connected",
     "collaboratorDesc": "Whether you have a project in mind, a question, or simply a feeling that we could create something meaningful together, I'd love to hear from you.",
-    "getInTouch": "Get in touch"
+    "getInTouch": "Get in touch",
+    "publicationsTitle": "Academic publications",
+    "publicationsDesc": "Peer-reviewed work in linguistics, computational semantics & cognitive science.",
+    "viewPublications": "View publications →"
   },
   "exhibitions": {
     "title": "Exhibitions & Events",
@@ -252,7 +255,9 @@
     "subtitle": "Academic Work",
     "intro": "My research sits at the crossroads of linguistics, computational semantics, and cognitive science.",
     "publications": "Publications",
-    "comingSoon": "Publications coming soon."
+    "comingSoon": "Publications coming soon.",
+    "withCoAuthors": "With {coAuthors}",
+    "semanticAtlasCaption": "Semantic Atlas — interactive model of lexical representation (2010, with <link>Anne-Lyse Renon</link>)"
   },
   "imprint": {
     "title": "Imprint",

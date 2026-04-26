@@ -228,17 +228,17 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div className="max-w-2xl">
               <h3 className="font-serif text-2xl md:text-3xl font-light text-[--color-charcoal] mb-3 leading-tight">
-                Academic publications
+                {t('publicationsTitle')}
               </h3>
               <p className="font-sans font-light text-sm text-[--color-muted] leading-relaxed">
-                Peer-reviewed work in linguistics, computational semantics & cognitive science.
+                {t('publicationsDesc')}
               </p>
             </div>
             <Link
               href="/consulting/publications"
               className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] font-sans font-light text-[--color-gold] hover:text-[--color-charcoal] transition-colors shrink-0"
             >
-              View publications →
+              {t('viewPublications')}
             </Link>
           </div>
         </section>

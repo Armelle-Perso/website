@@ -68,7 +68,7 @@ export default async function PublicationsPage({ params }: { params: Promise<{ l
                       </div>
                       {item.coAuthors && (
                         <p className="text-[11px] text-[--color-muted] font-sans font-light mt-1.5">
-                          With {item.coAuthors}
+                          {t('withCoAuthors', { coAuthors: item.coAuthors })}
                         </p>
                       )}
                       {item.publication && (
@@ -101,8 +101,13 @@ export default async function PublicationsPage({ params }: { params: Promise<{ l
               priority
             />
             <p className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted] mt-4 leading-relaxed">
-              Semantic Atlas — interactive model of lexical representation (2010, with{' '}
-              <a href="https://perso.univ-rennes2.fr/anne-lyse.renon" target="_blank" rel="noopener noreferrer" className="hover:text-[--color-gold] transition-colors duration-300 underline underline-offset-2">Anne-Lyse Renon</a>)
+              {t.rich('semanticAtlasCaption', {
+                link: (chunks) => (
+                  <a href="https://perso.univ-rennes2.fr/anne-lyse.renon" target="_blank" rel="noopener noreferrer" className="hover:text-[--color-gold] transition-colors duration-300 underline underline-offset-2">
+                    {chunks}
+                  </a>
+                ),
+              })}
             </p>
           </aside>
 

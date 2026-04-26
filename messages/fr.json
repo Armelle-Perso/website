@@ -229,7 +229,10 @@
     "selectedProjects": "Projets sélectionnés",
     "collaboratorTitle": "Restons en contact",
     "collaboratorDesc": "Que vous ayez un projet en tête, une question, ou simplement le sentiment que l'on pourrait créer quelque chose de porteur ensemble, je serai ravie de vous lire.",
-    "getInTouch": "Me contacter"
+    "getInTouch": "Me contacter",
+    "publicationsTitle": "Publications académiques",
+    "publicationsDesc": "Travaux évalués par les pairs en linguistique, sémantique computationnelle et sciences cognitives.",
+    "viewPublications": "Voir les publications →"
   },
   "exhibitions": {
     "title": "Expositions & Événements",
