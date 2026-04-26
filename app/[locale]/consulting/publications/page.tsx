@@ -62,7 +62,7 @@ export default async function PublicationsPage({ params }: { params: Promise<{ l
                         )}
                         {item.language && (
                           <span className="text-[10px] border border-[--color-border] px-2 py-0.5 font-sans text-[--color-muted] uppercase tracking-[0.1em] shrink-0">
-                            {item.language}
+                            {item.language === 'English' ? t('langEnglish') : item.language === 'French' ? t('langFrench') : item.language}
                           </span>
                         )}
                       </div>

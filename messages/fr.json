@@ -257,7 +257,9 @@
     "publications": "Publications",
     "comingSoon": "Publications à venir.",
     "withCoAuthors": "Avec {coAuthors}",
-    "semanticAtlasCaption": "Semantic Atlas — modèle interactif de représentation lexicale (2010, avec <link>Anne-Lyse Renon</link>)"
+    "semanticAtlasCaption": "Semantic Atlas — modèle interactif de représentation lexicale (2010, avec <link>Anne-Lyse Renon</link>)",
+    "langEnglish": "Anglais",
+    "langFrench": "Français"
   },
   "imprint": {
     "title": "Mentions légales",

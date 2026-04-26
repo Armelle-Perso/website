@@ -46,15 +46,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
         {/* ── Hero text ── */}
         <div className="text-center max-w-2xl">
-          <h1 className="font-serif italic text-5xl sm:text-6xl md:text-7xl font-light text-[#C9A961] tracking-tight leading-[0.95] mb-3">
+          <h1 className="font-serif italic text-5xl sm:text-6xl md:text-7xl font-light text-[--color-gold] tracking-tight leading-[0.95] mb-3">
             Armelle Boussidan
           </h1>
 
           {/* ornamented divider */}
           <div className="flex items-center justify-center gap-3 my-4">
-            <span className="block w-12 h-px bg-[#C4A882]" />
-            <span className="text-[#C4A882] text-[10px]">◆</span>
-            <span className="block w-12 h-px bg-[#C4A882]" />
+            <span className="block w-12 h-px bg-[--color-gold]" />
+            <span className="text-[--color-gold] text-[10px]">◆</span>
+            <span className="block w-12 h-px bg-[--color-gold]" />
           </div>
 
           <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#8A7A55] font-sans font-light mb-5">
@@ -69,7 +69,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 max-w-3xl relative">
           <span
             aria-hidden
-            className="hidden md:block absolute left-1/2 top-2 bottom-2 w-px bg-[#C4A882]/30"
+            className="hidden md:block absolute left-1/2 top-2 bottom-2 w-px bg-[--color-gold]/30"
           />
           {cards.map((card) => (
             <Link
@@ -81,7 +81,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 {card.title}
                 <span
                   aria-hidden
-                  className="absolute left-1/2 -translate-x-1/2 bottom-0 h-px bg-[#C4A882] w-0 group-hover:w-full transition-all duration-500"
+                  className="absolute left-1/2 -translate-x-1/2 bottom-0 h-px bg-[--color-gold] w-0 group-hover:w-full transition-all duration-500"
                 />
               </h2>
               <p className="font-sans font-light text-xs text-[#6B6B6B] leading-snug max-w-xs mx-auto mt-2 mb-3">
@@ -89,7 +89,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               </p>
               <span
                 aria-hidden
-                className="inline-block text-[#C4A882] text-base transition-transform duration-300 group-hover:translate-x-1.5"
+                className="inline-block text-[--color-gold] text-base transition-transform duration-300 group-hover:translate-x-1.5"
               >
                 →
               </span>
@@ -99,11 +99,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
         {/* ── Quiet text links ── */}
         <div className="w-full max-w-md grid grid-cols-[1fr_auto_1fr] items-center gap-x-5 text-[10px] uppercase tracking-[0.2em] font-sans font-light text-[#6B6B6B]">
-          <Link href="/about" className="hover:text-[#C4A882] transition-colors justify-self-end">
+          <Link href="/about" className="hover:text-[--color-gold] transition-colors justify-self-end">
             {t('aboutMe')}
           </Link>
-          <span className="text-[#C4A882]/40 justify-self-center">◆</span>
-          <Link href="/contact" className="hover:text-[#C4A882] transition-colors justify-self-start">
+          <span className="text-[--color-gold]/40 justify-self-center">◆</span>
+          <Link href="/contact" className="hover:text-[--color-gold] transition-colors justify-self-start">
             {t('getInTouch')}
           </Link>
         </div>

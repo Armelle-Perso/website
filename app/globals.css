@@ -11,7 +11,7 @@
   --color-charcoal: #1C1C1C;
   --color-muted: #6B6B6B;
   --color-border: #E5E2DC;
-  --color-gold: #C4A882;
+  --color-gold: #C9A961;
   --color-gold-light: #EDE0CC;
 }
 
@@ -21,7 +21,7 @@ html[data-theme="dark"] {
   --color-charcoal: #E8E4DF;
   --color-muted: #9B9590;
   --color-border: #2A2725;
-  --color-gold: #C4A882;
+  --color-gold: #C9A961;
   --color-gold-light: #1E1B17;
 }
 
