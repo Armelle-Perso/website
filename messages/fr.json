@@ -255,7 +255,9 @@
     "subtitle": "Travaux académiques",
     "intro": "Mes recherches se situent au croisement de la linguistique, de la sémantique computationnelle et des sciences cognitives.",
     "publications": "Publications",
-    "comingSoon": "Publications à venir."
+    "comingSoon": "Publications à venir.",
+    "withCoAuthors": "Avec {coAuthors}",
+    "semanticAtlasCaption": "Semantic Atlas — modèle interactif de représentation lexicale (2010, avec <link>Anne-Lyse Renon</link>)"
   },
   "imprint": {
     "title": "Mentions légales",
