@@ -128,6 +128,16 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
                     ) : (
                       <div className="group">{inner}</div>
                     )}
+                    {artwork.title && (
+                      <div className="mt-3 text-center">
+                        <Link
+                          href={`/contact?work=${encodeURIComponent(artwork.title)}&series=${encodeURIComponent(data.title)}`}
+                          className="inline-block text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-gold] hover:text-[--color-charcoal] transition-colors"
+                        >
+                          {t('inquire')}
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 </div>
               )
@@ -180,6 +190,16 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
                     <Link href={href} className="group block">{inner}</Link>
                   ) : (
                     <div className="group">{inner}</div>
+                  )}
+                  {artwork.title && (
+                    <div className="mt-4 text-center">
+                      <Link
+                        href={`/contact?work=${encodeURIComponent(artwork.title)}&series=${encodeURIComponent(data.title)}`}
+                        className="inline-block text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-gold] hover:text-[--color-charcoal] transition-colors"
+                      >
+                        {t('inquire')}
+                      </Link>
+                    </div>
                   )}
                 </div>
               )
