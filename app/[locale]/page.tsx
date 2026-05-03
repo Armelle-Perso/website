@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const settings = await safeFetch<any>(siteSettingsQuery)
   const seoDesc = settings ? localized(settings, 'seoDescription', locale) : ''
   return {
-    title: 'Armelle Boussidan',
+    title: { absolute: 'Armelle Boussidan' },
     description: seoDesc || t('defaultTagline').replace('\n', ' '),
   }
 }
