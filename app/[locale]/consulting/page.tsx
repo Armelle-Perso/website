@@ -276,6 +276,7 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
       {/* CTA */}
       <section className="bg-[--color-gold-light] border-t border-[--color-border] py-16">
         <div className="max-w-3xl mx-auto px-6 text-center">
+          <p className="text-[--color-gold] font-sans text-sm font-medium tracking-wide uppercase mb-3">{t('availability')}</p>
           <h2 className="font-serif text-3xl mb-4">{t('collaboratorTitle')}</h2>
           <p className="text-[--color-muted] font-sans mb-8">{t('collaboratorDesc')}</p>
           <Link href="/contact" className="inline-block bg-[--color-charcoal] text-white px-10 py-4 text-sm font-sans font-medium tracking-wide hover:bg-[--color-gold] transition-colors">
