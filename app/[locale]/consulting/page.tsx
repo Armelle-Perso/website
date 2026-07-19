@@ -137,6 +137,17 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
             <WordCloud locale={locale} />
           </div>
           <div className="order-1 lg:order-2">
+            {settings?.heroImage && (
+              <div className="mb-6 h-24 w-24 overflow-hidden rounded-full ring-1 ring-[--color-border]">
+                <Image
+                  src={urlFor(settings.heroImage).width(400).height(500).url()}
+                  alt={settings.heroImageAlt || 'Armelle Boussidan'}
+                  width={96}
+                  height={96}
+                  className="h-full w-full object-cover object-[50%_25%]"
+                />
+              </div>
+            )}
             <p className="text-[10px] uppercase tracking-[0.3em] text-[--color-muted] font-sans font-light mb-4">
               {t('subtitle')}
             </p>
@@ -350,17 +361,6 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
       {/* CTA */}
       <section className="bg-[--color-gold-light] border-t border-[--color-border] py-16">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          {settings?.heroImage && (
-            <div className="mx-auto mb-6 h-20 w-20 overflow-hidden rounded-full ring-1 ring-[--color-border]">
-              <Image
-                src={urlFor(settings.heroImage).width(160).height(160).url()}
-                alt={settings.heroImageAlt || 'Armelle Boussidan'}
-                width={80}
-                height={80}
-                className="h-full w-full object-cover"
-              />
-            </div>
-          )}
           <p className="text-[--color-gold] font-sans text-sm font-medium tracking-wide uppercase mb-3">{t('availability')}</p>
           <h2 className="font-serif text-3xl mb-4">{t('collaboratorTitle')}</h2>
           <p className="text-[--color-muted] font-sans mb-8">{t('collaboratorDesc')}</p>

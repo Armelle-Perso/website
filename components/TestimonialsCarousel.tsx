@@ -54,9 +54,9 @@ export default function TestimonialsCarousel({
             </svg>
           </button>
         )}
-        <div className="relative flex-1 max-w-3xl text-center min-h-[11rem] flex flex-col items-center justify-center">
+        <div className="relative flex-1 max-w-4xl text-center min-h-[11rem] flex flex-col items-center justify-center">
           <figure key={index} style={{ animation: 'testimonialFade 0.6s ease' }} className="space-y-5">
-            <blockquote className="font-serif text-xl md:text-2xl font-light leading-relaxed text-[--color-charcoal]">
+            <blockquote className="font-serif text-base md:text-lg font-light leading-relaxed text-[--color-charcoal]">
               “{current.quote}”
             </blockquote>
             <figcaption className="space-y-1">
