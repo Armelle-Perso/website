@@ -137,23 +137,25 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
             <WordCloud locale={locale} />
           </div>
           <div className="order-1 lg:order-2">
-            {settings?.heroImage && (
-              <div className="mb-6 h-24 w-24 overflow-hidden rounded-full ring-1 ring-[--color-border]">
-                <Image
-                  src={urlFor(settings.heroImage).width(400).height(500).url()}
-                  alt={settings.heroImageAlt || 'Armelle Boussidan'}
-                  width={96}
-                  height={96}
-                  className="h-full w-full object-cover object-[50%_25%]"
-                />
-              </div>
-            )}
             <p className="text-[10px] uppercase tracking-[0.3em] text-[--color-muted] font-sans font-light mb-4">
               {t('subtitle')}
             </p>
-            <h1 className="font-serif text-5xl md:text-7xl font-light leading-[0.9] tracking-tight text-[--color-charcoal] mb-6">
-              {t('title')}
-            </h1>
+            <div className="flex items-center gap-5 mb-6">
+              <h1 className="font-serif text-5xl md:text-7xl font-light leading-[0.9] tracking-tight text-[--color-charcoal]">
+                {t('title')}
+              </h1>
+              {settings?.heroImage && (
+                <div className="shrink-0 h-20 w-20 md:h-24 md:w-24 overflow-hidden rounded-full ring-1 ring-[--color-border]">
+                  <Image
+                    src={urlFor(settings.heroImage).width(400).height(500).url()}
+                    alt={settings.heroImageAlt || 'Armelle Boussidan'}
+                    width={96}
+                    height={96}
+                    className="h-full w-full object-cover object-[50%_15%]"
+                  />
+                </div>
+              )}
+            </div>
             <p className="font-serif text-lg md:text-xl font-light text-[--color-muted] mb-6">
               {t('tagline')}
             </p>
