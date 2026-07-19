@@ -21,9 +21,9 @@ export default function TestimonialsCarousel({
   // Adapts automatically to each testimonial and to the displayed language.
   useEffect(() => {
     if (paused || count <= 1) return
-    const READING_WPM = 160
+    const READING_WPM = 220
     const words = testimonials[index].quote.trim().split(/\s+/).filter(Boolean).length
-    const ms = Math.min(Math.max(2500 + (words / READING_WPM) * 60000, 6000), 120000)
+    const ms = Math.min(Math.max(1500 + (words / READING_WPM) * 60000, 5000), 90000)
     const id = setTimeout(() => setIndex((v) => (v + 1) % count), ms)
     return () => clearTimeout(id)
   }, [index, paused, count, testimonials])
