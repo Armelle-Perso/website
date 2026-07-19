@@ -84,7 +84,7 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
       },
     },
     {
-      name: 'Markus Fordemman',
+      name: 'Markus Fordemann',
       originalLang: 'en',
       roles: {
         en: 'Founder & CEO, SIA',
