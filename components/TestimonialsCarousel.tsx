@@ -62,19 +62,39 @@ export default function TestimonialsCarousel({
       </div>
 
       {count > 1 && (
-        <div className="flex justify-center gap-2 mt-10">
-          {testimonials.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => go(i)}
-              aria-label={`Show testimonial ${i + 1} of ${count}`}
-              className={`h-1.5 rounded-full transition-all ${
-                i === index
-                  ? 'w-6 bg-[--color-gold]'
-                  : 'w-1.5 bg-[--color-border] hover:bg-[--color-muted]'
-              }`}
-            />
-          ))}
+        <div className="flex items-center justify-center gap-4 mt-10">
+          <button
+            onClick={() => go(index - 1)}
+            aria-label="Previous testimonial"
+            className="text-[--color-muted] hover:text-[--color-gold] transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <div className="flex items-center gap-2">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => go(i)}
+                aria-label={`Show testimonial ${i + 1} of ${count}`}
+                className={`h-1.5 rounded-full transition-all ${
+                  i === index
+                    ? 'w-6 bg-[--color-gold]'
+                    : 'w-1.5 bg-[--color-border] hover:bg-[--color-muted]'
+                }`}
+              />
+            ))}
+          </div>
+          <button
+            onClick={() => go(index + 1)}
+            aria-label="Next testimonial"
+            className="text-[--color-muted] hover:text-[--color-gold] transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
       )}
 
