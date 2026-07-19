@@ -3,7 +3,8 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { safeFetch } from '@/sanity/lib/client'
-import { consultingProjectsQuery } from '@/sanity/lib/queries'
+import { consultingProjectsQuery, siteSettingsQuery } from '@/sanity/lib/queries'
+import { urlFor } from '@/sanity/lib/image'
 import WordCloud from '@/components/WordCloud'
 import TestimonialsCarousel from '@/components/TestimonialsCarousel'
 
@@ -25,6 +26,7 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
   const nav = await getTranslations('nav')
 
   const projects = await safeFetch<any[]>(consultingProjectsQuery)
+  const settings = await safeFetch<any>(siteSettingsQuery)
   const featured = projects?.filter((p: any) => p.featured) || []
 
   const services = [
@@ -141,6 +143,9 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
             <h1 className="font-serif text-5xl md:text-7xl font-light leading-[0.9] tracking-tight text-[--color-charcoal] mb-6">
               {t('title')}
             </h1>
+            <p className="font-serif text-lg md:text-xl font-light text-[--color-muted] mb-6">
+              {t('tagline')}
+            </p>
             <div className="w-8 h-px bg-[--color-gold] mb-6" />
             <div className="space-y-4">
               <p className="font-sans font-light text-sm leading-relaxed text-[--color-charcoal]">
@@ -345,6 +350,17 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
       {/* CTA */}
       <section className="bg-[--color-gold-light] border-t border-[--color-border] py-16">
         <div className="max-w-3xl mx-auto px-6 text-center">
+          {settings?.heroImage && (
+            <div className="mx-auto mb-6 h-20 w-20 overflow-hidden rounded-full ring-1 ring-[--color-border]">
+              <Image
+                src={urlFor(settings.heroImage).width(160).height(160).url()}
+                alt={settings.heroImageAlt || 'Armelle Boussidan'}
+                width={80}
+                height={80}
+                className="h-full w-full object-cover"
+              />
+            </div>
+          )}
           <p className="text-[--color-gold] font-sans text-sm font-medium tracking-wide uppercase mb-3">{t('availability')}</p>
           <h2 className="font-serif text-3xl mb-4">{t('collaboratorTitle')}</h2>
           <p className="text-[--color-muted] font-sans mb-8">{t('collaboratorDesc')}</p>
