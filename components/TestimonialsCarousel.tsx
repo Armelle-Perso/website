@@ -42,59 +42,63 @@ export default function TestimonialsCarousel({
         {title}
       </p>
 
-      <div className="relative max-w-3xl mx-auto text-center min-h-[11rem] flex flex-col items-center justify-center">
-        <figure key={index} style={{ animation: 'testimonialFade 0.6s ease' }} className="space-y-5">
-          <blockquote className="font-serif text-xl md:text-2xl font-light leading-relaxed text-[--color-charcoal]">
-            “{current.quote}”
-          </blockquote>
-          <figcaption className="space-y-1">
-            <span className="block text-[11px] uppercase tracking-[0.15em] text-[--color-muted] font-sans font-light">
-              {current.name}
-              {current.role ? `, ${current.role}` : ''}
-            </span>
-            {current.translatedFrom && (
-              <span className="block text-[10px] tracking-[0.1em] text-[--color-muted] font-sans font-light italic opacity-70">
-                {current.translatedFrom}
-              </span>
-            )}
-          </figcaption>
-        </figure>
-      </div>
-
-      {count > 1 && (
-        <div className="flex items-center justify-center gap-4 mt-10">
+      <div className="flex items-center justify-center gap-3 md:gap-6">
+        {count > 1 && (
           <button
             onClick={() => go(index - 1)}
             aria-label="Previous testimonial"
-            className="text-[--color-muted] hover:text-[--color-gold] transition-colors"
+            className="shrink-0 text-[--color-muted] hover:text-[--color-gold] transition-colors"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <div className="flex items-center gap-2">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => go(i)}
-                aria-label={`Show testimonial ${i + 1} of ${count}`}
-                className={`h-1.5 rounded-full transition-all ${
-                  i === index
-                    ? 'w-6 bg-[--color-gold]'
-                    : 'w-1.5 bg-[--color-border] hover:bg-[--color-muted]'
-                }`}
-              />
-            ))}
-          </div>
+        )}
+        <div className="relative flex-1 max-w-3xl text-center min-h-[11rem] flex flex-col items-center justify-center">
+          <figure key={index} style={{ animation: 'testimonialFade 0.6s ease' }} className="space-y-5">
+            <blockquote className="font-serif text-xl md:text-2xl font-light leading-relaxed text-[--color-charcoal]">
+              “{current.quote}”
+            </blockquote>
+            <figcaption className="space-y-1">
+              <span className="block text-[11px] uppercase tracking-[0.15em] text-[--color-muted] font-sans font-light">
+                {current.name}
+                {current.role ? `, ${current.role}` : ''}
+              </span>
+              {current.translatedFrom && (
+                <span className="block text-[10px] tracking-[0.1em] text-[--color-muted] font-sans font-light italic opacity-70">
+                  {current.translatedFrom}
+                </span>
+              )}
+            </figcaption>
+          </figure>
+        </div>
+        {count > 1 && (
           <button
             onClick={() => go(index + 1)}
             aria-label="Next testimonial"
-            className="text-[--color-muted] hover:text-[--color-gold] transition-colors"
+            className="shrink-0 text-[--color-muted] hover:text-[--color-gold] transition-colors"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
             </svg>
           </button>
+        )}
+      </div>
+
+      {count > 1 && (
+        <div className="flex items-center justify-center gap-2 mt-10">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => go(i)}
+              aria-label={`Show testimonial ${i + 1} of ${count}`}
+              className={`h-1.5 rounded-full transition-all ${
+                i === index
+                  ? 'w-6 bg-[--color-gold]'
+                  : 'w-1.5 bg-[--color-border] hover:bg-[--color-muted]'
+              }`}
+            />
+          ))}
         </div>
       )}
 
