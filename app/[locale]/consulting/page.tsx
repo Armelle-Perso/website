@@ -151,7 +151,7 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
                     alt={settings.heroImageAlt || 'Armelle Boussidan'}
                     width={96}
                     height={96}
-                    className="h-full w-full object-cover object-[50%_15%]"
+                    className="h-full w-full object-cover object-[50%_8%]"
                   />
                 </div>
               )}
