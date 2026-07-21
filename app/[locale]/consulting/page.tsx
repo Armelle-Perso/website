@@ -86,6 +86,20 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
       },
     },
     {
+      name: 'Édouard Scherer',
+      originalLang: 'fr',
+      roles: {
+        en: 'Founder of Orinko & Vibratis',
+        fr: 'Fondateur d\'Orinko et Vibratis',
+        es: 'Fundador de Orinko y Vibratis',
+      },
+      quotes: {
+        fr: `J'ai eu la chance de travailler avec Armelle pendant plusieurs années sur la rédaction d'articles et de dossiers de fond, sur des sujets aussi variés que la radiesthésie, l'ayurvéda, la numérologie ou la purification de l'eau. Elle s'approprie très rapidement des thématiques techniques et livre un contenu documenté directement publiable. Ces publications nous ont permis de nous positionner comme une référence sur ces sujets auprès des moteurs de recherche, et de toucher une large audience. Je recommande vivement Armelle pour la rédaction de sujets techniques comme pour la gestion de projet, et je referai appel à elle avec grand plaisir.`,
+        en: `I had the chance to work with Armelle for several years on writing articles and in-depth research pieces, on subjects as varied as dowsing, Ayurveda, numerology, and water purification. She gets to grips with technical topics very quickly and delivers well-researched, ready-to-publish content. These publications allowed us to position ourselves as a reference on these subjects with search engines, and to reach a wide audience. I highly recommend Armelle for writing on technical subjects as well as for project management, and I will gladly call on her again.`,
+        es: `Tuve la suerte de trabajar con Armelle durante varios años en la redacción de artículos y reportajes de fondo, sobre temas tan variados como la radiestesia, el ayurveda, la numerología o la purificación del agua. Se apropia muy rápidamente de temáticas técnicas y entrega un contenido documentado y directamente publicable. Estas publicaciones nos permitieron posicionarnos como una referencia en estos temas ante los motores de búsqueda, y llegar a una amplia audiencia. Recomiendo encarecidamente a Armelle tanto para la redacción de temas técnicos como para la gestión de proyectos, y volveré a contar con ella con mucho gusto.`,
+      },
+    },
+    {
       name: 'Markus Fordemann',
       originalLang: 'en',
       roles: {
