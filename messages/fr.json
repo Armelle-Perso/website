@@ -16,8 +16,8 @@
     "shop": "Boutique"
   },
   "home": {
-    "artistConsultant": "Consultante, Facilitatrice & Artiste · FR · EN · ES",
-    "defaultTagline": "Entre innovation et savoirs ancestraux.",
+    "artistConsultant": "Docteure en linguistique, Consultante & Artiste · FR · EN · ES",
+    "defaultTagline": "Le sens en mouvement.\nEntre innovation et savoirs ancestraux.",
     "heroAnchor": "Regard analytique, sensibilité créative et fluidité interculturelle au service de projets porteurs de sens.",
     "viewArt": "Œuvres",
     "getInTouch": "Me contacter",
@@ -32,8 +32,8 @@
     "exhibitionsDesc": "Expositions passées et à venir",
     "followAlong": "Suivez-moi",
     "professionalServices": "Services professionnels",
-    "consultingTitle": "Traduction,\nfacilitation &\ncoordination",
-    "consultingDesc": "Coordination de projets, facilitation et accompagnement stratégique",
+    "consultingTitle": "Langue,\nsémantique &\névaluation",
+    "consultingDesc": "Évaluation de données langagières, qualité linguistique & contenus multilingues",
     "aboutMe": "À propos",
     "learnMore": "En savoir plus →",
     "view": "Voir →",
@@ -112,8 +112,8 @@
   "about": {
     "title": "À propos",
     "subtitle": "Armelle Boussidan",
-    "description": "Facilitatrice, consultante et artiste basée en France. Pratique multilingue entre art, transition écologique et bien-être.",
-    "artistConsultant": "Consultante, Facilitatrice & Artiste · FR · EN · ES",
+    "description": "Docteure en linguistique et artiste basée en France. Sémantique computationnelle, évaluation linguistique et pratique multilingue en français, anglais et espagnol.",
+    "artistConsultant": "Docteure en linguistique, Consultante & Artiste · FR · EN · ES",
     "defaultBio": "Je suis consultante et artiste, avec un vif intérêt pour l'innovation et les savoirs ancestraux.",
     "fieldsOfPractice": "Domaines de pratique",
     "visualArt": "Arts visuels",
@@ -163,9 +163,9 @@
   "consulting": {
     "title": "Consulting",
     "subtitle": "Services professionnels",
-    "tagline": "Coordination, facilitation et gestion de projet pour des équipes engagées",
-    "description": "Consultante freelance depuis 2018, traduction, interprétation, rédaction et coordination de projets en anglais et en français.",
-    "intro": "Docteure en sciences cognitives, j'apporte un regard distinctif à la coordination de projets multilingues, nourri par la rigueur scientifique, la sensibilité créative et une compréhension profonde de la façon dont les gens pensent, communiquent et collaborent entre les cultures. J'interviens au croisement de la transition écologique, des arts, du bien-être et du développement communautaire, avec une sensibilité particulière à la neurodiversité.",
+    "tagline": "Qualité linguistique, évaluation et accompagnement de programmes multilingues",
+    "description": "Docteure en sciences cognitives, spécialisée en sémantique computationnelle. Évaluation de données langagières, qualité linguistique et contenus multilingues.",
+    "intro": "Docteure en sciences cognitives, spécialisée en sémantique computationnelle et linguistique de corpus. Ma thèse, Dynamique du changement sémantique, a donné lieu à un prototype de détection et d'analyse automatiques du changement sémantique dans les corpus textuels. J'apporte cette même rigueur analytique aux projets multilingues, avec une sensibilité créative et une compréhension profonde de la façon dont les gens pensent, communiquent et collaborent entre les cultures. J'interviens au croisement de la transition écologique, des arts, du bien-être et du développement communautaire, avec une sensibilité particulière à la neurodiversité.",
     "vision": "J'allie précision linguistique, sensibilité interculturelle et attention à la dimension humaine de chaque projet, pour que les choses avancent clairement, de manière inclusive et en profondeur. Je crois que les collaborations les plus porteuses sont celles qui honorent à la fois l'efficacité et le sens. Si vous avez un projet porteur de sens, je serai ravie d'en discuter.",
     "servicesTitle": "Services",
     "consultantTitle": "Conseil & Stratégie",
@@ -201,7 +201,7 @@
     "phdTitle": "Doctorat en Sciences Cognitives — Linguistique",
     "phdPlace": "Université de Lyon · CNRS · Institut des Sciences Cognitives · L2C2",
     "phdDate": "2013",
-    "phdDetail": "Félicitations du jury. Bourse « Créativité et Innovation — Cible », région Rhône-Alpes.",
+    "phdDetail": "Thèse : Dynamique du changement sémantique, avec un prototype de détection et d'analyse automatiques du changement sémantique dans les corpus textuels. Félicitations du jury. Bourse « Créativité et Innovation — Cible », région Rhône-Alpes.",
     "maTitle": "Master of Arts en Linguistique Appliquée",
     "maPlace": "Université de Sussex, Royaume-Uni",
     "maDate": "2007",
@@ -334,7 +334,7 @@
     "learnMore": "En savoir plus"
   },
   "footer": {
-    "artistConsultant": "Consultante, Facilitatrice & Artiste",
+    "artistConsultant": "Docteure en linguistique, Consultante & Artiste",
     "imprint": "Mentions légales",
     "privacy": "Confidentialité",
     "rights": "© {year} Armelle Boussidan. Tous droits réservés."

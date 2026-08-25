@@ -16,8 +16,8 @@
     "shop": "Shop"
   },
   "home": {
-    "artistConsultant": "Consultant, Facilitator & Artist · FR · EN · ES",
-    "defaultTagline": "Balancing innovation and ancestral knowledge.",
+    "artistConsultant": "PhD Linguist, Consultant & Artist · FR · EN · ES",
+    "defaultTagline": "Meaning in motion.\nBalancing innovation and ancestral knowledge.",
     "heroAnchor": "Bringing analytical depth, creative sensibility, and cross-cultural fluency to meaningful projects.",
     "viewArt": "Artworks",
     "getInTouch": "Get in touch",
@@ -32,8 +32,8 @@
     "exhibitionsDesc": "Past and upcoming shows",
     "followAlong": "Follow along",
     "professionalServices": "Professional services",
-    "consultingTitle": "Translation,\nfacilitation &\ncoordination",
-    "consultingDesc": "Project coordination, facilitation & strategic support",
+    "consultingTitle": "Language,\nsemantics &\nevaluation",
+    "consultingDesc": "Language data evaluation, linguistic quality & multilingual content",
     "aboutMe": "About me",
     "learnMore": "Learn more →",
     "view": "View →",
@@ -112,8 +112,8 @@
   "about": {
     "title": "About",
     "subtitle": "Armelle Boussidan",
-    "description": "Facilitator, consultant and artist based in France. Multilingual practice across art, ecological transition, and well-being.",
-    "artistConsultant": "Consultant, Facilitator & Artist · FR · EN · ES",
+    "description": "PhD linguist and artist based in France. Computational semantics, language evaluation and multilingual practice in French, English and Spanish.",
+    "artistConsultant": "PhD Linguist, Consultant & Artist · FR · EN · ES",
     "defaultBio": "I am a consultant and artist, with a keen interest in both innovation and ancestral knowledge.",
     "fieldsOfPractice": "Fields of practice",
     "visualArt": "Visual Art",
@@ -163,9 +163,9 @@
   "consulting": {
     "title": "Consulting",
     "subtitle": "Professional Services",
-    "tagline": "Coordination, facilitation and project management for mission-driven teams",
-    "description": "Freelance consultant since 2018, translation, interpreting, writing, and project coordination in English and French.",
-    "intro": "With a PhD in cognitive science, I bring a distinctive perspective to multilingual project coordination, one shaped by scientific rigour, creative sensitivity, and a deep understanding of how people think, communicate, and collaborate across cultures. I work at the intersection of ecological transition, the arts, well-being, and community development, with a particular sensitivity to neurodiversity.",
+    "tagline": "Language quality, evaluation and programme support for multilingual projects",
+    "description": "PhD in cognitive science, specialising in computational semantics. Language data evaluation, linguistic quality and multilingual content in French, English and Spanish.",
+    "intro": "I hold a PhD in cognitive science, specialising in computational semantics and corpus linguistics. My doctoral research, Dynamics of Semantic Change, produced a working prototype for the automated detection and analysis of semantic change in text corpora. I bring that same analytical rigour to multilingual projects, together with creative sensitivity and a deep understanding of how people think, communicate, and collaborate across cultures. I work at the intersection of ecological transition, the arts, well-being, and community development, with a particular sensitivity to neurodiversity.",
     "vision": "I combine linguistic precision with cross-cultural sensitivity and an attention to the human dimension of every project, ensuring that things move forward clearly, inclusively, and with depth. I believe the most impactful collaborations honour both efficiency and meaning. If you have a meaningful project in mind, I'd love to hear about it.",
     "servicesTitle": "Services",
     "consultantTitle": "Consulting & Strategy",
@@ -201,7 +201,7 @@
     "phdTitle": "PhD in Cognitive Science — Linguistics",
     "phdPlace": "University of Lyon · CNRS · Institut des Sciences Cognitives · L2C2",
     "phdDate": "2013",
-    "phdDetail": "Awarded highest distinction. \"Creativity and Innovation — Cible\" scholarship, Rhône-Alpes region.",
+    "phdDetail": "Dissertation: Dynamics of Semantic Change, including a prototype for the automated detection and analysis of semantic change in text corpora. Awarded highest distinction. \"Creativity and Innovation — Cible\" scholarship, Rhône-Alpes region.",
     "maTitle": "Master of Arts in Applied Linguistics",
     "maPlace": "Sussex University, UK",
     "maDate": "2007",
@@ -334,7 +334,7 @@
     "learnMore": "Learn more"
   },
   "footer": {
-    "artistConsultant": "Consultant, Facilitator & Artist",
+    "artistConsultant": "PhD Linguist, Consultant & Artist",
     "imprint": "Imprint",
     "privacy": "Privacy",
     "rights": "© {year} Armelle Boussidan. All rights reserved."
