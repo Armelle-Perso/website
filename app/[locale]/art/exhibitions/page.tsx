@@ -7,6 +7,11 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 export const revalidate = 3600
 
+// Tag corrections applied on top of Sanity data, keyed by exhibition _id
+const typeOverrides: Record<string, string> = {
+  q7MxOP673O523e3BZ9d37d: 'Residency', // Anankha (Sanity still says "Performance")
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
   setRequestLocale(locale)
@@ -74,8 +79,8 @@ function ExhibitionItem({ ex, locale, moreInfo }: { ex: any; locale: string; mor
       <div className="flex-1">
         <div className="flex flex-wrap items-start gap-3 mb-2">
           <h3 className="font-serif text-xl">{ex.title}</h3>
-          {ex.type && (
-            <span className="text-xs border border-[--color-gold] text-[--color-gold] px-2 py-0.5 font-sans">{ex.type}</span>
+          {(typeOverrides[ex._id] ?? ex.type) && (
+            <span className="text-xs border border-[--color-gold] text-[--color-gold] px-2 py-0.5 font-sans">{typeOverrides[ex._id] ?? ex.type}</span>
           )}
         </div>
         {(ex.venue || ex.city) && (
