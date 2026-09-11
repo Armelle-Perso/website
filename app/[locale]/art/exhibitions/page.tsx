@@ -58,13 +58,12 @@ export default async function ExhibitionsPage({ params }: { params: Promise<{ lo
 }
 
 function ExhibitionItem({ ex, locale, moreInfo }: { ex: any; locale: string; moreInfo: string }) {
-  const loc = locale === 'fr' ? 'fr-FR' : locale === 'es' ? 'es-ES' : 'en-GB'
   const startYear = ex.startDate ? new Date(ex.startDate).getFullYear() : null
   const endYear = ex.endDate ? new Date(ex.endDate).getFullYear() : null
   const dateStr = startYear
     ? endYear && endYear !== startYear
       ? `${startYear}–${endYear}`
-      : new Date(ex.startDate).toLocaleDateString(loc, { month: 'long', year: 'numeric' })
+      : `${startYear}`
     : null
 
   return (
