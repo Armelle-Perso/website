@@ -38,9 +38,9 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
   const collectivesFallback = '/images/collectives/m33-facade.jpg'
   const exhibitionsFallback = '/images/paintings/transforma/exhibition.jpg'
 
-  const artSections: { labelKey: 'paintingsLabel' | 'collectivesLabel' | 'exhibitionsLabel'; href: string; descKey: 'paintingsDesc' | 'collectivesDesc' | 'exhibitionsDesc'; image: any; fallbackSrc: string; objectPosition?: string; dark?: boolean }[] = [
+  const artSections: { labelKey: 'paintingsLabel' | 'collectivesLabel' | 'exhibitionsLabel'; href: string; descKey: 'paintingsDesc' | 'collectivesDesc' | 'exhibitionsDesc'; image: any; fallbackSrc: string; objectPosition?: string }[] = [
     { labelKey: 'paintingsLabel' as const, href: '/art/paintings', descKey: 'paintingsDesc' as const, image: paintingsCover, fallbackSrc: '/images/available-cover.jpg' },
-    { labelKey: 'collectivesLabel' as const, href: '/art/collectives', descKey: 'collectivesDesc' as const, image: collectivesCover, fallbackSrc: collectivesFallback, dark: true },
+    { labelKey: 'collectivesLabel' as const, href: '/art/collectives', descKey: 'collectivesDesc' as const, image: collectivesCover, fallbackSrc: collectivesFallback },
     { labelKey: 'exhibitionsLabel' as const, href: '/art/exhibitions', descKey: 'exhibitionsDesc' as const, image: exhibitionsCover, fallbackSrc: exhibitionsFallback, objectPosition: '32% center' },
   ]
 
