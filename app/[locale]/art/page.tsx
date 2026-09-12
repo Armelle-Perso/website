@@ -38,9 +38,9 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
   const collectivesFallback = '/images/collectives/m33-facade.jpg'
   const exhibitionsFallback = '/images/paintings/transforma/exhibition.jpg'
 
-  const artSections: { labelKey: 'paintingsLabel' | 'collectivesLabel' | 'exhibitionsLabel'; href: string; descKey: 'paintingsDesc' | 'collectivesDesc' | 'exhibitionsDesc'; image: any; fallbackSrc: string; objectPosition?: string }[] = [
+  const artSections: { labelKey: 'paintingsLabel' | 'collectivesLabel' | 'exhibitionsLabel'; href: string; descKey: 'paintingsDesc' | 'collectivesDesc' | 'exhibitionsDesc'; image: any; fallbackSrc: string; objectPosition?: string; dark?: boolean }[] = [
     { labelKey: 'paintingsLabel' as const, href: '/art/paintings', descKey: 'paintingsDesc' as const, image: paintingsCover, fallbackSrc: '/images/available-cover.jpg' },
-    { labelKey: 'collectivesLabel' as const, href: '/art/collectives', descKey: 'collectivesDesc' as const, image: collectivesCover, fallbackSrc: collectivesFallback },
+    { labelKey: 'collectivesLabel' as const, href: '/art/collectives', descKey: 'collectivesDesc' as const, image: collectivesCover, fallbackSrc: collectivesFallback, dark: true },
     { labelKey: 'exhibitionsLabel' as const, href: '/art/exhibitions', descKey: 'exhibitionsDesc' as const, image: exhibitionsCover, fallbackSrc: exhibitionsFallback, objectPosition: '32% center' },
   ]
 
@@ -82,6 +82,14 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto">
           {artSections.map((section) => (
             <Link key={section.href} href={section.href} className="group block">
+              <div className="flex items-baseline justify-between gap-4 mb-4">
+                <h2 className="font-serif text-xl lg:text-2xl font-light leading-tight text-[--color-charcoal] group-hover:text-[--color-muted] transition-colors duration-300">
+                  {t(section.labelKey)}
+                </h2>
+                <span className="text-xs tracking-widest text-[--color-gold] transition-transform duration-300 group-hover:translate-x-1.5">
+                  →
+                </span>
+              </div>
               <div className="relative overflow-hidden bg-[--color-gold-light] aspect-square">
                 {section.image || section.fallbackSrc ? (
                   <Image
@@ -100,25 +108,12 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
                     {t(section.labelKey)}
                   </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-b from-[--color-charcoal]/85 via-[--color-charcoal]/10 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[--color-charcoal]/85 via-[--color-charcoal]/10 to-transparent" />
-                <div className="absolute inset-x-0 top-0 p-5 lg:p-6">
-                  <h2 className="font-serif text-xl lg:text-2xl font-light text-white leading-tight">
-                    {t(section.labelKey)}
-                  </h2>
-                  <span className="block h-px w-8 bg-[--color-gold] mt-3 transition-all duration-500 group-hover:w-16" />
-                </div>
-                <div className="absolute inset-x-0 bottom-0 p-5 lg:p-6">
-                  {t(section.descKey) && (
-                    <p className="text-xs font-sans font-light text-white/75 leading-relaxed mb-3">
-                      {t(section.descKey)}
-                    </p>
-                  )}
-                  <span className="inline-block text-xs tracking-widest text-[--color-gold] transition-transform duration-300 group-hover:translate-x-1.5">
-                    →
-                  </span>
-                </div>
               </div>
+              {t(section.descKey) && (
+                <p className="pt-4 text-xs font-sans font-light text-[--color-muted] leading-relaxed">
+                  {t(section.descKey)}
+                </p>
+              )}
             </Link>
           ))}
         </div>
