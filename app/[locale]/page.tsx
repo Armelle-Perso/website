@@ -46,15 +46,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
         {/* ── Hero text ── */}
         <div className="text-center max-w-2xl">
-          <h1 className="font-serif italic text-5xl sm:text-6xl md:text-7xl font-light text-[--color-gold] tracking-tight leading-[0.95] mb-3">
+          <h1 className="font-serif italic text-5xl sm:text-6xl md:text-7xl font-light text-[#8A6B24] tracking-tight leading-[0.95] mb-3">
             Armelle Boussidan
           </h1>
 
           {/* ornamented divider */}
           <div className="flex items-center justify-center gap-3 my-4">
-            <span className="block w-12 h-px bg-[--color-gold]" />
-            <span className="text-[--color-gold] text-[10px]">◆</span>
-            <span className="block w-12 h-px bg-[--color-gold]" />
+            <span className="block w-12 h-px bg-[#A98436]" />
+            <span className="text-[#A98436] text-[10px]">◆</span>
+            <span className="block w-12 h-px bg-[#A98436]" />
           </div>
 
           <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#8A7A55] font-sans font-light mb-5">
