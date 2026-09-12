@@ -3,11 +3,12 @@ import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { safeFetch } from '@/sanity/lib/client'
-import { urlFor } from '@/sanity/lib/image'
-import { artworkBySlugQuery, paintingSeriesAllQuery, paintingSeriesBySlugQuery, availableNavQuery, allArtworkSlidesQuery } from '@/sanity/lib/queries'
+import { urlFor, imageDimensions } from '@/sanity/lib/image'
+import { artworkBySlugQuery, paintingSeriesAllQuery, paintingSeriesBySlugQuery, availableNavQuery, allArtworkSlidesQuery, availableSlidesQuery } from '@/sanity/lib/queries'
 import ArtworkNav from '@/components/ArtworkNav'
 import FullscreenImage from '@/components/FullscreenImage'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { cleanTitle } from '@/lib/title'
 
 export const revalidate = 3600
 
@@ -40,7 +41,7 @@ export async function generateMetadata({
   const data = await safeFetch<any>(artworkBySlugQuery, { seriesSlug, artworkSlug })
   if (!data?.artwork) return { title: 'Artwork not found' }
   return {
-    title: `${data.artwork.title} — ${data.title}`,
+    title: `${cleanTitle(data.artwork.title)} — ${data.title}`,
     description: [data.artwork.medium, !data.artwork.hideDimensions && data.artwork.dimensions, data.year].filter(Boolean).join(' · '),
   }
 }
@@ -64,19 +65,36 @@ export default async function ArtworkPage({
 
   const { artwork, title: seriesTitle, year: seriesYear, medium: seriesMedium, siblings } = data
   const medium = artwork.medium || seriesMedium
+  const imgDims = imageDimensions(artwork.image) || { width: 1400, height: 1100 }
 
-  // Build lightbox slides from ALL series for cross-series navigation
-  const allSeries = await safeFetch<{ seriesSlug: string; items: { title: string; slug: { current: string }; image: any }[] }[]>(allArtworkSlidesQuery)
+  // Build lightbox slides. When coming from the Available page, stay within the
+  // available works only; otherwise browse across all series.
+  const fromAvailable = from === 'available'
+  const slideSeries = await safeFetch<{ seriesSlug: string; items: { title: string; slug: { current: string }; image: any }[] }[]>(
+    fromAvailable ? availableSlidesQuery : allArtworkSlidesQuery
+  )
   const lightboxSlides: { src: string; alt: string }[] = []
   const lightboxHrefs: string[] = []
   let lightboxIndex = 0
-  for (const s of (allSeries || [])) {
+  for (const s of (slideSeries || [])) {
     for (const item of (s.items || [])) {
-      lightboxSlides.push({ src: urlFor(item.image).url(), alt: item.title || '' })
-      lightboxHrefs.push(`/art/paintings/${s.seriesSlug}/${item.slug.current}`)
+      lightboxSlides.push({ src: urlFor(item.image).url(), alt: cleanTitle(item.title) })
+      lightboxHrefs.push(`/art/paintings/${s.seriesSlug}/${item.slug.current}${fromAvailable ? '?from=available' : ''}`)
       if (s.seriesSlug === seriesSlug && item.slug.current === artworkSlug) {
         lightboxIndex = lightboxSlides.length - 1
       }
+    }
+  }
+
+  // If the current work isn't in the available set (e.g. stale link), fall back
+  // to showing just this image rather than opening on an unrelated one.
+  if (fromAvailable && !lightboxHrefs.some(h => h.startsWith(`/art/paintings/${seriesSlug}/${artworkSlug}?`))) {
+    lightboxSlides.length = 0
+    lightboxHrefs.length = 0
+    lightboxIndex = 0
+    if (artwork.image) {
+      lightboxSlides.push({ src: urlFor(artwork.image).url(), alt: cleanTitle(artwork.title) })
+      lightboxHrefs.push(`/art/paintings/${seriesSlug}/${artworkSlug}?from=available`)
     }
   }
 
@@ -86,13 +104,13 @@ export default async function ArtworkPage({
   let nextTitle: string | null = null
   let navCount: { current: number; total: number } | null = null
 
-  if (from === 'available') {
+  if (fromAvailable) {
     // Navigate across all available artworks
     const navData = await safeFetch<any[]>(availableNavQuery)
     const flat: { title: string; seriesSlug: string; artworkSlug: string }[] = []
     for (const s of (navData || [])) {
       for (const item of (s.items || [])) {
-        flat.push({ title: item.title, seriesSlug: s.slug.current, artworkSlug: item.slug.current })
+        flat.push({ title: cleanTitle(item.title), seriesSlug: s.slug.current, artworkSlug: item.slug.current })
       }
     }
     const idx = flat.findIndex(f => f.seriesSlug === seriesSlug && f.artworkSlug === artworkSlug)
@@ -100,8 +118,8 @@ export default async function ArtworkPage({
     const nextItem = idx < flat.length - 1 ? flat[idx + 1] : null
     prevHref = prevItem ? `/art/paintings/${prevItem.seriesSlug}/${prevItem.artworkSlug}?from=available` : null
     nextHref = nextItem ? `/art/paintings/${nextItem.seriesSlug}/${nextItem.artworkSlug}?from=available` : null
-    prevTitle = prevItem?.title ?? null
-    nextTitle = nextItem?.title ?? null
+    prevTitle = cleanTitle(prevItem?.title) || null
+    nextTitle = cleanTitle(nextItem?.title) || null
     navCount = idx >= 0 ? { current: idx + 1, total: flat.length } : null
   } else {
     // Navigate within series
@@ -111,8 +129,8 @@ export default async function ArtworkPage({
     const next = currentIndex < siblingList.length - 1 ? siblingList[currentIndex + 1] : null
     prevHref = prev ? `/art/paintings/${seriesSlug}/${prev.slug.current}` : null
     nextHref = next ? `/art/paintings/${seriesSlug}/${next.slug.current}` : null
-    prevTitle = prev?.title ?? null
-    nextTitle = next?.title ?? null
+    prevTitle = cleanTitle(prev?.title) || null
+    nextTitle = cleanTitle(next?.title) || null
     navCount = currentIndex >= 0 ? { current: currentIndex + 1, total: siblingList.length } : null
   }
 
@@ -133,7 +151,7 @@ export default async function ArtworkPage({
           <span className="text-[--color-border]">/</span>
           <Link href={`/art/paintings/${seriesSlug}`} className="hover:text-[--color-charcoal] transition-colors truncate">{artwork.subseries ? `${seriesTitle} · ${artwork.subseries}` : seriesTitle}</Link>
           <span className="text-[--color-border] shrink-0">/</span>
-          <span className="text-[--color-charcoal] truncate">{artwork.title}</span>
+          <span className="text-[--color-charcoal] truncate">{cleanTitle(artwork.title)}</span>
         </nav>
         {navCount && navCount.total > 1 && (
           <span className="text-[10px] font-sans text-[--color-border] tabular-nums shrink-0">
@@ -147,22 +165,22 @@ export default async function ArtworkPage({
         <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-20 items-start">
 
           {/* Image */}
-          <div className="bg-[--color-gold-light]">
+          <div className="flex justify-center">
             {artwork.image ? (
               <FullscreenImage slides={lightboxSlides} index={Math.max(0, lightboxIndex)} hrefs={lightboxHrefs}>
                 <Image
                   src={urlFor(artwork.image).width(1400).url()}
-                  alt={artwork.title || ''}
-                  width={1400}
-                  height={1100}
-                  className="w-full h-auto object-cover"
+                  alt={cleanTitle(artwork.title)}
+                  width={imgDims.width}
+                  height={imgDims.height}
+                  className="w-auto max-w-full max-h-[85vh] bg-[--color-gold-light]"
                   priority
                   sizes="(max-width: 1024px) 100vw, 60vw"
                 />
               </FullscreenImage>
             ) : (
               <div className="aspect-[4/3] flex items-center justify-center text-[--color-muted] font-serif text-2xl">
-                {artwork.title}
+                {cleanTitle(artwork.title)}
               </div>
             )}
           </div>
@@ -176,7 +194,7 @@ export default async function ArtworkPage({
             )}
 
             <h1 className="font-serif text-4xl md:text-5xl font-light leading-[0.95] tracking-tight text-[--color-charcoal] mb-8">
-              {artwork.title}
+              {cleanTitle(artwork.title)}
             </h1>
 
             <div className="w-8 h-px bg-[--color-gold] mb-8" />
@@ -222,7 +240,7 @@ export default async function ArtworkPage({
                     {t('available')}
                   </p>
                   <Link
-                    href={`/contact?work=${encodeURIComponent(artwork.title)}&series=${encodeURIComponent(seriesTitle)}`}
+                    href={`/contact?work=${encodeURIComponent(cleanTitle(artwork.title))}&series=${encodeURIComponent(seriesTitle)}`}
                     className="inline-block text-[11px] uppercase tracking-[0.2em] font-sans text-[--color-charcoal] border-b border-[--color-charcoal] pb-0.5 hover:text-[--color-gold] hover:border-[--color-gold] transition-colors duration-300"
                   >
                     {t('inquireAbout')}

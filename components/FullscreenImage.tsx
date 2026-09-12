@@ -39,7 +39,7 @@ export default function FullscreenImage({ slides, index, children, hrefs }: Full
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="block w-full cursor-zoom-in"
+        className="block max-w-full cursor-zoom-in"
         aria-label="View fullscreen"
       >
         {children}

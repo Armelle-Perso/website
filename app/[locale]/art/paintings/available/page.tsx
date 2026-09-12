@@ -6,6 +6,7 @@ import { safeFetch } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
 import { availablePaintingsQuery } from '@/sanity/lib/queries'
 import PageHeader from '@/components/PageHeader'
+import { cleanTitle } from '@/lib/title'
 import { getMaxDiagonal, getScale } from '@/lib/dimensions'
 
 export const revalidate = 3600
@@ -95,7 +96,7 @@ export default async function AvailablePaintingsPage({ params }: { params: Promi
                         {artwork.image ? (
                           <Image
                             src={urlFor(artwork.image).width(900).url()}
-                            alt={artwork.title}
+                            alt={cleanTitle(artwork.title)}
                             width={900}
                             height={700}
                             className="w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]"
@@ -103,14 +104,14 @@ export default async function AvailablePaintingsPage({ params }: { params: Promi
                           />
                         ) : (
                           <div className="aspect-[4/3] flex items-center justify-center text-[--color-muted] font-serif text-lg">
-                            {artwork.title}
+                            {cleanTitle(artwork.title)}
                           </div>
                         )}
                         <div className="absolute inset-0 bg-[--color-charcoal]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
                           <span className="text-[10px] uppercase tracking-[0.2em] text-[--color-gold] font-sans mb-2">
                             {t('availableInquire')}
                           </span>
-                          <p className="font-serif text-white text-lg leading-tight">{artwork.title}</p>
+                          <p className="font-serif text-white text-lg leading-tight">{cleanTitle(artwork.title)}</p>
                           {((!artwork.hideDimensions && artwork.dimensions) || medium) && (
                             <p className="text-white/60 text-xs font-sans font-light mt-1.5">
                               {[!artwork.hideDimensions && artwork.dimensions, medium].filter(Boolean).join(' · ')}
@@ -120,7 +121,7 @@ export default async function AvailablePaintingsPage({ params }: { params: Promi
                       </div>
                       <div className="pt-4 pb-1">
                         <p className="font-serif text-base font-light group-hover:text-[--color-muted] transition-colors duration-300">
-                          {artwork.title}
+                          {cleanTitle(artwork.title)}
                         </p>
                         <div className="flex items-baseline justify-between mt-1 gap-4">
                           <p className="text-[10px] uppercase tracking-[0.15em] font-sans text-[--color-muted] font-light">
@@ -155,7 +156,7 @@ export default async function AvailablePaintingsPage({ params }: { params: Promi
                         {artwork.image ? (
                           <Image
                             src={urlFor(artwork.image).width(1400).url()}
-                            alt={artwork.title}
+                            alt={cleanTitle(artwork.title)}
                             width={1400}
                             height={700}
                             className="w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]"
@@ -163,14 +164,14 @@ export default async function AvailablePaintingsPage({ params }: { params: Promi
                           />
                         ) : (
                           <div className="w-full aspect-[16/9] flex items-center justify-center text-[--color-muted] font-serif text-lg">
-                            {artwork.title}
+                            {cleanTitle(artwork.title)}
                           </div>
                         )}
                         <div className="absolute inset-0 bg-[--color-charcoal]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
                           <span className="text-[11px] uppercase tracking-[0.2em] text-[--color-gold] font-sans mb-2">
                             {t('availableInquire')}
                           </span>
-                          <p className="font-serif text-white text-2xl leading-tight">{artwork.title}</p>
+                          <p className="font-serif text-white text-2xl leading-tight">{cleanTitle(artwork.title)}</p>
                           {((!artwork.hideDimensions && artwork.dimensions) || medium) && (
                             <p className="text-white/60 text-sm font-sans font-light mt-2">
                               {[!artwork.hideDimensions && artwork.dimensions, medium].filter(Boolean).join(' · ')}
@@ -180,7 +181,7 @@ export default async function AvailablePaintingsPage({ params }: { params: Promi
                       </div>
                       <div className="pt-4 pb-1">
                         <p className="font-serif text-lg font-light group-hover:text-[--color-muted] transition-colors duration-300">
-                          {artwork.title}
+                          {cleanTitle(artwork.title)}
                         </p>
                         <p className="text-[10px] uppercase tracking-[0.15em] font-sans text-[--color-muted] font-light mt-1">
                           {artwork.seriesTitle}{artwork.seriesYear ? ` · ${artwork.seriesYear}` : ''}

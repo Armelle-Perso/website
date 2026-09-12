@@ -6,6 +6,7 @@ import { safeFetch } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
 import { paintingSeriesBySlugQuery, paintingSeriesAllQuery } from '@/sanity/lib/queries'
 import PageHeader from '@/components/PageHeader'
+import { cleanTitle } from '@/lib/title'
 import { PortableText } from 'next-sanity'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { localizedField } from '@/sanity/lib/localize'
@@ -88,7 +89,7 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
                   {artwork.image ? (
                     <Image
                       src={urlFor(artwork.image).width(900).url()}
-                      alt={artwork.title || ''}
+                      alt={cleanTitle(artwork.title)}
                       width={900}
                       height={700}
                       className="w-full h-auto max-h-[75vh] object-contain transition-transform duration-700 group-hover:scale-[1.02]"
@@ -96,11 +97,11 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
                     />
                   ) : (
                     <div className="w-full aspect-[4/3] flex items-center justify-center text-[--color-muted] font-serif text-lg">
-                      {artwork.title}
+                      {cleanTitle(artwork.title)}
                     </div>
                   )}
                   <div className="absolute inset-0 bg-[--color-charcoal]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
-                    <p className="font-serif text-white text-lg leading-tight">{artwork.title}</p>
+                    <p className="font-serif text-white text-lg leading-tight">{cleanTitle(artwork.title)}</p>
                     {((!artwork.hideDimensions && artwork.dimensions) || artwork.medium) && (
                       <p className="text-white/60 text-xs font-sans font-light mt-1.5">
                         {[!artwork.hideDimensions && artwork.dimensions, artwork.medium].filter(Boolean).join(' · ')}
@@ -131,7 +132,7 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
                     {artwork.title && (
                       <div className="mt-3 text-center">
                         <Link
-                          href={`/contact?work=${encodeURIComponent(artwork.title)}&series=${encodeURIComponent(data.title)}`}
+                          href={`/contact?work=${encodeURIComponent(cleanTitle(artwork.title))}&series=${encodeURIComponent(data.title)}`}
                           className="inline-block text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-gold] hover:text-[--color-charcoal] transition-colors"
                         >
                           {t('inquire')}
@@ -152,7 +153,7 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
                   {artwork.image ? (
                     <Image
                       src={urlFor(artwork.image).width(1400).url()}
-                      alt={artwork.title || ''}
+                      alt={cleanTitle(artwork.title)}
                       width={1400}
                       height={700}
                       className="w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]"
@@ -160,11 +161,11 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
                     />
                   ) : (
                     <div className="w-full aspect-[16/9] flex items-center justify-center text-[--color-muted] font-serif text-lg">
-                      {artwork.title}
+                      {cleanTitle(artwork.title)}
                     </div>
                   )}
                   <div className="absolute inset-0 bg-[--color-charcoal]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                    <p className="font-serif text-white text-2xl leading-tight">{artwork.title}</p>
+                    <p className="font-serif text-white text-2xl leading-tight">{cleanTitle(artwork.title)}</p>
                     {((!artwork.hideDimensions && artwork.dimensions) || artwork.medium) && (
                       <p className="text-white/60 text-sm font-sans font-light mt-2">
                         {[!artwork.hideDimensions && artwork.dimensions, artwork.medium].filter(Boolean).join(' · ')}
@@ -194,7 +195,7 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
                   {artwork.title && (
                     <div className="mt-4 text-center">
                       <Link
-                        href={`/contact?work=${encodeURIComponent(artwork.title)}&series=${encodeURIComponent(data.title)}`}
+                        href={`/contact?work=${encodeURIComponent(cleanTitle(artwork.title))}&series=${encodeURIComponent(data.title)}`}
                         className="inline-block text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-gold] hover:text-[--color-charcoal] transition-colors"
                       >
                         {t('inquire')}

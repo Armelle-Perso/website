@@ -26,6 +26,11 @@ export const availableNavQuery = groq`*[_type == "paintingSeries" && title != "P
   "items": artworks[available != false && slug.current != null]{ title, slug }
 }`
 
+export const availableSlidesQuery = groq`*[_type == "paintingSeries" && title != "People with their painting" && count(artworks[available != false]) > 0] | order(year desc) {
+  "seriesSlug": slug.current,
+  "items": artworks[available != false && image != null && slug.current != null]{ title, slug, image }
+}`
+
 export const paintingSeriesBySlugQuery = groq`*[_type == "paintingSeries" && slug.current == $slug][0]{
   _id, title, slug, year, description, description_fr, description_es, medium,
   artworks[]{ image, title, slug, medium, dimensions, hideDimensions, featured, year, available, subseries }
