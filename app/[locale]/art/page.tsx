@@ -36,12 +36,12 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
   const collectivesCover = (collectives || []).find((c: any) => c.image)?.image ?? null
   const exhibitionsCover = (exhibitions || []).find((e: any) => e.image)?.image ?? null
   const collectivesFallback = '/images/collectives/m33-facade.jpg'
-  const exhibitionsFallback = '/images/collectives/m33-inaug.jpg'
+  const exhibitionsFallback = '/images/paintings/transforma/exhibition.jpg'
 
-  const artSections = [
+  const artSections: { labelKey: 'paintingsLabel' | 'collectivesLabel' | 'exhibitionsLabel'; href: string; descKey: 'paintingsDesc' | 'collectivesDesc' | 'exhibitionsDesc'; image: any; fallbackSrc: string; objectPosition?: string }[] = [
     { labelKey: 'paintingsLabel' as const, href: '/art/paintings', descKey: 'paintingsDesc' as const, image: paintingsCover, fallbackSrc: '/images/available-cover.jpg' },
     { labelKey: 'collectivesLabel' as const, href: '/art/collectives', descKey: 'collectivesDesc' as const, image: collectivesCover, fallbackSrc: collectivesFallback },
-    { labelKey: 'exhibitionsLabel' as const, href: '/art/exhibitions', descKey: 'exhibitionsDesc' as const, image: exhibitionsCover, fallbackSrc: exhibitionsFallback },
+    { labelKey: 'exhibitionsLabel' as const, href: '/art/exhibitions', descKey: 'exhibitionsDesc' as const, image: exhibitionsCover, fallbackSrc: exhibitionsFallback, objectPosition: '32% center' },
   ]
 
   return (
@@ -79,43 +79,45 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
 
       {/* Category cards */}
       <section className="max-w-7xl mx-auto px-6 pb-32">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto">
           {artSections.map((section) => (
             <Link key={section.href} href={section.href} className="group block">
-              <div className="relative overflow-hidden bg-[--color-gold-light] aspect-[3/4]">
+              <div className="relative overflow-hidden bg-[--color-gold-light] aspect-square">
                 {section.image || section.fallbackSrc ? (
                   <Image
                     src={section.image
-                      ? urlFor(section.image).width(800).height(1067).fit('crop').crop('center').url()
+                      ? urlFor(section.image).width(700).height(700).fit('crop').crop('center').url()
                       : section.fallbackSrc}
                     alt={t(section.labelKey)}
-                    width={800}
-                    height={1067}
+                    width={700}
+                    height={700}
                     className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
-                    sizes="(max-width: 640px) 100vw, 33vw"
+                    style={section.objectPosition ? { objectPosition: section.objectPosition } : undefined}
+                    sizes="(max-width: 640px) 100vw, 25vw"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-[--color-muted] font-serif text-2xl">
                     {t(section.labelKey)}
                   </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-[--color-charcoal]/85 via-[--color-charcoal]/15 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-6 lg:p-7">
-                  <span className="block h-px w-8 bg-[--color-gold] mb-4 transition-all duration-500 group-hover:w-16" />
-                  <h2 className="font-serif text-2xl lg:text-[1.75rem] font-light text-white leading-tight">
+                <div className="absolute inset-0 bg-gradient-to-b from-[--color-charcoal]/85 via-[--color-charcoal]/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[--color-charcoal]/85 via-[--color-charcoal]/10 to-transparent" />
+                <div className="absolute inset-x-0 top-0 p-5 lg:p-6">
+                  <h2 className="font-serif text-xl lg:text-2xl font-light text-white leading-tight">
                     {t(section.labelKey)}
                   </h2>
+                  <span className="block h-px w-8 bg-[--color-gold] mt-3 transition-all duration-500 group-hover:w-16" />
                 </div>
-              </div>
-              <div className="pt-5">
-                {t(section.descKey) && (
-                  <p className="text-sm text-[--color-muted] font-sans font-light leading-relaxed">
-                    {t(section.descKey)}
-                  </p>
-                )}
-                <span className="inline-block mt-4 text-xs tracking-widest text-[--color-gold] transition-transform duration-300 group-hover:translate-x-1.5">
-                  →
-                </span>
+                <div className="absolute inset-x-0 bottom-0 p-5 lg:p-6">
+                  {t(section.descKey) && (
+                    <p className="text-xs font-sans font-light text-white/75 leading-relaxed mb-3">
+                      {t(section.descKey)}
+                    </p>
+                  )}
+                  <span className="inline-block text-xs tracking-widest text-[--color-gold] transition-transform duration-300 group-hover:translate-x-1.5">
+                    →
+                  </span>
+                </div>
               </div>
             </Link>
           ))}
