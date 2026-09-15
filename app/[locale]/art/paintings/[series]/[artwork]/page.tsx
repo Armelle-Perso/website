@@ -5,8 +5,7 @@ import { notFound } from 'next/navigation'
 import { safeFetch } from '@/sanity/lib/client'
 import { urlFor, imageDimensions } from '@/sanity/lib/image'
 import { artworkBySlugQuery, paintingSeriesAllQuery, paintingSeriesBySlugQuery, availableNavQuery, allArtworkSlidesQuery, availableSlidesQuery } from '@/sanity/lib/queries'
-import ArtworkNav from '@/components/ArtworkNav'
-import FullscreenImage from '@/components/FullscreenImage'
+import { ContextualArtworkNav, ContextualArtworkCounter, ContextualFullscreenImage, ContextualSwitch, type NavData, type CountData, type SlidesData } from '@/components/ArtworkContext'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { cleanTitle } from '@/lib/title'
 
@@ -48,13 +47,12 @@ export async function generateMetadata({
 
 export default async function ArtworkPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ locale: string; series: string; artwork: string }>
-  searchParams: Promise<{ from?: string }>
 }) {
+  // No searchParams here: reading them would make every visit a fresh server
+  // render. Both browsing contexts are built below and the client picks one.
   const { locale, series: seriesSlug, artwork: artworkSlug } = await params
-  const { from } = await searchParams
   setRequestLocale(locale)
   const t = await getTranslations('artwork')
   const tNav = await getTranslations('nav')
@@ -67,82 +65,77 @@ export default async function ArtworkPage({
   const medium = artwork.medium || seriesMedium
   const imgDims = imageDimensions(artwork.image) || { width: 1400, height: 1100 }
 
-  // Build lightbox slides. When coming from the Available page, stay within the
-  // available works only; otherwise browse across all series.
-  const fromAvailable = from === 'available'
-  const slideSeries = await safeFetch<{ seriesSlug: string; items: { title: string; slug: { current: string }; image: any }[] }[]>(
-    fromAvailable ? availableSlidesQuery : allArtworkSlidesQuery
-  )
-  const lightboxSlides: { src: string; alt: string }[] = []
-  const lightboxHrefs: string[] = []
-  let lightboxIndex = 0
-  for (const s of (slideSeries || [])) {
-    for (const item of (s.items || [])) {
-      lightboxSlides.push({ src: urlFor(item.image).url(), alt: cleanTitle(item.title) })
-      lightboxHrefs.push(`/art/paintings/${s.seriesSlug}/${item.slug.current}${fromAvailable ? '?from=available' : ''}`)
-      if (s.seriesSlug === seriesSlug && item.slug.current === artworkSlug) {
-        lightboxIndex = lightboxSlides.length - 1
-      }
-    }
-  }
+  type SlideSeries = { seriesSlug: string; items: { title: string; slug: { current: string }; image: any }[] }[]
+  const [allSlides, availableSlides, navData] = await Promise.all([
+    safeFetch<SlideSeries>(allArtworkSlidesQuery),
+    safeFetch<SlideSeries>(availableSlidesQuery),
+    safeFetch<any[]>(availableNavQuery),
+  ])
 
-  // If the current work isn't in the available set (e.g. stale link), fall back
-  // to showing just this image rather than opening on an unrelated one.
-  if (fromAvailable && !lightboxHrefs.some(h => h.startsWith(`/art/paintings/${seriesSlug}/${artworkSlug}?`))) {
-    lightboxSlides.length = 0
-    lightboxHrefs.length = 0
-    lightboxIndex = 0
-    if (artwork.image) {
-      lightboxSlides.push({ src: urlFor(artwork.image).url(), alt: cleanTitle(artwork.title) })
-      lightboxHrefs.push(`/art/paintings/${seriesSlug}/${artworkSlug}?from=available`)
-    }
-  }
-
-  let prevHref: string | null = null
-  let nextHref: string | null = null
-  let prevTitle: string | null = null
-  let nextTitle: string | null = null
-  let navCount: { current: number; total: number } | null = null
-
-  if (fromAvailable) {
-    // Navigate across all available artworks
-    const navData = await safeFetch<any[]>(availableNavQuery)
-    const flat: { title: string; seriesSlug: string; artworkSlug: string }[] = []
-    for (const s of (navData || [])) {
+  // Lightbox slides. From the Available page, stay within the available works
+  // only; otherwise browse across all series.
+  function buildSlides(slideSeries: SlideSeries | null, fromAvailable: boolean): SlidesData {
+    const suffix = fromAvailable ? '?from=available' : ''
+    const slides: SlidesData['slides'] = []
+    const hrefs: string[] = []
+    let index = 0
+    for (const s of (slideSeries || [])) {
       for (const item of (s.items || [])) {
-        flat.push({ title: cleanTitle(item.title), seriesSlug: s.slug.current, artworkSlug: item.slug.current })
+        slides.push({ src: urlFor(item.image).url(), alt: cleanTitle(item.title) })
+        hrefs.push(`/art/paintings/${s.seriesSlug}/${item.slug.current}${suffix}`)
+        if (s.seriesSlug === seriesSlug && item.slug.current === artworkSlug) {
+          index = slides.length - 1
+        }
       }
     }
-    const idx = flat.findIndex(f => f.seriesSlug === seriesSlug && f.artworkSlug === artworkSlug)
-    const prevItem = idx > 0 ? flat[idx - 1] : null
-    const nextItem = idx < flat.length - 1 ? flat[idx + 1] : null
-    prevHref = prevItem ? `/art/paintings/${prevItem.seriesSlug}/${prevItem.artworkSlug}?from=available` : null
-    nextHref = nextItem ? `/art/paintings/${nextItem.seriesSlug}/${nextItem.artworkSlug}?from=available` : null
-    prevTitle = cleanTitle(prevItem?.title) || null
-    nextTitle = cleanTitle(nextItem?.title) || null
-    navCount = idx >= 0 ? { current: idx + 1, total: flat.length } : null
-  } else {
-    // Navigate within series
-    const siblingList: { title: string; slug: { current: string } }[] = siblings || []
-    const currentIndex = siblingList.findIndex(s => s.slug?.current === artworkSlug)
-    const prev = currentIndex > 0 ? siblingList[currentIndex - 1] : null
-    const next = currentIndex < siblingList.length - 1 ? siblingList[currentIndex + 1] : null
-    prevHref = prev ? `/art/paintings/${seriesSlug}/${prev.slug.current}` : null
-    nextHref = next ? `/art/paintings/${seriesSlug}/${next.slug.current}` : null
-    prevTitle = cleanTitle(prev?.title) || null
-    nextTitle = cleanTitle(next?.title) || null
-    navCount = currentIndex >= 0 ? { current: currentIndex + 1, total: siblingList.length } : null
+    // If the current work isn't in the available set (e.g. stale link), fall back
+    // to showing just this image rather than opening on an unrelated one.
+    if (fromAvailable && !hrefs.some(h => h.startsWith(`/art/paintings/${seriesSlug}/${artworkSlug}?`))) {
+      if (!artwork.image) return { slides: [], hrefs: [], index: 0 }
+      return {
+        slides: [{ src: urlFor(artwork.image).url(), alt: cleanTitle(artwork.title) }],
+        hrefs: [`/art/paintings/${seriesSlug}/${artworkSlug}?from=available`],
+        index: 0,
+      }
+    }
+    return { slides, hrefs, index: Math.max(0, index) }
   }
+
+  // Navigate across all available artworks
+  const flat: { title: string; seriesSlug: string; artworkSlug: string }[] = []
+  for (const s of (navData || [])) {
+    for (const item of (s.items || [])) {
+      flat.push({ title: cleanTitle(item.title), seriesSlug: s.slug.current, artworkSlug: item.slug.current })
+    }
+  }
+  const idx = flat.findIndex(f => f.seriesSlug === seriesSlug && f.artworkSlug === artworkSlug)
+  const prevItem = idx > 0 ? flat[idx - 1] : null
+  const nextItem = idx < flat.length - 1 ? flat[idx + 1] : null
+  const availableNav: NavData = {
+    prevHref: prevItem ? `/art/paintings/${prevItem.seriesSlug}/${prevItem.artworkSlug}?from=available` : null,
+    nextHref: nextItem ? `/art/paintings/${nextItem.seriesSlug}/${nextItem.artworkSlug}?from=available` : null,
+    prevTitle: cleanTitle(prevItem?.title) || null,
+    nextTitle: cleanTitle(nextItem?.title) || null,
+  }
+  const availableCount: CountData | null = idx >= 0 ? { current: idx + 1, total: flat.length } : null
+
+  // Navigate within series
+  const siblingList: { title: string; slug: { current: string } }[] = siblings || []
+  const currentIndex = siblingList.findIndex(s => s.slug?.current === artworkSlug)
+  const prev = currentIndex > 0 ? siblingList[currentIndex - 1] : null
+  const next = currentIndex < siblingList.length - 1 ? siblingList[currentIndex + 1] : null
+  const seriesNav: NavData = {
+    prevHref: prev ? `/art/paintings/${seriesSlug}/${prev.slug.current}` : null,
+    nextHref: next ? `/art/paintings/${seriesSlug}/${next.slug.current}` : null,
+    prevTitle: cleanTitle(prev?.title) || null,
+    nextTitle: cleanTitle(next?.title) || null,
+  }
+  const seriesCount: CountData | null = currentIndex >= 0 ? { current: currentIndex + 1, total: siblingList.length } : null
 
   return (
     <main className="min-h-screen">
       {/* Floating side navigation */}
-      <ArtworkNav
-        prevHref={prevHref}
-        prevTitle={prevTitle}
-        nextHref={nextHref}
-        nextTitle={nextTitle}
-      />
+      <ContextualArtworkNav series={seriesNav} available={availableNav} />
 
       {/* Breadcrumb + counter */}
       <div className="max-w-7xl mx-auto px-6 pt-24 pb-8 flex items-center justify-between gap-4">
@@ -153,11 +146,7 @@ export default async function ArtworkPage({
           <span className="text-[--color-border] shrink-0">/</span>
           <span className="text-[--color-charcoal] truncate">{cleanTitle(artwork.title)}</span>
         </nav>
-        {navCount && navCount.total > 1 && (
-          <span className="text-[10px] font-sans text-[--color-border] tabular-nums shrink-0">
-            {navCount.current} / {navCount.total}
-          </span>
-        )}
+        <ContextualArtworkCounter series={seriesCount} available={availableCount} />
       </div>
 
       {/* Main content */}
@@ -167,7 +156,7 @@ export default async function ArtworkPage({
           {/* Image */}
           <div className="flex justify-center">
             {artwork.image ? (
-              <FullscreenImage slides={lightboxSlides} index={Math.max(0, lightboxIndex)} hrefs={lightboxHrefs}>
+              <ContextualFullscreenImage series={buildSlides(allSlides, false)} available={buildSlides(availableSlides, true)}>
                 <Image
                   src={urlFor(artwork.image).width(1400).url()}
                   alt={cleanTitle(artwork.title)}
@@ -177,7 +166,7 @@ export default async function ArtworkPage({
                   priority
                   sizes="(max-width: 1024px) 100vw, 60vw"
                 />
-              </FullscreenImage>
+              </ContextualFullscreenImage>
             ) : (
               <div className="aspect-[4/3] flex items-center justify-center text-[--color-muted] font-serif text-2xl">
                 {cleanTitle(artwork.title)}
@@ -279,21 +268,24 @@ export default async function ArtworkPage({
 
       {/* Bottom: back link */}
       <div className="border-t border-[--color-border] max-w-7xl mx-auto px-6 py-12 pb-24 flex items-center justify-center">
-        {from === 'available' ? (
-          <Link
-            href="/art/paintings/available"
-            className="text-[10px] uppercase tracking-[0.25em] font-sans text-[--color-muted] hover:text-[--color-charcoal] transition-colors duration-300"
-          >
-            {t('backToAvailable')}
-          </Link>
-        ) : (
-          <Link
-            href={`/art/paintings/${seriesSlug}`}
-            className="text-[10px] uppercase tracking-[0.25em] font-sans text-[--color-muted] hover:text-[--color-charcoal] transition-colors duration-300"
-          >
-            {t('allWorksIn', { series: seriesTitle })}
-          </Link>
-        )}
+        <ContextualSwitch
+          available={
+            <Link
+              href="/art/paintings/available"
+              className="text-[10px] uppercase tracking-[0.25em] font-sans text-[--color-muted] hover:text-[--color-charcoal] transition-colors duration-300"
+            >
+              {t('backToAvailable')}
+            </Link>
+          }
+          series={
+            <Link
+              href={`/art/paintings/${seriesSlug}`}
+              className="text-[10px] uppercase tracking-[0.25em] font-sans text-[--color-muted] hover:text-[--color-charcoal] transition-colors duration-300"
+            >
+              {t('allWorksIn', { series: seriesTitle })}
+            </Link>
+          }
+        />
       </div>
     </main>
   )
