@@ -125,17 +125,28 @@ export default async function ArtworkPage({
   }
   const availableCount: CountData | null = idx >= 0 ? { current: idx + 1, total: flat.length } : null
 
-  // Navigate within series
-  const siblingList: { title: string; slug: { current: string } }[] = siblings || []
-  const currentIndex = siblingList.findIndex(s => s.slug?.current === artworkSlug)
-  const prev = currentIndex > 0 ? siblingList[currentIndex - 1] : null
-  const next = currentIndex < siblingList.length - 1 ? siblingList[currentIndex + 1] : null
+  // Navigate within the series, then straight on into the next one. The
+  // global list is ordered series by series, so neighbours inside a series
+  // are unchanged and only the boundaries now lead somewhere.
+  const everyWork: { title: string; seriesSlug: string; artworkSlug: string }[] = []
+  for (const s of (allSlides || [])) {
+    for (const item of (s.items || [])) {
+      everyWork.push({ title: item.title, seriesSlug: s.seriesSlug, artworkSlug: item.slug.current })
+    }
+  }
+  const globalIndex = everyWork.findIndex(w => w.seriesSlug === seriesSlug && w.artworkSlug === artworkSlug)
+  const prev = globalIndex > 0 ? everyWork[globalIndex - 1] : null
+  const next = globalIndex >= 0 && globalIndex < everyWork.length - 1 ? everyWork[globalIndex + 1] : null
   const seriesNav: NavData = {
-    prevHref: prev ? `/art/paintings/${seriesSlug}/${prev.slug.current}` : null,
-    nextHref: next ? `/art/paintings/${seriesSlug}/${next.slug.current}` : null,
+    prevHref: prev ? `/art/paintings/${prev.seriesSlug}/${prev.artworkSlug}` : null,
+    nextHref: next ? `/art/paintings/${next.seriesSlug}/${next.artworkSlug}` : null,
     prevTitle: cleanTitle(prev?.title) || null,
     nextTitle: cleanTitle(next?.title) || null,
   }
+
+  // The counter still reports the position inside this series
+  const siblingList: { title: string; slug: { current: string } }[] = siblings || []
+  const currentIndex = siblingList.findIndex(s => s.slug?.current === artworkSlug)
   const seriesCount: CountData | null = currentIndex >= 0 ? { current: currentIndex + 1, total: siblingList.length } : null
 
   const noteKey = catalogueNotes[`${seriesSlug}/${artworkSlug}`]
