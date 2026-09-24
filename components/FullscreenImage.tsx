@@ -4,6 +4,7 @@ import { ReactNode, useCallback, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Lightbox from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
+import { setLightboxOpen } from '@/lib/lightbox-state'
 
 interface Slide {
   src: string
@@ -25,6 +26,7 @@ export default function FullscreenImage({ slides, index, children, hrefs }: Full
 
   const handleClose = useCallback(() => {
     setOpen(false)
+    setLightboxOpen(false)
     // If user navigated to a different slide, go to that artwork's page
     if (hrefs && currentIndex.current !== index) {
       const target = hrefs[currentIndex.current]
@@ -38,7 +40,7 @@ export default function FullscreenImage({ slides, index, children, hrefs }: Full
     <>
       <button
         type="button"
-        onClick={() => setOpen(true)}
+        onClick={() => { setOpen(true); setLightboxOpen(true) }}
         className="block max-w-full cursor-zoom-in"
         aria-label="View fullscreen"
       >

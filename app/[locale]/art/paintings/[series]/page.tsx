@@ -52,7 +52,8 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
   const note = noteKey ? t(noteKey).split('\n\n') : null
 
   const artworks = data.artworks || []
-  const availableCount = artworks.filter((a: any) => a.available === true).length
+  // Site-wide definition: available unless explicitly marked otherwise
+  const availableCount = artworks.filter((a: any) => a.available !== false).length
 
   return (
     <>
@@ -67,11 +68,14 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
           <div className="text-[--color-muted] font-sans font-light text-sm leading-relaxed space-y-4 [&_p]:mb-0">
             <PortableText value={localizedField(data, 'description', locale)} />
           </div>
-          {availableCount > 0 && (
-            <p className="mt-6 text-[10px] uppercase tracking-[0.25em] text-[--color-gold] font-sans font-light">
-              {t('worksAvailable', { count: availableCount })}
-            </p>
-          )}
+        </div>
+      )}
+
+      {availableCount > 0 && (
+        <div className="max-w-3xl mx-auto px-6 pb-10">
+          <p className="text-[10px] uppercase tracking-[0.25em] text-[--color-gold] font-sans font-light">
+            {t('worksAvailable', { count: availableCount })}
+          </p>
         </div>
       )}
 

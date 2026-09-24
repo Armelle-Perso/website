@@ -8,12 +8,12 @@ interface PageHeaderProps {
 }
 
 export default function PageHeader({ title, subtitle, description, centered = false, compact = false }: PageHeaderProps) {
-  const pad = compact ? 'pt-14 pb-4 md:pt-20 md:pb-6' : 'pt-20 pb-16 md:pt-28 md:pb-20'
+  const pad = compact ? 'pt-10 pb-2 md:pt-14 md:pb-3' : 'pt-20 pb-16 md:pt-28 md:pb-20'
   return (
     <div className={`${pad} ${centered ? 'text-center' : ''}`}>
       <div className="max-w-7xl mx-auto px-6">
         {subtitle && (
-          <p className={`text-[10px] uppercase tracking-[0.3em] text-[--color-muted] font-sans font-light ${compact ? 'mb-5' : 'mb-8'}`}>
+          <p className={`text-[10px] uppercase tracking-[0.3em] text-[--color-muted] font-sans font-light ${compact ? 'mb-3' : 'mb-8'}`}>
             {subtitle}
           </p>
         )}
@@ -25,7 +25,7 @@ export default function PageHeader({ title, subtitle, description, centered = fa
             {description}
           </p>
         )}
-        <div className={`${compact ? 'mt-6' : 'mt-10'} w-12 h-px bg-[--color-gold]`} />
+        <div className={`${compact ? 'mt-4' : 'mt-10'} w-12 h-px bg-[--color-gold]`} />
       </div>
     </div>
   )

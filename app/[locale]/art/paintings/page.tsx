@@ -41,7 +41,7 @@ export default async function PaintingsPage({ params }: { params: Promise<{ loca
       />
       {/* Side by side rather than stacked, so the series circles are on
           screen when the page loads */}
-      <div className="max-w-7xl mx-auto px-6 mt-5 grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-3">
+      <div className="max-w-7xl mx-auto px-6 mt-4 grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-3">
         <p className="text-sm text-[--color-muted] font-sans font-light leading-relaxed">
           {t('description')}
         </p>
@@ -49,7 +49,7 @@ export default async function PaintingsPage({ params }: { params: Promise<{ loca
           {t('materials')}
         </p>
       </div>
-      <section className="max-w-7xl mx-auto px-6 pt-8 pb-32">
+      <section className="max-w-7xl mx-auto px-6 pt-6 pb-32">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-16">
 
           {/* ── Available Works — pinned first ── */}
@@ -112,6 +112,11 @@ export default async function PaintingsPage({ params }: { params: Promise<{ loca
               <h2 className="font-serif text-xl font-light group-hover:text-[--color-muted] transition-colors duration-300">
                 {s.title}
               </h2>
+              {s.availableCount > 0 && (
+                <p className="mt-1.5 text-[9px] uppercase tracking-[0.2em] font-sans text-[--color-gold] font-light">
+                  {t('worksAvailable', { count: s.availableCount })}
+                </p>
+              )}
             </Link>
           ))}
 

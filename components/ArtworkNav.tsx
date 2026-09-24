@@ -4,6 +4,7 @@ import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 import { useEffect } from 'react'
 import { useRouter } from '@/i18n/navigation'
+import { isLightboxOpen } from '@/lib/lightbox-state'
 
 interface Props {
   prevHref?: string | null
@@ -19,6 +20,8 @@ export default function ArtworkNav({ prevHref, prevTitle, nextHref, nextTitle }:
   // Keyboard navigation
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      // While the lightbox is open the arrows drive the lightbox, not the page
+      if (isLightboxOpen()) return
       if (e.key === 'ArrowLeft' && prevHref) router.push(prevHref)
       if (e.key === 'ArrowRight' && nextHref) router.push(nextHref)
     }
