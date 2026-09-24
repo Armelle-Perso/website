@@ -17,7 +17,7 @@ export default function PageHeader({ title, subtitle, description, centered = fa
             {subtitle}
           </p>
         )}
-        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-light leading-[0.9] tracking-tight text-[--color-charcoal]">
+        <h1 className={`font-serif text-5xl md:text-6xl font-light leading-[0.9] tracking-tight text-[--color-charcoal] ${compact ? '' : 'lg:text-7xl'}`}>
           {title}
         </h1>
         {description && (

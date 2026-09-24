@@ -37,17 +37,19 @@ export default async function PaintingsPage({ params }: { params: Promise<{ loca
       <PageHeader
         title={t('title')}
         subtitle={t('subtitle')}
-        description={t('description')}
         compact
       />
-      {/* Continues the header rather than starting a new block, so the
-          artwork grid reaches the fold on load */}
-      <div className="max-w-7xl mx-auto px-6 mt-6">
-        <p className="max-w-2xl text-sm text-[--color-muted] font-sans font-light leading-relaxed">
+      {/* Side by side rather than stacked, so the series circles are on
+          screen when the page loads */}
+      <div className="max-w-7xl mx-auto px-6 mt-5 grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-3">
+        <p className="text-sm text-[--color-muted] font-sans font-light leading-relaxed">
+          {t('description')}
+        </p>
+        <p className="text-sm text-[--color-muted] font-sans font-light leading-relaxed">
           {t('materials')}
         </p>
       </div>
-      <section className="max-w-7xl mx-auto px-6 pt-10 pb-32">
+      <section className="max-w-7xl mx-auto px-6 pt-8 pb-32">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-16">
 
           {/* ── Available Works — pinned first ── */}
