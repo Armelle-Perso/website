@@ -39,7 +39,9 @@ export default async function PaintingsPage({ params }: { params: Promise<{ loca
         subtitle={t('subtitle')}
         description={t('description')}
       />
-      <div className="max-w-7xl mx-auto px-6">
+      {/* Pulled up into PageHeader's bottom padding: this paragraph continues
+          the header rather than starting a new block */}
+      <div className="max-w-7xl mx-auto px-6 -mt-10 md:-mt-12">
         <p className="max-w-2xl text-sm text-[--color-muted] font-sans font-light leading-relaxed">
           {t('materials')}
         </p>
