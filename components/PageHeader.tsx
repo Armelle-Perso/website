@@ -21,7 +21,7 @@ export default function PageHeader({ title, subtitle, description, centered = fa
           {title}
         </h1>
         {description && (
-          <p className={`${compact ? 'mt-5' : 'mt-8'} text-[--color-muted] font-sans font-light text-base max-w-xl leading-relaxed`}>
+          <p className={`${compact ? 'mt-4' : 'mt-8'} text-[--color-muted] font-sans font-light text-base max-w-xl leading-relaxed`}>
             {description}
           </p>
         )}

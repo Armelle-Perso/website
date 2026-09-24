@@ -37,15 +37,12 @@ export default async function PaintingsPage({ params }: { params: Promise<{ loca
       <PageHeader
         title={t('title')}
         subtitle={t('subtitle')}
+        description={t('description')}
         compact
       />
-      {/* Side by side rather than stacked, so the series circles are on
-          screen when the page loads */}
-      <div className="max-w-7xl mx-auto px-6 mt-4 grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-3">
-        <p className="text-sm text-[--color-muted] font-sans font-light leading-relaxed">
-          {t('description')}
-        </p>
-        <p className="text-sm text-[--color-muted] font-sans font-light leading-relaxed">
+      {/* Follows on from the header's own line, so it reads as one block */}
+      <div className="max-w-7xl mx-auto px-6 mt-5">
+        <p className="max-w-2xl text-sm text-[--color-muted] font-sans font-light leading-relaxed">
           {t('materials')}
         </p>
       </div>
