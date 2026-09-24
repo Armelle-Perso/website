@@ -39,6 +39,11 @@ export default async function PaintingsPage({ params }: { params: Promise<{ loca
         subtitle={t('subtitle')}
         description={t('description')}
       />
+      <div className="max-w-7xl mx-auto px-6">
+        <p className="max-w-2xl text-sm text-[--color-muted] font-sans font-light leading-relaxed">
+          {t('materials')}
+        </p>
+      </div>
       <section className="max-w-7xl mx-auto px-6 py-20 pb-32">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-16">
 

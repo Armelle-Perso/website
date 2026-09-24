@@ -34,9 +34,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       href: '/consulting' as const,
     },
     {
-      title: nav('paintings'),
-      desc: t('paintingsDesc'),
-      href: '/art/paintings' as const,
+      title: nav('art'),
+      desc: t('artDesc'),
+      href: '/art' as const,
     },
   ]
 

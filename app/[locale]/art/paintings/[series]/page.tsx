@@ -14,6 +14,12 @@ import { getMaxDiagonal, getScale } from '@/lib/dimensions'
 
 export const revalidate = 3600
 
+// Series that carry a framing text from the 2014 Galerie Le point Fort
+// monograph, keyed by series slug and mapping to a message key
+const seriesNotes: Record<string, string> = {
+  '2012-2014': 'note_2012_2014',
+}
+
 export async function generateStaticParams() {
   if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return []
   try {
@@ -42,6 +48,9 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
   const data = await safeFetch<any>(paintingSeriesBySlugQuery, { slug })
   if (!data) notFound()
 
+  const noteKey = seriesNotes[slug]
+  const note = noteKey ? t(noteKey).split('\n\n') : null
+
   const artworks = data.artworks || []
   const availableCount = artworks.filter((a: any) => a.available === true).length
 
@@ -63,6 +72,22 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
               {t('worksAvailable', { count: availableCount })}
             </p>
           )}
+        </div>
+      )}
+
+      {note && (
+        <div className="max-w-3xl mx-auto px-6 pb-14">
+          <figure className="border-l border-[--color-gold] pl-6">
+            <div className="space-y-4 font-serif text-base md:text-lg font-light leading-relaxed text-[--color-charcoal]">
+              {note.map((para, i) => <p key={i}>{para}</p>)}
+            </div>
+            <figcaption className="mt-5 text-xs font-sans font-light italic text-[--color-muted] leading-relaxed">
+              {t(`${noteKey}_source`)}
+              {t('noteTranslated') && (
+                <span className="block not-italic mt-1">{t('noteTranslated')}</span>
+              )}
+            </figcaption>
+          </figure>
         </div>
       )}
 

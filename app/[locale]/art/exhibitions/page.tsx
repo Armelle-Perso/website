@@ -12,6 +12,10 @@ const typeOverrides: Record<string, string> = {
   q7MxOP673O523e3BZ9d37d: 'Residency', // Anankha (Sanity still says "Performance")
 }
 
+// Solo show at Galerie Le point Fort, 2014 — the one exhibition with a printed
+// monograph, so the entry carries a quote from it and the full reference
+const CATALOGUE_EXHIBITION_ID = 'q7MxOP673O523e3BZ9d2Ek'
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
   setRequestLocale(locale)
@@ -23,6 +27,13 @@ export default async function ExhibitionsPage({ params }: { params: Promise<{ lo
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations('exhibitions')
+
+  const catalogue = {
+    quote: t('catalogueQuote'),
+    author: t('catalogueAuthor'),
+    source: t('catalogueSource'),
+    translated: t('catalogueTranslated'),
+  }
 
   const exhibitions = await safeFetch<any[]>(exhibitionsQuery)
   const upcoming = exhibitions?.filter((e: any) => e.upcoming) || []
@@ -40,7 +51,7 @@ export default async function ExhibitionsPage({ params }: { params: Promise<{ lo
           <div className="mb-16">
             <h2 className="font-serif text-3xl mb-8 pb-4 border-b border-[--color-border]">{t('upcoming')}</h2>
             <div className="space-y-8">
-              {upcoming.map((ex: any) => <ExhibitionItem key={ex._id} ex={ex} locale={locale} moreInfo={t('moreInfo')} />)}
+              {upcoming.map((ex: any) => <ExhibitionItem key={ex._id} ex={ex} locale={locale} moreInfo={t('moreInfo')} catalogue={ex._id === CATALOGUE_EXHIBITION_ID ? catalogue : null} />)}
             </div>
           </div>
         )}
@@ -49,7 +60,7 @@ export default async function ExhibitionsPage({ params }: { params: Promise<{ lo
           <div>
             <h2 className="font-serif text-3xl mb-8 pb-4 border-b border-[--color-border]">{t('past')}</h2>
             <div className="space-y-8">
-              {past.map((ex: any) => <ExhibitionItem key={ex._id} ex={ex} locale={locale} moreInfo={t('moreInfo')} />)}
+              {past.map((ex: any) => <ExhibitionItem key={ex._id} ex={ex} locale={locale} moreInfo={t('moreInfo')} catalogue={ex._id === CATALOGUE_EXHIBITION_ID ? catalogue : null} />)}
             </div>
           </div>
         )}
@@ -62,7 +73,9 @@ export default async function ExhibitionsPage({ params }: { params: Promise<{ lo
   )
 }
 
-function ExhibitionItem({ ex, locale, moreInfo }: { ex: any; locale: string; moreInfo: string }) {
+type Catalogue = { quote: string; author: string; source: string; translated: string }
+
+function ExhibitionItem({ ex, locale, moreInfo, catalogue }: { ex: any; locale: string; moreInfo: string; catalogue?: Catalogue | null }) {
   const startYear = ex.startDate ? new Date(ex.startDate).getFullYear() : null
   const endYear = ex.endDate ? new Date(ex.endDate).getFullYear() : null
   const dateStr = startYear
@@ -107,6 +120,18 @@ function ExhibitionItem({ ex, locale, moreInfo }: { ex: any; locale: string; mor
               </span>
             ))}
           </p>
+        )}
+        {catalogue && (
+          <figure className="mt-4 border-l border-[--color-gold] pl-4">
+            <blockquote className="font-serif text-base font-light italic leading-snug text-[--color-charcoal]">
+              {catalogue.quote}
+            </blockquote>
+            <figcaption className="mt-2 text-xs font-sans font-light text-[--color-muted] leading-relaxed">
+              {catalogue.author}
+              <span className="block italic">{catalogue.source}</span>
+              {catalogue.translated && <span className="block">{catalogue.translated}</span>}
+            </figcaption>
+          </figure>
         )}
         {ex.link && (
           <a href={ex.link} target="_blank" rel="noopener noreferrer"

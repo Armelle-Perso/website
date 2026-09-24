@@ -38,12 +38,13 @@
     "learnMore": "En savoir plus →",
     "view": "Voir →",
     "aboutDesc": "Parcours, pratique et vision",
-    "scrollDown": "Défiler"
+    "scrollDown": "Défiler",
+    "artDesc": "Peintures, collectifs et expositions"
   },
   "art": {
     "title": "Art",
     "subtitle": "Pratique créative",
-    "description": "Peintre autodidacte exposant depuis 2011. Mes peintures sont des expressions d'états énergétiques invisibles que je canalise dans un langage intime, intuitif et sensible.",
+    "description": "Peintre autodidacte exposant depuis 2011. Mes peintures sont des expressions d'états énergétiques invisibles que je canalise dans un langage intime, intuitif et sensible. Je vis la création comme un flux méditatif qui soigne, une danse avec l'esprit. Mon chemin m'a menée à expérimenter aussi hors de la toile, par la performance, l'installation, le multimédia et, plus récemment, la joaillerie.",
     "paintingsLabel": "Peintures",
     "paintingsDesc": "Acrylique & techniques mixtes",
     "jewelryLabel": "Bijoux",
@@ -55,7 +56,15 @@
     "collectivesLabel": "Collectifs & Résidences",
     "collectivesDesc": "",
     "exhibitionsLabel": "Expositions & Événements",
-    "exhibitionsDesc": "Expositions passées et à venir, salons et événements"
+    "exhibitionsDesc": "Expositions passées et à venir, salons et événements",
+    "quote": "L'artiste ne peut pas tricher ou mentir au spectateur : la toile parle et nous raconte l'énergie qui a été utilisée pour sa mise en œuvre.",
+    "quoteAuthor": "Arthur van Hoey, « Entre abstraction lyrique et action painting »",
+    "quoteSource": "Armelle Boussidan, une monographie, Galerie Le point Fort, Strasbourg, 2014",
+    "quoteTranslated": "",
+    "quote2": "Sa création prend des allures organiques et minérales, se fait vivante et témoigne de la diversité du monde comme reflet de la diversité des états intérieurs.",
+    "quote2Author": "Aurélie Arena",
+    "quote2Source": "Armelle Boussidan, une monographie, Galerie Le point Fort, Strasbourg, 2014",
+    "quote2Translated": ""
   },
   "paintings": {
     "title": "Peintures",
@@ -70,7 +79,11 @@
     "noArtworks": "Pas encore d'œuvres.",
     "view": "Voir →",
     "notAvailable": "Non disponible",
-    "peopleSection": "Les acquéreurs"
+    "peopleSection": "Les acquéreurs",
+    "materials": "Pour faire naître mon alchimie de couleur et de matière, j'utilise surtout des acryliques, des Posca, des encres, des pigments, des pastels, des sables naturels et des minéraux broyés. Travailler sur rouleaux m'a permis une vie plus nomade et a rendu l'envoi de mes pièces partout dans le monde plus simple. Cela m'a poussée à explorer de nouvelles techniques et à laisser de côté le style très texturé que je pratiquais autrefois. Je travaille principalement sur toile de lin de haute qualité, même si quelques pièces naissent sur d'autres supports comme le papyrus, l'isorel de récupération ou la bâche.",
+    "note_2012_2014": "Ce sont les années que la monographie de 2014 lit comme la rencontre de deux traditions.\n\nDe l'action painting, la toile posée au sol, travaillée sur ses quatre côtés, le geste qui ne tolère aucune hésitation ni aucun repentir : « Ce n'est pas le résultat qui compte. Le résultat arrive plus tard. La peinture est avant tout un geste. »\n\nDe l'abstraction lyrique, le refus de la géométrie au profit de l'émotion directe, et l'idée que le signe précède sa signification.",
+    "note_2012_2014_source": "Arthur van Hoey, « Entre abstraction lyrique et action painting », dans Armelle Boussidan, une monographie, Galerie Le point Fort, Strasbourg, 2014",
+    "noteTranslated": ""
   },
   "available": {
     "title": "Œuvres disponibles",
@@ -103,7 +116,11 @@
     "notAvailable": "Non disponible",
     "series": "Série",
     "allWorksIn": "← Toutes les œuvres de {series}",
-    "backToAvailable": "← Œuvres disponibles"
+    "backToAvailable": "← Œuvres disponibles",
+    "catalogueLabel": "Extrait du catalogue",
+    "catalogueTranslated": "",
+    "catalogueSource": "Armelle Boussidan, une monographie, Galerie Le point Fort, Strasbourg, 2014",
+    "note_ishtar": "Ishtar. Déesse assyrienne et babylonienne de l'amour physique et de la guerre, à ce titre, elle régit la vie et la mort. Les Sumériens la nomment Inanna, sœur jumelle du Dieu-Soleil.\n\nIshtar donne la vie et la mort : on le voit sur la toile par l'apposition de tons suaves et chauds et du trou noir galactique. Ishtar est à la fois douce, génératrice et dangereuse, mortelle. Elle ne se laisse pas enfermer sous les traits de la bonne épouse. Elle règne, inquiétante et salvatrice, Gaïa ambivalente, cosmique et terrestre, elle unit les contraires.\n\nDans Ishtar, ce sont tous les aspects et les aspérités de la féminité qui font surface. La gestuelle, ample et précise, alterne brutalité et précaution, dripping de gesso et coulées de pigments dilués, explosions de couleurs.\n\nDe bienfaisantes constellations autour d'un grand trou noir…"
   },
   "artworkNav": {
     "previous": "Précédent",
@@ -247,7 +264,11 @@
     "upcoming": "En cours & à venir",
     "past": "Passées",
     "comingSoon": "Expositions à venir.",
-    "moreInfo": "Plus d'info →"
+    "moreInfo": "Plus d'info →",
+    "catalogueQuote": "S'approcher d'une œuvre d'Armelle Boussidan, c'est partir pour un voyage où la couleur et sa minéralité sont le véhicule d'une exploration de l'intime.",
+    "catalogueAuthor": "Aurélie Arena",
+    "catalogueSource": "Armelle Boussidan, une monographie, sous la direction d'Aurélie Arena et Arthur van Hoey, Galerie Le point Fort, Strasbourg, novembre 2014. ISBN 979-10-94386-01-9",
+    "catalogueTranslated": ""
   },
   "jewelry": {
     "title": "Bijoux",
