@@ -73,37 +73,30 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
             <p className="text-sm text-[--color-muted] font-sans font-light leading-relaxed max-w-md">
               {t('description')}
             </p>
-            <figure className="mt-8 max-w-md border-l border-[--color-gold] pl-5">
-              <blockquote className="font-serif text-base md:text-lg font-light italic leading-snug text-[--color-charcoal]">
-                {t('quote')}
-              </blockquote>
-              <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] font-sans font-light text-[--color-muted] leading-relaxed">
-                {t('quoteAuthor')}
-                <span className="block normal-case tracking-normal italic mt-1">{t('quoteSource')}</span>
-                {t('quoteTranslated') && (
-                  <span className="block normal-case tracking-normal mt-1">{t('quoteTranslated')}</span>
-                )}
-              </figcaption>
-            </figure>
           </div>
         </div>
       </section>
 
-      {/* Second catalogue voice, sitting between the hero and the categories */}
+      {/* The catalogue's two voices, paired so the monograph is credited once */}
       <section className="max-w-7xl mx-auto px-6 pb-24">
-        <figure className="max-w-3xl mx-auto text-center">
-          <div className="w-8 h-px bg-[--color-gold] mx-auto mb-8" />
-          <blockquote className="font-serif text-xl md:text-2xl font-light italic leading-snug text-[--color-charcoal]">
-            {t('quote2')}
-          </blockquote>
-          <figcaption className="mt-5 text-[10px] uppercase tracking-[0.2em] font-sans font-light text-[--color-muted] leading-relaxed">
-            {t('quote2Author')}
-            <span className="block normal-case tracking-normal italic mt-1">{t('quote2Source')}</span>
-            {t('quote2Translated') && (
-              <span className="block normal-case tracking-normal mt-1">{t('quote2Translated')}</span>
-            )}
-          </figcaption>
-        </figure>
+        <div className="max-w-5xl mx-auto">
+          <div className="w-8 h-px bg-[--color-gold] mb-10" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
+            {([['quote', 'quoteAuthor'], ['quote2', 'quote2Author']] as const).map(([q, author]) => (
+              <figure key={q}>
+                <blockquote className="font-serif text-lg md:text-xl font-light italic leading-snug text-[--color-charcoal]">
+                  {t(q)}
+                </blockquote>
+                <figcaption className="mt-4 text-[10px] uppercase tracking-[0.2em] font-sans font-light text-[--color-muted]">
+                  {t(author)}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+          <p className="mt-10 text-xs font-sans font-light italic text-[--color-muted] leading-relaxed">
+            {t('quotesSource')}
+          </p>
+        </div>
       </section>
 
       {/* Category cards */}

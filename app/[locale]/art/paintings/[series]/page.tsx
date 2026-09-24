@@ -77,11 +77,13 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
 
       {note && (
         <div className="max-w-3xl mx-auto px-6 pb-14">
-          <figure className="border-l border-[--color-gold] pl-6">
-            <div className="space-y-4 font-serif text-base md:text-lg font-light leading-relaxed text-[--color-charcoal]">
+          <figure>
+            {/* Every paragraph is a verbatim quotation, so each carries its
+                own quotation marks in the message strings */}
+            <blockquote className="border-l border-[--color-gold] pl-6 space-y-4 font-serif text-base md:text-lg font-light leading-relaxed text-[--color-charcoal]">
               {note.map((para, i) => <p key={i}>{para}</p>)}
-            </div>
-            <figcaption className="mt-5 text-xs font-sans font-light italic text-[--color-muted] leading-relaxed">
+            </blockquote>
+            <figcaption className="mt-5 pl-6 text-xs font-sans font-light italic text-[--color-muted] leading-relaxed">
               {t(`${noteKey}_source`)}
               {t('noteTranslated') && (
                 <span className="block not-italic mt-1">{t('noteTranslated')}</span>
@@ -154,16 +156,6 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
                     ) : (
                       <div className="group">{inner}</div>
                     )}
-                    {artwork.title && (
-                      <div className="mt-3 text-center">
-                        <Link
-                          href={`/contact?work=${encodeURIComponent(cleanTitle(artwork.title))}&series=${encodeURIComponent(data.title)}`}
-                          className="inline-block text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-gold] hover:text-[--color-charcoal] transition-colors"
-                        >
-                          {t('inquire')}
-                        </Link>
-                      </div>
-                    )}
                   </div>
                 </div>
               )
@@ -216,16 +208,6 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
                     <Link href={href} className="group block">{inner}</Link>
                   ) : (
                     <div className="group">{inner}</div>
-                  )}
-                  {artwork.title && (
-                    <div className="mt-4 text-center">
-                      <Link
-                        href={`/contact?work=${encodeURIComponent(cleanTitle(artwork.title))}&series=${encodeURIComponent(data.title)}`}
-                        className="inline-block text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-gold] hover:text-[--color-charcoal] transition-colors"
-                      >
-                        {t('inquire')}
-                      </Link>
-                    </div>
                   )}
                 </div>
               )

@@ -57,14 +57,11 @@
     "collectivesDesc": "",
     "exhibitionsLabel": "Exposiciones & Eventos",
     "exhibitionsDesc": "Exposiciones pasadas y futuras, ferias y eventos",
-    "quote": "La artista no puede engañar ni mentir al espectador: el lienzo habla y nos cuenta la energía que se empleó en su realización.",
-    "quoteAuthor": "Arthur van Hoey, «Entre abstraction lyrique et action painting»",
-    "quoteSource": "Armelle Boussidan, une monographie, Galerie Le point Fort, Estrasburgo, 2014",
-    "quoteTranslated": "Traducido del francés",
-    "quote2": "Su creación adopta formas orgánicas y minerales, se vuelve viva y da testimonio de la diversidad del mundo como reflejo de la diversidad de los estados interiores.",
+    "quote": "«La artista no puede hacer trampa ni mentir al espectador: el lienzo habla y nos cuenta la energía que se utilizó para su realización.»",
+    "quoteAuthor": "Arthur van Hoey",
+    "quote2": "«Así, su creación adopta un carácter orgánico y mineral, se hace viva y da testimonio de la diversidad del mundo como reflejo de la diversidad de los estados interiores.»",
     "quote2Author": "Aurélie Arena",
-    "quote2Source": "Armelle Boussidan, une monographie, Galerie Le point Fort, Estrasburgo, 2014",
-    "quote2Translated": "Traducido del francés"
+    "quotesSource": "Ambas de Armelle Boussidan, une monographie, Galerie Le point Fort, Estrasburgo, 2014. Traducido del francés."
   },
   "paintings": {
     "title": "Pinturas",
@@ -81,7 +78,7 @@
     "notAvailable": "No disponible",
     "peopleSection": "Los adquirentes",
     "materials": "Para dar a luz mi alquimia de color y textura utilizo sobre todo acrílicos, Posca, tintas, pigmentos, pasteles, arenas naturales y minerales triturados. Trabajar sobre rollos me permitió una vida más nómada y facilitó el envío de mis piezas a todo el mundo. Esto me impulsó a explorar nuevas técnicas y a dejar de lado el estilo muy texturado que practicaba antes. Trabajo principalmente sobre lienzo de lino de alta calidad, aunque hay algunas piezas sobre otros materiales como el papiro, el cartón duro reciclado o la lona.",
-    "note_2012_2014": "Son los años que la monografía de 2014 lee como el encuentro de dos tradiciones.\n\nDel action painting, el lienzo tendido en el suelo, trabajado por sus cuatro lados, el gesto que no tolera ninguna vacilación ni ninguna corrección: «No es el resultado lo que cuenta. El resultado llega más tarde. La pintura es ante todo un gesto».\n\nDe la abstracción lírica, el rechazo de la geometría en favor de la emoción directa, y la idea de que el signo precede a su significado.",
+    "note_2012_2014": "«Si no existe una abstracción, sino abstracciones, la obra de Armelle sintetiza dos de sus expresiones más deslumbrantes, las más simbólicas, las más difíciles también.»\n\n«En su taller, sus obras se realizan directamente en el suelo. Puede moverse alrededor, trabajar por los cuatro lados, inclinar el lienzo para obtener los chorreados deseados, u observar los recorridos de la pintura y de las tintas. Su cuerpo entero participa así en la creación.»\n\n«No es el resultado lo que cuenta. El resultado llega más tarde. La pintura es ante todo un gesto…»",
     "note_2012_2014_source": "Arthur van Hoey, «Entre abstraction lyrique et action painting», en Armelle Boussidan, une monographie, Galerie Le point Fort, Estrasburgo, 2014",
     "noteTranslated": "Traducido del francés"
   },
@@ -120,7 +117,7 @@
     "catalogueLabel": "Del catálogo",
     "catalogueTranslated": "Traducido del francés",
     "catalogueSource": "Armelle Boussidan, une monographie, Galerie Le point Fort, Estrasburgo, 2014",
-    "note_ishtar": "Ishtar. Diosa asiria y babilónica del amor físico y de la guerra, y por ello rige la vida y la muerte. Los sumerios la llaman Inanna, hermana gemela del Dios Sol.\n\nIshtar da la vida y la muerte: se ve en el lienzo en la aposición de tonos suaves y cálidos y del agujero negro galáctico. Ishtar es a la vez dulce, generadora, peligrosa, mortal. No se deja encerrar bajo los rasgos de la buena esposa. Reina, inquietante y salvadora, Gaia ambivalente, cósmica y terrestre, une los contrarios.\n\nEn Ishtar salen a la superficie todos los aspectos y las asperezas de lo femenino. El gesto, amplio y preciso, alterna brutalidad y cuidado, dripping de gesso y chorreados de pigmentos diluidos, explosiones de color.\n\nBenéficas constelaciones alrededor de un gran agujero negro…"
+    "note_ishtar": "«Ishtar. Diosa asiria y babilónica del amor físico y de la guerra – por ello rige la vida y la muerte. Los sumerios la llaman Inanna, hermana gemela del Dios Sol.\n\n«Ishtar da la vida y la muerte: se ve en el lienzo por la aposición de tonos suaves y cálidos y del agujero negro galáctico. Ishtar es a la vez dulce, generadora y peligrosa, mortal. No se deja encerrar bajo los rasgos de la buena esposa. Reina, inquietante y salvadora, Gaia ambivalente, cósmica y terrestre, une los contrarios.\n\n«En Ishtar salen a la superficie todos los aspectos y las asperezas de la feminidad. El gesto, amplio y preciso, alterna brutalidad y cautela, dripping de gesso y chorreados de pigmentos diluidos, explosiones de color.\n\n«Benéficas constelaciones alrededor de un gran agujero negro…»"
   },
   "artworkNav": {
     "previous": "Anterior",
