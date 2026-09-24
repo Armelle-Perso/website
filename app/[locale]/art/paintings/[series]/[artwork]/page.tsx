@@ -11,6 +11,12 @@ import { cleanTitle } from '@/lib/title'
 
 export const revalidate = 3600
 
+// Works that carry a text from the 2014 Galerie Le point Fort monograph,
+// keyed by "<series slug>/<artwork slug>" and mapping to a message key
+const catalogueNotes: Record<string, string> = {
+  '2012-2014/ishtar': 'note_ishtar',
+}
+
 export async function generateStaticParams() {
   if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return []
   try {
@@ -131,6 +137,9 @@ export default async function ArtworkPage({
     nextTitle: cleanTitle(next?.title) || null,
   }
   const seriesCount: CountData | null = currentIndex >= 0 ? { current: currentIndex + 1, total: siblingList.length } : null
+
+  const noteKey = catalogueNotes[`${seriesSlug}/${artworkSlug}`]
+  const catalogueNote = noteKey ? t(noteKey).split('\n\n') : null
 
   return (
     <main className="min-h-screen">
@@ -265,6 +274,26 @@ export default async function ArtworkPage({
           </div>
         </div>
       </div>
+
+      {/* Catalogue text, for the works written up in the 2014 monograph */}
+      {catalogueNote && (
+        <div className="max-w-7xl mx-auto px-6 pb-16">
+          <figure className="max-w-2xl border-t border-[--color-border] pt-10">
+            <figcaption className="text-[10px] uppercase tracking-[0.25em] font-sans text-[--color-gold] mb-6">
+              {t('catalogueLabel')}
+            </figcaption>
+            <blockquote className="space-y-4 font-serif text-base md:text-lg font-light leading-relaxed text-[--color-charcoal]">
+              {catalogueNote.map((para, i) => <p key={i}>{para}</p>)}
+            </blockquote>
+            <p className="mt-6 text-xs font-sans font-light italic text-[--color-muted]">
+              {t('catalogueSource')}
+            </p>
+            {t('catalogueTranslated') && (
+              <p className="mt-1 text-xs font-sans font-light text-[--color-muted]">{t('catalogueTranslated')}</p>
+            )}
+          </figure>
+        </div>
+      )}
 
       {/* Bottom: back link */}
       <div className="border-t border-[--color-border] max-w-7xl mx-auto px-6 py-12 pb-24 flex items-center justify-center">

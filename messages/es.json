@@ -38,12 +38,13 @@
     "learnMore": "Saber más →",
     "view": "Ver →",
     "aboutDesc": "Trayectoria, práctica y visión",
-    "scrollDown": "Desplazar"
+    "scrollDown": "Desplazar",
+    "artDesc": "Pinturas, colectivos y exposiciones"
   },
   "art": {
     "title": "Arte",
     "subtitle": "Práctica creativa",
-    "description": "Pintora autodidacta exponiendo desde 2011. Mis pinturas son expresiones de estados energéticos invisibles que canalizo en un lenguaje íntimo, intuitivo y sensible.",
+    "description": "Pintora autodidacta exponiendo desde 2011. Mis pinturas son expresiones de estados energéticos invisibles que canalizo en un lenguaje íntimo, intuitivo y sensible. Vivo la creación como un flujo meditativo que sana, una danza con el espíritu. Mi camino me llevó a experimentar también fuera del lienzo, a través de la performance, la instalación, el multimedia y, más recientemente, la joyería.",
     "paintingsLabel": "Pinturas",
     "paintingsDesc": "Acrílico & técnica mixta",
     "jewelryLabel": "Joyería",
@@ -55,7 +56,15 @@
     "collectivesLabel": "Colectivos & Residencias",
     "collectivesDesc": "",
     "exhibitionsLabel": "Exposiciones & Eventos",
-    "exhibitionsDesc": "Exposiciones pasadas y futuras, ferias y eventos"
+    "exhibitionsDesc": "Exposiciones pasadas y futuras, ferias y eventos",
+    "quote": "La artista no puede engañar ni mentir al espectador: el lienzo habla y nos cuenta la energía que se empleó en su realización.",
+    "quoteAuthor": "Arthur van Hoey, «Entre abstraction lyrique et action painting»",
+    "quoteSource": "Armelle Boussidan, une monographie, Galerie Le point Fort, Estrasburgo, 2014",
+    "quoteTranslated": "Traducido del francés",
+    "quote2": "Su creación adopta formas orgánicas y minerales, se vuelve viva y da testimonio de la diversidad del mundo como reflejo de la diversidad de los estados interiores.",
+    "quote2Author": "Aurélie Arena",
+    "quote2Source": "Armelle Boussidan, une monographie, Galerie Le point Fort, Estrasburgo, 2014",
+    "quote2Translated": "Traducido del francés"
   },
   "paintings": {
     "title": "Pinturas",
@@ -70,7 +79,8 @@
     "noArtworks": "Aún no hay obras.",
     "view": "Ver →",
     "notAvailable": "No disponible",
-    "peopleSection": "Los adquirentes"
+    "peopleSection": "Los adquirentes",
+    "materials": "Para dar a luz mi alquimia de color y textura utilizo sobre todo acrílicos, Posca, tintas, pigmentos, pasteles, arenas naturales y minerales triturados. Trabajar sobre rollos me permitió una vida más nómada y facilitó el envío de mis piezas a todo el mundo. Esto me impulsó a explorar nuevas técnicas y a dejar de lado el estilo muy texturado que practicaba antes. Trabajo principalmente sobre lienzo de lino de alta calidad, aunque hay algunas piezas sobre otros materiales como el papiro, el cartón duro reciclado o la lona."
   },
   "available": {
     "title": "Obras disponibles",
@@ -103,7 +113,11 @@
     "notAvailable": "No disponible",
     "series": "Serie",
     "allWorksIn": "← Todas las obras de {series}",
-    "backToAvailable": "← Obras disponibles"
+    "backToAvailable": "← Obras disponibles",
+    "catalogueLabel": "Del catálogo",
+    "catalogueTranslated": "Traducido del francés",
+    "catalogueSource": "Armelle Boussidan, une monographie, Galerie Le point Fort, Estrasburgo, 2014",
+    "note_ishtar": "Ishtar. Diosa asiria y babilónica del amor físico y de la guerra, y por ello rige la vida y la muerte. Los sumerios la llaman Inanna, hermana gemela del Dios Sol.\n\nIshtar da la vida y la muerte: se ve en el lienzo en la aposición de tonos suaves y cálidos y del agujero negro galáctico. Ishtar es a la vez dulce, generadora, peligrosa, mortal. No se deja encerrar bajo los rasgos de la buena esposa. Reina, inquietante y salvadora, Gaia ambivalente, cósmica y terrestre, une los contrarios.\n\nEn Ishtar salen a la superficie todos los aspectos y las asperezas de lo femenino. El gesto, amplio y preciso, alterna brutalidad y cuidado, dripping de gesso y chorreados de pigmentos diluidos, explosiones de color.\n\nBenéficas constelaciones alrededor de un gran agujero negro…"
   },
   "artworkNav": {
     "previous": "Anterior",
@@ -247,7 +261,11 @@
     "upcoming": "Actuales y próximas",
     "past": "Pasadas",
     "comingSoon": "Exposiciones próximamente.",
-    "moreInfo": "Más info →"
+    "moreInfo": "Más info →",
+    "catalogueQuote": "Acercarse a una obra de Armelle Boussidan es emprender un viaje donde el color y su mineralidad son el vehículo de una exploración de lo íntimo.",
+    "catalogueAuthor": "Aurélie Arena",
+    "catalogueSource": "Armelle Boussidan, une monographie, bajo la dirección de Aurélie Arena y Arthur van Hoey, Galerie Le point Fort, Estrasburgo, noviembre de 2014. ISBN 979-10-94386-01-9",
+    "catalogueTranslated": "Traducido del francés"
   },
   "jewelry": {
     "title": "Joyería",
