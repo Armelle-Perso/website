@@ -383,6 +383,16 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
           <Link href="/contact" className="inline-block bg-[--color-charcoal] text-white px-10 py-4 text-sm font-sans font-medium tracking-wide hover:bg-[--color-gold] transition-colors">
             {t('getInTouch')}
           </Link>
+          <p className="mt-6">
+            <a
+              href="https://www.upwork.com/freelancers/~01cc61b4f6efa52522"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] uppercase tracking-[0.2em] font-sans font-light text-[--color-muted] hover:text-[--color-charcoal] transition-colors"
+            >
+              {t('upwork')}
+            </a>
+          </p>
         </div>
       </section>
     </>

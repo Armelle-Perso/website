@@ -252,7 +252,8 @@
     "getInTouch": "Contactar",
     "publicationsTitle": "Publicaciones académicas",
     "publicationsDesc": "Trabajos revisados por pares en lingüística, semántica computacional y ciencias cognitivas.",
-    "viewPublications": "Ver publicaciones →"
+    "viewPublications": "Ver publicaciones →",
+    "upwork": "Ver mi perfil de Upwork →"
   },
   "exhibitions": {
     "title": "Exposiciones & Eventos",
@@ -262,10 +263,7 @@
     "past": "Pasadas",
     "comingSoon": "Exposiciones próximamente.",
     "moreInfo": "Más info →",
-    "catalogueQuote": "Acercarse a una obra de Armelle Boussidan es emprender un viaje donde el color y su mineralidad son el vehículo de una exploración de lo íntimo.",
-    "catalogueAuthor": "Aurélie Arena",
-    "catalogueSource": "Armelle Boussidan, une Monographie, bajo la dirección de Aurélie Arena y Arthur van Hoey, Galerie Le point Fort, Estrasburgo, noviembre de 2014. ISBN 979-10-94386-01-9",
-    "catalogueTranslated": "Traducido del francés"
+    "catalogueSource": "Armelle Boussidan, une Monographie, bajo la dirección de Aurélie Arena y Arthur van Hoey, Galerie Le point Fort, Estrasburgo, noviembre de 2014. ISBN 979-10-94386-01-9"
   },
   "jewelry": {
     "title": "Joyería",

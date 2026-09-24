@@ -77,7 +77,7 @@
     "view": "Voir →",
     "notAvailable": "Non disponible",
     "peopleSection": "Les acquéreurs",
-    "materials": "Pour faire naître mon alchimie de couleur et de matière, j'utilise surtout des acryliques, des Posca, des encres, des pigments, des pastels, des sables naturels et des minéraux broyés. Travailler sur rouleaux m'a permis une vie plus nomade et a rendu l'envoi de mes pièces partout dans le monde plus simple. Cela m'a poussée à explorer de nouvelles techniques et à laisser de côté le style très texturé que je pratiquais autrefois. Je travaille principalement sur toile de lin de haute qualité, même si quelques pièces naissent sur d'autres supports comme le papyrus, l'isorel de récupération ou la bâche.",
+    "materials": "Pour faire naître mon alchimie de couleur et de matière, j'utilise surtout des acryliques, des Posca, des encres, des pigments, des pastels, des sables naturels et des minéraux broyés. Travailler sur rouleaux m'a permis une vie plus nomade et a rendu l'envoi de mes pièces partout dans le monde plus simple. Cela m'a poussée à explorer de nouvelles techniques et à laisser de côté le style très texturé que je pratiquais par le passé. Je travaille principalement sur toile de lin de haute qualité, même si quelques pièces naissent sur d'autres supports comme le papyrus, l'isorel de récupération ou la bâche.",
     "note_2012_2014": "« S’il n’existe pas une abstraction, mais des abstractions, l’œuvre d’Armelle synthétise deux de ses expressions les plus éclatantes, les plus symboliques, les plus difficiles aussi. »\n\n« Dans son atelier, ses œuvres sont réalisées à même le sol. Elle peut se mouvoir autour, travailler sur les quatre côtés, incliner la toile pour obtenir les coulures désirées, ou observer les cheminements de la peinture et des encres. Son corps entier participe ainsi à la création. »\n\n« Ce n’est pas le résultat qui compte. Le résultat arrive plus tard. La peinture est avant tout un geste… »",
     "note_2012_2014_source": "Arthur van Hoey, « Entre abstraction lyrique et action painting », dans Armelle Boussidan, une Monographie, Galerie Le point Fort, Strasbourg, 2014",
     "noteTranslated": ""
@@ -252,7 +252,8 @@
     "getInTouch": "Me contacter",
     "publicationsTitle": "Publications académiques",
     "publicationsDesc": "Travaux évalués par les pairs en linguistique, sémantique computationnelle et sciences cognitives.",
-    "viewPublications": "Voir les publications →"
+    "viewPublications": "Voir les publications →",
+    "upwork": "Voir mon profil Upwork →"
   },
   "exhibitions": {
     "title": "Expositions & Événements",
@@ -262,10 +263,7 @@
     "past": "Passées",
     "comingSoon": "Expositions à venir.",
     "moreInfo": "Plus d'info →",
-    "catalogueQuote": "S'approcher d'une œuvre d'Armelle Boussidan, c'est partir pour un voyage où la couleur et sa minéralité sont le véhicule d'une exploration de l'intime.",
-    "catalogueAuthor": "Aurélie Arena",
-    "catalogueSource": "Armelle Boussidan, une Monographie, sous la direction d'Aurélie Arena et Arthur van Hoey, Galerie Le point Fort, Strasbourg, novembre 2014. ISBN 979-10-94386-01-9",
-    "catalogueTranslated": ""
+    "catalogueSource": "Armelle Boussidan, une Monographie, sous la direction d'Aurélie Arena et Arthur van Hoey, Galerie Le point Fort, Strasbourg, novembre 2014. ISBN 979-10-94386-01-9"
   },
   "jewelry": {
     "title": "Bijoux",

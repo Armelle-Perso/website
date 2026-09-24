@@ -28,12 +28,7 @@ export default async function ExhibitionsPage({ params }: { params: Promise<{ lo
   setRequestLocale(locale)
   const t = await getTranslations('exhibitions')
 
-  const catalogue = {
-    quote: t('catalogueQuote'),
-    author: t('catalogueAuthor'),
-    source: t('catalogueSource'),
-    translated: t('catalogueTranslated'),
-  }
+  const catalogue = { source: t('catalogueSource') }
 
   const exhibitions = await safeFetch<any[]>(exhibitionsQuery)
   const upcoming = exhibitions?.filter((e: any) => e.upcoming) || []
@@ -73,7 +68,7 @@ export default async function ExhibitionsPage({ params }: { params: Promise<{ lo
   )
 }
 
-type Catalogue = { quote: string; author: string; source: string; translated: string }
+type Catalogue = { source: string }
 
 function ExhibitionItem({ ex, locale, moreInfo, catalogue }: { ex: any; locale: string; moreInfo: string; catalogue?: Catalogue | null }) {
   const startYear = ex.startDate ? new Date(ex.startDate).getFullYear() : null
@@ -122,16 +117,9 @@ function ExhibitionItem({ ex, locale, moreInfo, catalogue }: { ex: any; locale: 
           </p>
         )}
         {catalogue && (
-          <figure className="mt-4 border-l border-[--color-gold] pl-4">
-            <blockquote className="font-serif text-base font-light italic leading-snug text-[--color-charcoal]">
-              {catalogue.quote}
-            </blockquote>
-            <figcaption className="mt-2 text-xs font-sans font-light text-[--color-muted] leading-relaxed">
-              {catalogue.author}
-              <span className="block italic">{catalogue.source}</span>
-              {catalogue.translated && <span className="block">{catalogue.translated}</span>}
-            </figcaption>
-          </figure>
+          <p className="mt-3 text-xs font-sans font-light italic text-[--color-muted] leading-relaxed">
+            {catalogue.source}
+          </p>
         )}
         {ex.link && (
           <a href={ex.link} target="_blank" rel="noopener noreferrer"
