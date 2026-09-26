@@ -41,12 +41,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   ]
 
   return (
-    <section className="h-svh flex items-center justify-center bg-[#FAF9F6] px-6 overflow-hidden">
-      <div className="w-full max-w-5xl flex flex-col items-center gap-8">
+    <section className="min-h-svh flex items-center justify-center bg-[#FAF9F6] px-6 py-12 overflow-x-hidden">
+      <div className="w-full max-w-5xl min-w-0 flex flex-col items-center gap-8">
 
         {/* ── Hero text ── */}
-        <div className="text-center max-w-2xl">
-          <h1 className="font-serif italic text-5xl sm:text-6xl md:text-7xl font-light text-[#8A6B24] tracking-tight leading-[0.95] mb-3">
+        <div className="w-full min-w-0 text-center max-w-2xl">
+          <h1 className="font-serif italic text-[clamp(2rem,9vw,4.5rem)] font-light text-[#8A6B24] tracking-tight leading-[0.95] mb-3 break-words">
             Armelle Boussidan
           </h1>
 
@@ -57,10 +57,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <span className="block w-12 h-px bg-[#A98436]" />
           </div>
 
-          <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#8A7A55] font-sans font-light mb-5">
+          <p className="text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.3em] text-[#8A7A55] font-sans font-light mb-5 max-w-full">
             {t('artistConsultant')}
           </p>
-          <p className="font-serif italic text-lg sm:text-xl text-[#1C1C1C] leading-snug whitespace-pre-line max-w-md mx-auto">
+          <p className="font-serif italic text-lg sm:text-xl text-[#1C1C1C] leading-snug whitespace-pre-line max-w-md mx-auto text-balance">
             {tagline || t('defaultTagline')}
           </p>
         </div>
