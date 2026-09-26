@@ -125,7 +125,7 @@ export default async function AvailablePaintingsPage({ params }: { params: Promi
                         </p>
                         <div className="flex items-baseline justify-between mt-1 gap-4">
                           <p className="text-[10px] uppercase tracking-[0.15em] font-sans text-[--color-muted] font-light">
-                            {artwork.seriesTitle}{artwork.seriesYear ? ` · ${artwork.seriesYear}` : ''}
+                            {artwork.seriesTitle}{artwork.seriesYear && artwork.seriesYear !== artwork.seriesTitle && !/^\d{4}/.test(artwork.seriesTitle) ? ` · ${artwork.seriesYear}` : ''}
                           </p>
                           {artwork.dimensions && !artwork.hideDimensions && (
                             <p className="text-[10px] font-sans text-[--color-muted] font-light shrink-0">
@@ -184,7 +184,7 @@ export default async function AvailablePaintingsPage({ params }: { params: Promi
                           {cleanTitle(artwork.title)}
                         </p>
                         <p className="text-[10px] uppercase tracking-[0.15em] font-sans text-[--color-muted] font-light mt-1">
-                          {artwork.seriesTitle}{artwork.seriesYear ? ` · ${artwork.seriesYear}` : ''}
+                          {artwork.seriesTitle}{artwork.seriesYear && artwork.seriesYear !== artwork.seriesTitle && !/^\d{4}/.test(artwork.seriesTitle) ? ` · ${artwork.seriesYear}` : ''}
                         </p>
                       </div>
                     </Link>
