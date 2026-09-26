@@ -315,7 +315,7 @@
     "analyticsTitle": "Analítica",
     "analyticsDesc": "Este sitio utiliza Google Analytics para comprender cómo los visitantes interactúan con el sitio web. Google Analytics utiliza cookies para recopilar datos de uso anónimos (páginas visitadas, tiempo de permanencia, tipo de dispositivo). No se recopila información personal identificable. Puede desactivarlo en cualquier momento a través de la configuración de cookies. Base legal: consentimiento (Art. 6(1)(a) RGPD). La audiencia también se mide con Vercel Web Analytics, que no utiliza cookies, no almacena datos personales y no le rastrea entre sitios.",
     "cookiesTitle": "Cookies",
-    "cookiesDesc": "Este sitio utiliza únicamente cookies de análisis (Google Analytics), que se cargan solo después de su consentimiento explícito. No se utilizan cookies publicitarias ni de seguimiento. Puede gestionar sus preferencias en cualquier momento.",
+    "cookiesDesc": "Este sitio utiliza únicamente cookies de análisis (Google Analytics), que se cargan solo después de su consentimiento explícito. No se utilizan cookies publicitarias ni de seguimiento. Puede gestionar sus preferencias en cualquier momento. Los vídeos se integran en el modo de privacidad mejorada de YouTube, que no utiliza cookies a menos que pulse reproducir.",
     "cookieSettings": "Gestionar configuración de cookies",
     "rightsTitle": "Sus derechos",
     "rightsDesc": "Según el RGPD, tiene derecho a acceder, rectificar, eliminar o portar sus datos personales, así como el derecho a limitar u oponerse al tratamiento. Para ejercer estos derechos, utilice el formulario de contacto.",

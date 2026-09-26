@@ -315,7 +315,7 @@
     "analyticsTitle": "Analytics",
     "analyticsDesc": "This site uses Google Analytics to understand how visitors interact with the website. Google Analytics uses cookies to collect anonymous usage data (pages visited, time spent, device type). No personally identifiable information is collected. You can opt out at any time via the cookie settings. Legal basis: consent (Art. 6(1)(a) GDPR). Visitor numbers are also measured with Vercel Web Analytics, which sets no cookies, stores no personal data and does not track you across sites.",
     "cookiesTitle": "Cookies",
-    "cookiesDesc": "This site uses only analytics cookies (Google Analytics), which are loaded only after your explicit consent. No advertising or tracking cookies are used. You can manage your preferences at any time.",
+    "cookiesDesc": "This site uses only analytics cookies (Google Analytics), which are loaded only after your explicit consent. No advertising or tracking cookies are used. You can manage your preferences at any time. Video is embedded in YouTube's privacy-enhanced mode, which sets no cookies unless you press play.",
     "cookieSettings": "Manage cookie settings",
     "rightsTitle": "Your rights",
     "rightsDesc": "Under GDPR, you have the right to access, rectify, delete, or port your personal data, as well as the right to restrict or object to processing. To exercise these rights, please use the contact form.",

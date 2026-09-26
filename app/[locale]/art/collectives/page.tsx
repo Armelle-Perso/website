@@ -172,7 +172,7 @@ export default async function CollectivesPage({ params }: { params: Promise<{ lo
           <div className="space-y-6">
             <div className="aspect-video">
               <iframe
-                src="https://www.youtube.com/embed/Zjqw1j-XYAg"
+                src="https://www.youtube-nocookie.com/embed/Zjqw1j-XYAg"
                 title="Anankha — Live Prismatic Ceremony"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
