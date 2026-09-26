@@ -67,9 +67,6 @@ export default async function PaintingsPage({ params }: { params: Promise<{ loca
                   <p className="text-[9px] uppercase tracking-[0.25em] font-sans text-white/80 font-light">{t('originals')}</p>
                 </div>
               </div>
-              <p className="text-[10px] uppercase tracking-[0.25em] text-[--color-gold] font-sans font-light mb-2">
-                {t('forSale')}
-              </p>
               <h2 className="font-serif text-xl font-light group-hover:text-[--color-muted] transition-colors duration-300">
                 {t('availableWorks')}
               </h2>
