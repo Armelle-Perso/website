@@ -264,27 +264,27 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
       {slug === 'lightcodes-2021' && (
         <section className="border-t border-[--color-border] max-w-5xl mx-auto px-6 py-20">
           <p className="text-[10px] uppercase tracking-[0.3em] text-[--color-gold] font-sans font-light mb-10">
-            Behind the series
+            {t('behindTheSeries')}
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-16 mb-16">
             <div className="space-y-5">
               <p className="font-sans font-light text-sm leading-relaxed text-[--color-charcoal]">
-                The &lsquo;lightcodes&rsquo; series was born in Egypt in 2021, under the stars of the Sinai desert. In this place of constellations, coral, salt, sand, and pure silence, the patterns found their flow and opened the gate for 12 paintings, continued in high energy places, such as Giza and Luxor.
+                {t('lightcodes_1')}
               </p>
               <p className="font-sans font-light text-sm leading-relaxed text-[--color-charcoal]">
-                The codes rewire my own energy field as I bring them in, carrying information from other times and dimensions.
+                {t('lightcodes_2')}
               </p>
             </div>
             <div>
               <Image
                 src="/images/paintings/lightcodes/st-catherine.jpg"
-                alt="Painting in St Catherine"
+                alt={t('cap_stcatherine')}
                 width={500}
                 height={375}
                 className="w-full h-auto object-cover"
               />
-              <p className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted] mt-3">Painting in St Catherine</p>
+              <p className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted] mt-3">{t('cap_stcatherine')}</p>
             </div>
           </div>
 
@@ -292,22 +292,22 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
             <div>
               <Image
                 src="/images/paintings/lightcodes/pyramids.jpg"
-                alt="Painting at the Pyramids of Giza"
+                alt={t('cap_pyramids')}
                 width={700}
                 height={525}
                 className="w-full h-full object-cover"
               />
-              <p className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted] mt-3">Painting at the Pyramids of Giza</p>
+              <p className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted] mt-3">{t('cap_pyramids')}</p>
             </div>
             <div>
               <Image
                 src="/images/paintings/lightcodes/hanging-lafab.jpg"
-                alt="Hanging at La Fab"
+                alt={t('cap_lafab')}
                 width={700}
                 height={525}
                 className="w-full h-full object-cover"
               />
-              <p className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted] mt-3">Hanging at La Fab</p>
+              <p className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted] mt-3">{t('cap_lafab')}</p>
             </div>
           </div>
         </section>
@@ -317,29 +317,29 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
       {slug === 'transforma-2020' && (
         <section className="border-t border-[--color-border] max-w-5xl mx-auto px-6 py-20">
           <p className="text-[10px] uppercase tracking-[0.3em] text-[--color-gold] font-sans font-light mb-10">
-            Behind the series
+            {t('behindTheSeries')}
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-16">
             <div className="space-y-5">
               <p className="font-sans font-light text-sm leading-relaxed text-[--color-charcoal]">
-                The series of paintings &lsquo;Transforma&rsquo; came to being on my return from Peru, at the end of 2019, where I engaged in healing work with the plants and healers of the Amazon. The connection with the world of plants was a source of wisdom, beauty and love. With plants, we enter other worlds. The series is an invitation to enter these invisible worlds, brimming with life. We are nature, we are world makers. We paint life as we please. While the planet is losing a huge proportion of natural life, I felt called to paint a world filled with flowers and colours, full of energy and wisdom. A world of light that is always part of us yet invisible, both powerful and fragile, familiar and foreign.
+                {t('transforma_1')}
               </p>
               <div className="pt-4 space-y-3">
                 <p className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted]">
-                  Inaugurated on Thank You Plant Medicine Day, February 22, 2020
+                  {t('transforma_ev1')}
                 </p>
                 <p className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted]">
-                  Ceramiq, Orgiva — one year alongside ceramics by Vicente Monfort
+                  {t('transforma_ev2')}
                 </p>
                 <p className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted]">
-                  Church of San Rom&aacute;n, Sevilla — six months, 2021
+                  {t('transforma_ev3')}
                 </p>
               </div>
             </div>
             <Image
               src="/images/paintings/transforma/exhibition.jpg"
-              alt="Transforma exhibition at Ceramiq, Orgiva"
+              alt={t('cap_transformaExpo')}
               width={500}
               height={375}
               className="w-full h-auto object-cover"
