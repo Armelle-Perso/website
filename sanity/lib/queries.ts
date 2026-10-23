@@ -1,5 +1,12 @@
 import { groq } from 'next-sanity'
 
+// Works sold since the Sanity data was entered (no write token, so overridden here).
+// Keyed by artwork slug; these count as not available everywhere on the site.
+const SOLD_SLUGS = ['llaves', 'dyptich-canonera', 'unfolding']
+const SOLD = JSON.stringify(SOLD_SLUGS)
+const IS_AVAILABLE = `available != false && !(slug.current in ${SOLD})`
+const AVAILABLE_FIELD = `"available": select(slug.current in ${SOLD} => false, available)`
+
 export const siteSettingsQuery = groq`*[_type == "siteSettings"][0]{
   name, tagline, tagline_fr, tagline_es, bio, bio_fr, bio_es,
   heroImage, heroImageAlt, socialLinks, seoDescription, seoDescription_fr, seoDescription_es
@@ -7,39 +14,39 @@ export const siteSettingsQuery = groq`*[_type == "siteSettings"][0]{
 
 export const paintingSeriesAllQuery = groq`*[_type == "paintingSeries"] | order(year desc, order asc){
   _id, title, slug, year, coverImage, description, description_fr, description_es,
-  "availableCount": count(artworks[available != false]),
-  "firstAvailableImage": artworks[available != false][0].image
+  "availableCount": count(artworks[${IS_AVAILABLE}]),
+  "firstAvailableImage": artworks[${IS_AVAILABLE}][0].image
 }`
 
 export const availableCoverQuery = groq`*[_type == "paintingSeries" && slug.current == "2015-2017"][0]
   .artworks[title match "Sol del Coraz*" && !(title match "*overview*")][0].image`
 
-export const availablePaintingsQuery = groq`*[_type == "paintingSeries" && title != "People with their painting" && count(artworks[available != false]) > 0] | order(year desc) {
+export const availablePaintingsQuery = groq`*[_type == "paintingSeries" && title != "People with their painting" && count(artworks[${IS_AVAILABLE}]) > 0] | order(year desc) {
   _id, title, slug, year, medium,
-  "availableArtworks": artworks[available != false]{
+  "availableArtworks": artworks[${IS_AVAILABLE}]{
     image, title, slug, medium, dimensions, hideDimensions, featured, year
   }
 }`
 
-export const availableNavQuery = groq`*[_type == "paintingSeries" && title != "People with their painting" && count(artworks[available != false]) > 0] | order(year desc) {
+export const availableNavQuery = groq`*[_type == "paintingSeries" && title != "People with their painting" && count(artworks[${IS_AVAILABLE}]) > 0] | order(year desc) {
   slug,
-  "items": artworks[available != false && slug.current != null]{ title, slug }
+  "items": artworks[${IS_AVAILABLE} && slug.current != null]{ title, slug }
 }`
 
-export const availableSlidesQuery = groq`*[_type == "paintingSeries" && title != "People with their painting" && count(artworks[available != false]) > 0] | order(year desc) {
+export const availableSlidesQuery = groq`*[_type == "paintingSeries" && title != "People with their painting" && count(artworks[${IS_AVAILABLE}]) > 0] | order(year desc) {
   "seriesSlug": slug.current,
-  "items": artworks[available != false && image != null && slug.current != null]{ title, slug, image }
+  "items": artworks[${IS_AVAILABLE} && image != null && slug.current != null]{ title, slug, image }
 }`
 
 export const paintingSeriesBySlugQuery = groq`*[_type == "paintingSeries" && slug.current == $slug][0]{
   _id, title, slug, year, description, description_fr, description_es, medium,
-  artworks[]{ image, title, slug, medium, dimensions, hideDimensions, featured, year, available, subseries }
+  artworks[]{ image, title, slug, medium, dimensions, hideDimensions, featured, year, ${AVAILABLE_FIELD}, subseries }
 }`
 
 export const artworkBySlugQuery = groq`*[_type == "paintingSeries" && slug.current == $seriesSlug][0]{
   _id, title, slug, year, medium,
   "artwork": artworks[slug.current == $artworkSlug][0]{
-    image, title, slug, medium, dimensions, hideDimensions, year, available, link, subseries
+    image, title, slug, medium, dimensions, hideDimensions, year, ${AVAILABLE_FIELD}, link, subseries
   },
   "siblings": artworks[image != null && slug.current != null]{ title, slug, image }
 }`
