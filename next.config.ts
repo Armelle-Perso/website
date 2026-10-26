@@ -39,12 +39,12 @@ const nextConfig: NextConfig = {
       // 2012-2014 split (Oct 2026): the 2012-2013 works first, then the rest
       // of the old series goes to 2014.
       {
-        source: '/art/paintings/2012-2014/:slug(devil-s-dare|freedom-of-speech|innocence|ishtar|primordia|profil|signs|terra|terre-d-eau|you-can-fly|sanguine)',
+        source: '/art/paintings/2012-2014/:slug(devil-s-dare|freedom-of-speech|innocence|ishtar|primordia|profil|signs|terra|terre-d-eau|you-can-fly)',
         destination: '/art/paintings/2012-2013/:slug',
         permanent: true,
       },
       {
-        source: '/:locale(en|fr|es)/art/paintings/2012-2014/:slug(devil-s-dare|freedom-of-speech|innocence|ishtar|primordia|profil|signs|terra|terre-d-eau|you-can-fly|sanguine)',
+        source: '/:locale(en|fr|es)/art/paintings/2012-2014/:slug(devil-s-dare|freedom-of-speech|innocence|ishtar|primordia|profil|signs|terra|terre-d-eau|you-can-fly)',
         destination: '/:locale/art/paintings/2012-2013/:slug',
         permanent: true,
       },

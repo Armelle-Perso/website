@@ -106,11 +106,6 @@ export default async function PaintingsPage({ params }: { params: Promise<{ loca
               <h2 className="font-serif text-xl font-light group-hover:text-[--color-muted] transition-colors duration-300">
                 {s.title}
               </h2>
-              {s.availableCount > 0 && (
-                <p className="mt-1.5 text-[9px] uppercase tracking-[0.2em] font-sans text-[--color-gold] font-light">
-                  {t('worksAvailable', { count: s.availableCount })}
-                </p>
-              )}
             </Link>
           ))}
 
