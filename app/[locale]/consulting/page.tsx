@@ -8,7 +8,7 @@ import { urlFor } from '@/sanity/lib/image'
 import WordCloud from '@/components/WordCloud'
 import TestimonialsCarousel from '@/components/TestimonialsCarousel'
 
-export const revalidate = 3600
+export const revalidate = 86400
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params

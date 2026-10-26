@@ -13,7 +13,7 @@ import { localizedField } from '@/sanity/lib/localize'
 import { getMaxDiagonal, getScale } from '@/lib/dimensions'
 import { MISSING_SERIES } from '@/lib/missing-series'
 
-export const revalidate = 3600
+export const revalidate = 86400
 
 // Series that carry a framing text from the 2014 Galerie Le point Fort
 // monograph, keyed by series slug and mapping to a message key

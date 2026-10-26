@@ -7,7 +7,7 @@ import { urlFor } from '@/sanity/lib/image'
 import { paintingSeriesAllQuery } from '@/sanity/lib/queries'
 import PageHeader from '@/components/PageHeader'
 
-export const revalidate = 3600
+export const revalidate = 86400
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params

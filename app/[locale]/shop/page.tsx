@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 
-export const revalidate = 3600
+export const revalidate = 86400
 
 const REDBUBBLE_STORE = 'https://www.redbubble.com/people/ArmelleArt/shop?asc=u'
 

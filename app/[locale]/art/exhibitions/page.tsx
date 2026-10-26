@@ -5,7 +5,7 @@ import PageHeader from '@/components/PageHeader'
 import { PortableText } from 'next-sanity'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
-export const revalidate = 3600
+export const revalidate = 86400
 
 // Tag corrections applied on top of Sanity data, keyed by exhibition _id
 const typeOverrides: Record<string, string> = {

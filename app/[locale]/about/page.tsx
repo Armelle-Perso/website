@@ -7,7 +7,7 @@ import { urlFor } from '@/sanity/lib/image'
 import { siteSettingsQuery } from '@/sanity/lib/queries'
 import { localized } from '@/sanity/lib/localize'
 
-export const revalidate = 3600
+export const revalidate = 86400
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params

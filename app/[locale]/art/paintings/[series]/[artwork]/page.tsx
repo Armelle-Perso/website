@@ -10,7 +10,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { MISSING_SERIES } from '@/lib/missing-series'
 import { cleanTitle } from '@/lib/title'
 
-export const revalidate = 3600
+export const revalidate = 86400
 
 // Works that carry a text from the 2014 Galerie Le point Fort monograph,
 // keyed by "<series slug>/<artwork slug>" and mapping to a message key
