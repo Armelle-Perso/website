@@ -7,6 +7,7 @@ import { urlFor, imageDimensions } from '@/sanity/lib/image'
 import { artworkBySlugQuery, paintingSeriesAllQuery, paintingSeriesBySlugQuery, availableNavQuery, allArtworkSlidesQuery, availableSlidesQuery } from '@/sanity/lib/queries'
 import { ContextualArtworkNav, ContextualArtworkCounter, ContextualFullscreenImage, ContextualSwitch, type NavData, type CountData, type SlidesData } from '@/components/ArtworkContext'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { MISSING_SERIES } from '@/lib/missing-series'
 import { cleanTitle } from '@/lib/title'
 
 export const revalidate = 3600
@@ -257,7 +258,7 @@ export default async function ArtworkPage({
                 </div>
               ) : artwork.available === false ? (
                 <p className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted]">
-                  {t('notAvailable')}
+                  {t(MISSING_SERIES.has(seriesSlug) ? 'missing' : 'notAvailable')}
                 </p>
               ) : (
                 <Link

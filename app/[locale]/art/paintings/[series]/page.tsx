@@ -11,6 +11,7 @@ import { PortableText } from 'next-sanity'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { localizedField } from '@/sanity/lib/localize'
 import { getMaxDiagonal, getScale } from '@/lib/dimensions'
+import { MISSING_SERIES } from '@/lib/missing-series'
 
 export const revalidate = 3600
 
@@ -19,10 +20,6 @@ export const revalidate = 3600
 const seriesNotes: Record<string, string> = {
   '2012-2014': 'note_2012_2014',
 }
-
-// Series whose paintings have gone missing (not sold); the page asks
-// visitors to get in touch if they see them. The old WordPress site had this.
-const missingSeries = new Set(['caminos-2017-2018'])
 
 export async function generateStaticParams() {
   if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return []
@@ -75,7 +72,7 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
         </div>
       )}
 
-      {missingSeries.has(slug) && (
+      {MISSING_SERIES.has(slug) && (
         <div className="max-w-3xl mx-auto px-6 pb-12">
           <p className="border-l border-[--color-gold] pl-6 font-serif text-base md:text-lg font-light leading-relaxed text-[--color-charcoal]">
             {t.rich('missingNotice', {
@@ -160,7 +157,7 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
                       {artwork.available === true ? (
                         <span className="text-[10px] uppercase tracking-[0.2em] text-[--color-gold] font-sans">{t('available')}</span>
                       ) : artwork.available === false ? (
-                        <span className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-sans">{t('notAvailable')}</span>
+                        <span className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-sans">{t(MISSING_SERIES.has(slug) ? 'missing' : 'notAvailable')}</span>
                       ) : null}
                       {href && (
                         <span className="text-[10px] uppercase tracking-[0.2em] text-white/70 font-sans">{t('view')}</span>
@@ -214,7 +211,7 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
                       {artwork.available === true ? (
                         <span className="text-[11px] uppercase tracking-[0.2em] text-[--color-gold] font-sans">{t('available')}</span>
                       ) : artwork.available === false ? (
-                        <span className="text-[11px] uppercase tracking-[0.2em] text-white/40 font-sans">{t('notAvailable')}</span>
+                        <span className="text-[11px] uppercase tracking-[0.2em] text-white/40 font-sans">{t(MISSING_SERIES.has(slug) ? 'missing' : 'notAvailable')}</span>
                       ) : null}
                       {href && (
                         <span className="text-[11px] uppercase tracking-[0.2em] text-white/70 font-sans">{t('view')}</span>
