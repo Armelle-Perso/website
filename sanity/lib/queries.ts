@@ -26,7 +26,7 @@ export const paintingSeriesAllQuery = groq`*[_type == "paintingSeries"] | order(
   "firstAvailableImage": artworks[${IS_AVAILABLE}][0].image
 }`
 
-export const availableCoverQuery = groq`*[_type == "paintingSeries" && slug.current == "2015-2017"][0]
+export const availableCoverQuery = groq`*[_type == "paintingSeries" && slug.current == "2015-2016"][0]
   .artworks[title match "Sol del Coraz*" && !(title match "*overview*")][0].image`
 
 export const availablePaintingsQuery = groq`*[_type == "paintingSeries" && title != "People with their painting" && count(artworks[${IS_AVAILABLE}]) > 0] | order(year desc) {

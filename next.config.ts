@@ -36,6 +36,29 @@ const nextConfig: NextConfig = {
         destination: '/:locale/consulting/publications',
         permanent: true,
       },
+      // Raag Bihag moved from 2015-2017 to 2018-2019 (Oct 2026); before the
+      // series rename below so it wins.
+      {
+        source: '/art/paintings/2015-2017/raag-bihag-album-cover',
+        destination: '/art/paintings/2018-2019/raag-bihag-album-cover',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|fr|es)/art/paintings/2015-2017/raag-bihag-album-cover',
+        destination: '/:locale/art/paintings/2018-2019/raag-bihag-album-cover',
+        permanent: true,
+      },
+      // Series slug renamed 2015-2017 -> 2015-2016 (Oct 2026)
+      {
+        source: '/art/paintings/2015-2017/:path*',
+        destination: '/art/paintings/2015-2016/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|fr|es)/art/paintings/2015-2017/:path*',
+        destination: '/:locale/art/paintings/2015-2016/:path*',
+        permanent: true,
+      },
       // Series slug renamed 2025 -> 2025-2026 (Oct 2026); keep old links working.
       {
         source: '/art/paintings/2025/:path*',
