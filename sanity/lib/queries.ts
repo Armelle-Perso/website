@@ -4,7 +4,15 @@ import { groq } from 'next-sanity'
 // Keyed by artwork slug; these count as not available everywhere on the site.
 const SOLD_SLUGS = ['llaves', 'dyptich-canonera', 'unfolding']
 const SOLD = JSON.stringify(SOLD_SLUGS)
-const IS_AVAILABLE = `available != false && !(slug.current in ${SOLD})`
+// Works kept in Sanity (the archive) but not shown on the site. Keyed by slug.
+const HIDDEN_SLUGS = [
+  // Triptych Enveloppes Solaires: only the overview is shown, not each panel
+  'triptych-enveloppes-solaires-1',
+  'triptych-enveloppes-solaires-2',
+  'triptych-enveloppes-solaires-3',
+]
+const IS_SHOWN = `!(slug.current in ${JSON.stringify(HIDDEN_SLUGS)})`
+const IS_AVAILABLE = `available != false && !(slug.current in ${SOLD}) && ${IS_SHOWN}`
 const AVAILABLE_FIELD = `"available": select(slug.current in ${SOLD} => false, available)`
 
 export const siteSettingsQuery = groq`*[_type == "siteSettings"][0]{
@@ -40,20 +48,20 @@ export const availableSlidesQuery = groq`*[_type == "paintingSeries" && title !=
 
 export const paintingSeriesBySlugQuery = groq`*[_type == "paintingSeries" && slug.current == $slug][0]{
   _id, title, slug, year, description, description_fr, description_es, medium,
-  artworks[]{ image, title, slug, medium, dimensions, hideDimensions, featured, year, ${AVAILABLE_FIELD}, subseries }
+  artworks[${IS_SHOWN}]{ image, title, slug, medium, dimensions, hideDimensions, featured, year, ${AVAILABLE_FIELD}, subseries }
 }`
 
 export const artworkBySlugQuery = groq`*[_type == "paintingSeries" && slug.current == $seriesSlug][0]{
   _id, title, slug, year, medium,
-  "artwork": artworks[slug.current == $artworkSlug][0]{
+  "artwork": artworks[slug.current == $artworkSlug && ${IS_SHOWN}][0]{
     image, title, slug, medium, dimensions, hideDimensions, year, ${AVAILABLE_FIELD}, link, subseries
   },
-  "siblings": artworks[image != null && slug.current != null]{ title, slug, image }
+  "siblings": artworks[image != null && slug.current != null && ${IS_SHOWN}]{ title, slug, image }
 }`
 
 export const allArtworkSlidesQuery = groq`*[_type == "paintingSeries"] | order(year desc, order asc){
   "seriesSlug": slug.current,
-  "items": artworks[image != null && slug.current != null]{ title, slug, image }
+  "items": artworks[image != null && slug.current != null && ${IS_SHOWN}]{ title, slug, image }
 }`
 
 export const jewelryCollectionsQuery = groq`*[_type == "jewelryCollection"] | order(order asc){
