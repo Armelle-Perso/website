@@ -15,7 +15,7 @@ export const revalidate = 86400
 // Works that carry a text from the 2014 Galerie Le point Fort monograph,
 // keyed by "<series slug>/<artwork slug>" and mapping to a message key
 const catalogueNotes: Record<string, string> = {
-  '2012-2014/ishtar': 'note_ishtar',
+  '2012-2013/ishtar': 'note_ishtar',
 }
 
 export async function generateStaticParams() {

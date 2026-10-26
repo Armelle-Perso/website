@@ -18,7 +18,7 @@ export const revalidate = 86400
 // Series that carry a framing text from the 2014 Galerie Le point Fort
 // monograph, keyed by series slug and mapping to a message key
 const seriesNotes: Record<string, string> = {
-  '2012-2014': 'note_2012_2014',
+  '2014': 'note_2012_2014',
 }
 
 export async function generateStaticParams() {
