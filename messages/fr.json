@@ -73,6 +73,7 @@
     "inquire": "Me contacter →",
     "available": "disponible(s)",
     "worksAvailable": "{count} œuvre{count, plural, one {} other {s}} disponible{count, plural, one {} other {s}}",
+    "missingNotice": "Ces peintures ont disparu. Si vous les voyez quelque part, merci de <link>me contacter</link>.",
     "noArtworks": "Pas encore d'œuvres.",
     "view": "Voir →",
     "notAvailable": "Non disponible",

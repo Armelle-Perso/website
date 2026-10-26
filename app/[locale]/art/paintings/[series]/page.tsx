@@ -20,6 +20,10 @@ const seriesNotes: Record<string, string> = {
   '2012-2014': 'note_2012_2014',
 }
 
+// Series whose paintings have gone missing (not sold); the page asks
+// visitors to get in touch if they see them. The old WordPress site had this.
+const missingSeries = new Set(['caminos-2017-2018'])
+
 export async function generateStaticParams() {
   if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return []
   try {
@@ -68,6 +72,20 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
           <div className="text-[--color-muted] font-sans font-light text-sm leading-relaxed space-y-4 [&_p]:mb-0">
             <PortableText value={localizedField(data, 'description', locale)} />
           </div>
+        </div>
+      )}
+
+      {missingSeries.has(slug) && (
+        <div className="max-w-3xl mx-auto px-6 pb-12">
+          <p className="border-l border-[--color-gold] pl-6 font-serif text-base md:text-lg font-light leading-relaxed text-[--color-charcoal]">
+            {t.rich('missingNotice', {
+              link: (chunks) => (
+                <Link href="/contact" className="underline decoration-[--color-gold] underline-offset-4 hover:text-[--color-gold] transition-colors">
+                  {chunks}
+                </Link>
+              ),
+            })}
+          </p>
         </div>
       )}
 
