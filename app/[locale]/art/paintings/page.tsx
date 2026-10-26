@@ -86,7 +86,7 @@ export default async function PaintingsPage({ params }: { params: Promise<{ loca
               <div className="w-full aspect-square overflow-hidden rounded-full bg-[--color-gold-light] mb-6">
                 {s.coverImage ? (
                   <Image
-                    src={urlFor(s.coverImage).width(500).height(500).fit('crop').crop('center').url()}
+                    src={urlFor(s.coverImage).width(500).height(500).fit('crop').url()}
                     alt={s.title}
                     width={500}
                     height={500}
