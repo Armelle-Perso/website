@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { translateMedium } from '@/lib/medium'
 import { safeFetch } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
 import { availablePaintingsQuery } from '@/sanity/lib/queries'
@@ -84,7 +85,7 @@ export default async function AvailablePaintingsPage({ params }: { params: Promi
               const after = featIdx >= 0 ? allAvailable.slice(featIdx + 1).filter(a => !a.featured) : []
 
               const renderCard = (artwork: typeof allAvailable[number], i: number) => {
-                const medium = artwork.medium || artwork.seriesMedium
+                const medium = translateMedium(artwork.medium || artwork.seriesMedium, locale)
                 const href = `/art/paintings/${artwork.seriesSlug}/${artwork.slug.current}?from=available`
                 const scale = getScale(artwork.dimensions, maxDiag)
 
@@ -146,7 +147,7 @@ export default async function AvailablePaintingsPage({ params }: { params: Promi
               }
 
               const renderFeatured = (artwork: typeof allAvailable[number]) => {
-                const medium = artwork.medium || artwork.seriesMedium
+                const medium = translateMedium(artwork.medium || artwork.seriesMedium, locale)
                 const href = `/art/paintings/${artwork.seriesSlug}/${artwork.slug.current}?from=available`
 
                 return (

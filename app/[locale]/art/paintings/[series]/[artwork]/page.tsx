@@ -9,6 +9,7 @@ import { ContextualArtworkNav, ContextualArtworkCounter, ContextualFullscreenIma
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { MISSING_SERIES } from '@/lib/missing-series'
 import { cleanTitle } from '@/lib/title'
+import { translateMedium } from '@/lib/medium'
 
 // Full-screen viewer images: capped at 2400 px on the longest side, which is
 // sharper than any page image and than most screens, without handing out the
@@ -49,12 +50,12 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; series: string; artwork: string }>
 }): Promise<Metadata> {
-  const { series: seriesSlug, artwork: artworkSlug } = await params
+  const { locale, series: seriesSlug, artwork: artworkSlug } = await params
   const data = await safeFetch<any>(artworkBySlugQuery, { seriesSlug, artworkSlug })
   if (!data?.artwork) return { title: 'Artwork not found' }
   return {
     title: `${cleanTitle(data.artwork.title)} — ${data.title}`,
-    description: [data.artwork.medium, !data.artwork.hideDimensions && data.artwork.dimensions, data.year].filter(Boolean).join(' · '),
+    description: [translateMedium(data.artwork.medium, locale), !data.artwork.hideDimensions && data.artwork.dimensions, data.year].filter(Boolean).join(' · '),
   }
 }
 
@@ -75,7 +76,7 @@ export default async function ArtworkPage({
   if (!data?.artwork) notFound()
 
   const { artwork, title: seriesTitle, year: seriesYear, medium: seriesMedium, siblings } = data
-  const medium = artwork.medium || seriesMedium
+  const medium = translateMedium(artwork.medium || seriesMedium, locale)
   const imgDims = imageDimensions(artwork.image) || { width: 1400, height: 1100 }
 
   type SlideSeries = { seriesSlug: string; items: { title: string; slug: { current: string }; image: any }[] }[]

@@ -7,6 +7,7 @@ import { urlFor } from '@/sanity/lib/image'
 import { paintingSeriesBySlugQuery, paintingSeriesAllQuery } from '@/sanity/lib/queries'
 import PageHeader from '@/components/PageHeader'
 import { cleanTitle } from '@/lib/title'
+import { translateMedium } from '@/lib/medium'
 import { PortableText } from 'next-sanity'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { localizedField } from '@/sanity/lib/localize'
@@ -61,7 +62,7 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
       <PageHeader
         title={data.title}
         subtitle={`Art / Paintings${data.year ? ` / ${data.year}` : ''}`}
-        description={data.medium || undefined}
+        description={translateMedium(data.medium, locale)}
       />
 
       {localizedField(data, 'description', locale) && (
@@ -150,7 +151,7 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
                     <p className="font-serif text-white text-lg leading-tight">{cleanTitle(artwork.title)}</p>
                     {((!artwork.hideDimensions && artwork.dimensions) || artwork.medium) && (
                       <p className="text-white/60 text-xs font-sans font-light mt-1.5">
-                        {[!artwork.hideDimensions && artwork.dimensions, artwork.medium].filter(Boolean).join(' · ')}
+                        {[!artwork.hideDimensions && artwork.dimensions, translateMedium(artwork.medium, locale)].filter(Boolean).join(' · ')}
                       </p>
                     )}
                     <div className="mt-3 flex items-center justify-between">
@@ -204,7 +205,7 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
                     <p className="font-serif text-white text-2xl leading-tight">{cleanTitle(artwork.title)}</p>
                     {((!artwork.hideDimensions && artwork.dimensions) || artwork.medium) && (
                       <p className="text-white/60 text-sm font-sans font-light mt-2">
-                        {[!artwork.hideDimensions && artwork.dimensions, artwork.medium].filter(Boolean).join(' · ')}
+                        {[!artwork.hideDimensions && artwork.dimensions, translateMedium(artwork.medium, locale)].filter(Boolean).join(' · ')}
                       </p>
                     )}
                     <div className="mt-4 flex items-center justify-between">
