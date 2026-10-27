@@ -33,9 +33,9 @@ const block = (key, text) => [{
 }]
 
 const TEXT = {
-  description: 'Serotiny is the botanical name for seeds that stay sealed in their cones, sometimes for years, until the heat of a fire opens them. These paintings come from such a time: a long wait, held closed, then a fire, a leap into the unknown, and finally an opening. Anthesis names that moment, when the flower opens.',
-  description_fr: "La sérotinie désigne, en botanique, les graines qui restent enfermées dans leurs cônes, parfois pendant des années, jusqu'à ce que la chaleur d'un feu les ouvre. Ces peintures viennent d'un tel moment : une longue attente où tout restait fermé, puis un feu, un saut dans l'inconnu, et enfin une ouverture. Anthesis nomme ce moment, celui où la fleur s'ouvre.",
-  description_es: 'La serotinia es el nombre botánico de las semillas que permanecen selladas en sus piñas, a veces durante años, hasta que el calor de un fuego las abre. Estas pinturas nacen de un tiempo así: una larga espera en la que todo permanecía cerrado, luego un fuego, un salto al vacío y, por fin, una apertura. Anthesis nombra ese momento, cuando la flor se abre.',
+  description: 'Serotiny is the botanical name for seeds that stay sealed in their cones, sometimes for years, until the heat of a fire opens them. These paintings are born of such a time. Anthesis names the moment when the flower opens.',
+  description_fr: "La sérotinie désigne, en botanique, les graines qui restent enfermées dans leurs cônes, parfois pendant des années, jusqu'à ce que la chaleur d'un feu les ouvre. Ces peintures sont nées d'une telle période. Anthesis nomme le moment où la fleur s'ouvre.",
+  description_es: 'La serotinia es el nombre botánico de las semillas que permanecen selladas en sus piñas, a veces durante años, hasta que el calor de un fuego las abre. Estas pinturas nacen de un tiempo así. Anthesis nombra el momento en que la flor se abre.',
 }
 
 async function run() {

@@ -10,6 +10,12 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { MISSING_SERIES } from '@/lib/missing-series'
 import { cleanTitle } from '@/lib/title'
 
+// Full-screen viewer images: capped at 2400 px on the longest side, which is
+// sharper than any page image and than most screens, without handing out the
+// print-quality originals (3600+ px) to anyone who reads the page.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const viewerSrc = (image: any) => urlFor(image).width(2400).height(2400).fit('max').quality(90).url()
+
 export const revalidate = 86400
 
 // Works that carry a text from the 2014 Galerie Le point Fort monograph,
@@ -88,7 +94,7 @@ export default async function ArtworkPage({
     let index = 0
     for (const s of (slideSeries || [])) {
       for (const item of (s.items || [])) {
-        slides.push({ src: urlFor(item.image).url(), alt: cleanTitle(item.title) })
+        slides.push({ src: viewerSrc(item.image), alt: cleanTitle(item.title) })
         hrefs.push(`/art/paintings/${s.seriesSlug}/${item.slug.current}${suffix}`)
         if (s.seriesSlug === seriesSlug && item.slug.current === artworkSlug) {
           index = slides.length - 1
@@ -100,7 +106,7 @@ export default async function ArtworkPage({
     if (fromAvailable && !hrefs.some(h => h.startsWith(`/art/paintings/${seriesSlug}/${artworkSlug}?`))) {
       if (!artwork.image) return { slides: [], hrefs: [], index: 0 }
       return {
-        slides: [{ src: urlFor(artwork.image).url(), alt: cleanTitle(artwork.title) }],
+        slides: [{ src: viewerSrc(artwork.image), alt: cleanTitle(artwork.title) }],
         hrefs: [`/art/paintings/${seriesSlug}/${artworkSlug}?from=available`],
         index: 0,
       }
