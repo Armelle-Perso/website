@@ -31,9 +31,9 @@ const block = (key, text) => [{
 }]
 
 const TEXT = {
-  description: 'In a nebula, scattered matter slowly gathers until a star is born.',
-  description_fr: "Dans une nébuleuse, la matière éparse se rassemble peu à peu, jusqu'à ce que naisse une étoile.",
-  description_es: 'En una nebulosa, la materia dispersa se reúne poco a poco, hasta que nace una estrella.',
+  description: 'At the heart of a nebula, scattered matter slowly gathers until a star is born.',
+  description_fr: "Au cœur des nébuleuses, la matière éparse se rassemble peu à peu, jusqu'à ce que naisse une étoile.",
+  description_es: 'En el corazón de las nebulosas, la materia dispersa se reúne poco a poco, hasta que nace una estrella.',
 }
 
 async function run() {
