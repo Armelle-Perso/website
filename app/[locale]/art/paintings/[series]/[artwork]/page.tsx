@@ -25,6 +25,12 @@ const catalogueNotes: Record<string, string> = {
   '2012-2013/ishtar': 'note_ishtar',
 }
 
+// A short note on what became of a work, keyed like catalogueNotes, with an
+// optional link (SeedPiece was turned into the Lightcode accessories)
+const fateNotes: Record<string, { key: string; href?: '/art/jewelry'; linkKey?: string }> = {
+  'lightcodes-2021/seedpiece': { key: 'fate_seedpiece', href: '/art/jewelry', linkKey: 'fate_seedpiece_link' },
+}
+
 export async function generateStaticParams() {
   if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return []
   try {
@@ -159,6 +165,7 @@ export default async function ArtworkPage({
   const seriesCount: CountData | null = currentIndex >= 0 ? { current: currentIndex + 1, total: siblingList.length } : null
 
   const noteKey = catalogueNotes[`${seriesSlug}/${artworkSlug}`]
+  const fate = fateNotes[`${seriesSlug}/${artworkSlug}`]
   const catalogueNote = noteKey ? t(noteKey).split('\n\n') : null
 
   return (
@@ -277,6 +284,20 @@ export default async function ArtworkPage({
                 </Link>
               )}
             </div>
+
+            {fate && (
+              <p className="mt-8 font-serif text-base italic font-light leading-relaxed text-[--color-charcoal]">
+                {t(fate.key)}
+                {fate.href && fate.linkKey && (
+                  <>
+                    {' '}
+                    <Link href={fate.href} className="not-italic font-sans text-[11px] uppercase tracking-[0.2em] text-[--color-gold] hover:text-[--color-charcoal] transition-colors duration-300">
+                      {t(fate.linkKey)}
+                    </Link>
+                  </>
+                )}
+              </p>
+            )}
 
             {/* Series context */}
             <div className="mt-10 pt-8 border-t border-[--color-border]">

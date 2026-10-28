@@ -136,6 +136,8 @@
     "series": "Serie",
     "allWorksIn": "← Todas las obras de {series}",
     "backToAvailable": "← Obras disponibles",
+    "fate_seedpiece": "Esta pintura ya no existe como lienzo: se transformó en los accesorios Lightcode.",
+    "fate_seedpiece_link": "Ver las joyas →",
     "catalogueLabel": "Del catálogo",
     "catalogueTranslated": "Traducido del francés",
     "catalogueSource": "Armelle Boussidan, une Monographie, Galerie Le point Fort, Estrasburgo, 2014",
