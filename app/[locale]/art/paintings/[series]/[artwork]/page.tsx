@@ -26,9 +26,10 @@ const catalogueNotes: Record<string, string> = {
 }
 
 // A short note on what became of a work, keyed like catalogueNotes, with an
-// optional link (SeedPiece was turned into the Lightcode accessories)
+// optional link (SeedPiece was turned into the Lightcode accessories; the
+// jewellery page is no longer linked, so no link here)
 const fateNotes: Record<string, { key: string; href?: '/art/jewelry'; linkKey?: string }> = {
-  'lightcodes-2021/seedpiece': { key: 'fate_seedpiece', href: '/art/jewelry', linkKey: 'fate_seedpiece_link' },
+  'lightcodes-2021/seedpiece': { key: 'fate_seedpiece' },
 }
 
 export async function generateStaticParams() {
