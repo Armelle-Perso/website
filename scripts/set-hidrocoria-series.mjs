@@ -1,6 +1,6 @@
 /**
  * One-off, 2026-10-28: text of the Hidrocoria series (2018-2019) in EN/FR/ES,
- * one sentence, chosen by Armelle. Previous descriptions: none (printed below).
+ * one sentence, chosen by Armelle. FR reworded the same day ("portées par" -> "qui voyagent au fil de l'eau"). Previous descriptions: none (printed below).
  * The public text stays metaphorical: no places, music or home.
  *
  *   node scripts/set-hidrocoria-series.mjs
@@ -32,7 +32,7 @@ const block = (key, text) => [{
 
 const TEXT = {
   description: 'Hidrocoria is the botanical name for seeds carried by water to the place where they will take root.',
-  description_fr: "L'hydrochorie désigne, en botanique, les graines portées par l'eau jusqu'à l'endroit où elles prendront racine.",
+  description_fr: "L'hydrochorie désigne, en botanique, les graines qui voyagent au fil de l'eau jusqu'à l'endroit où elles prendront racine.",
   description_es: 'La hidrocoria es el nombre botánico de las semillas que el agua lleva hasta el lugar donde echarán raíces.',
 }
 
