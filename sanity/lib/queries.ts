@@ -40,7 +40,7 @@ export const availableCoverQuery = groq`*[_type == "paintingSeries" && slug.curr
 export const availablePaintingsQuery = groq`*[_type == "paintingSeries" && title != "People with their painting" && count(artworks[${IS_AVAILABLE}]) > 0] | order(string(year) desc, order asc) {
   _id, title, slug, year, medium,
   "availableArtworks": artworks[${IS_AVAILABLE}]{
-    image, title, slug, medium, dimensions, hideDimensions, featured, year
+    image, title, slug, medium, dimensions, hideDimensions, featured, year, subseries
   }
 }`
 

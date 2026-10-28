@@ -50,7 +50,8 @@ export default async function AvailablePaintingsPage({ params }: { params: Promi
       if (a.slug?.current) {
         allAvailable.push({
           ...a,
-          seriesTitle: s.title,
+          // A subseries (Cuadritos) is a series of its own
+          seriesTitle: a.subseries || s.title,
           seriesSlug: s.slug.current,
           seriesYear: s.year,
           seriesMedium: s.medium,
