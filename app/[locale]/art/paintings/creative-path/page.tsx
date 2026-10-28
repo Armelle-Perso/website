@@ -56,7 +56,7 @@ export default async function CreativePathPage({ params }: { params: Promise<{ l
 
       <figure className="max-w-lg mx-auto px-6 mb-16">
         <Image
-          src="/images/paintings/creative-path/performance-le-point-fort-2014.jpg"
+          src="/images/paintings/creative-path/performance-le-point-fort-2014-listening.jpg"
           alt={t('photoCaption')}
           width={1065}
           height={1600}
@@ -78,7 +78,7 @@ export default async function CreativePathPage({ params }: { params: Promise<{ l
           ))}
         </div>
 
-        {text.sections.map((section) => (
+        {text.sections.map((section, si) => (
           <section key={section.heading} className="mb-14">
             <h2 className="text-[10px] uppercase tracking-[0.3em] text-[--color-gold] font-sans font-light mb-6">
               {section.heading}
@@ -90,6 +90,38 @@ export default async function CreativePathPage({ params }: { params: Promise<{ l
                 </p>
               ))}
             </div>
+            {/* The floor-painting paragraph closes the first section */}
+            {si === 0 && (
+              <figure className="max-w-md mx-auto mt-12">
+                <Image
+                  src="/images/paintings/creative-path/performance-le-point-fort-2014-gesture.jpg"
+                  alt={t('photoCaption')}
+                  width={1065}
+                  height={1600}
+                  className="w-full h-auto"
+                  sizes="(max-width: 640px) 100vw, 448px"
+                />
+                <figcaption className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted] mt-3">
+                  {t('photoCaption')}
+                </figcaption>
+              </figure>
+            )}
+            {/* The hand in the matter, after the inward turn of 2015–2016 */}
+            {si === 1 && (
+              <figure className="mt-12">
+                <Image
+                  src="/images/paintings/creative-path/performance-le-point-fort-2014-touch.jpg"
+                  alt={t('photoCaption')}
+                  width={1600}
+                  height={1065}
+                  className="w-full h-auto"
+                  sizes="(max-width: 768px) 100vw, 720px"
+                />
+                <figcaption className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted] mt-3">
+                  {t('photoCaption')}
+                </figcaption>
+              </figure>
+            )}
           </section>
         ))}
 
