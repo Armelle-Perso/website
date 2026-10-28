@@ -4,7 +4,7 @@
 
 ---
 
-Je ne commence jamais une peinture avec une image en tête. Je commence par un processus : la peinture versée sur une toile posée au sol, l'encre qui prend à son rythme, le sable. Je ne pense pas, je ressens. J'écoute, et je me connecte à l'énergie présente. Je canalise la peinture, qui passe par moi autant qu'elle vient de moi.
+Je ne commence jamais une peinture avec une image en tête. Je commence par un processus : la peinture versée sur une toile posée au sol, l'encre qui prend à son rythme, le sable qui effleure la toile. Je ne pense pas, je ressens. J'écoute, et je me connecte à l'énergie présente. Je canalise la peinture, qui passe par moi autant qu'elle vient de moi.
 
 Je peins depuis vingt ans. Mis côte à côte, les noms de ces peintures depuis 2011 racontent une histoire que je n'avais pas prévue : une étoile qui se forme, une cellule qui s'organise, une graine qui attend le feu, un lent mouvement de la matière vers la lumière. C'est aussi un va-et-vient constant entre deux mondes : le monde extérieur, celui des lieux, des éléments et des personnes, et le monde intérieur, celui du corps, de l'énergie et du ressenti. Chaque série naît dans l'un et trouve son écho dans l'autre.
 

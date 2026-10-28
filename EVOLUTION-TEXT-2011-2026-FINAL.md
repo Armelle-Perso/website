@@ -4,7 +4,7 @@
 
 ---
 
-I never start a painting with an image in mind. I start with a process: paint poured onto a canvas lying on the floor, ink left to set at its own pace, sand. I don't think, I feel. I listen, and connect to the energy that is present. I am channeling the painting, which comes through me as much as from me.
+I never start a painting with an image in mind. I start with a process: paint poured onto a canvas lying on the floor, ink left to set at its own pace, sand brushing the canvas. I don't think, I feel. I listen, and connect to the energy that is present. I am channeling the painting, which comes through me as much as from me.
 
 I have been painting for twenty years. Placed side by side, the names of these paintings since 2011 tell a story I had not planned: a star forming, a cell organising, a seed waiting for fire, a slow movement from matter towards light. It is also a constant back-and-forth between two worlds: the outer one, of places, elements and people, and the inner one, of the body, energy and feeling. Each series begins in one and finds its echo in the other.
 
