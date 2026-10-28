@@ -4,7 +4,7 @@
  * Their longer story stays in "Behind the series" at the bottom of the page.
  * Before: no descriptions on either series.
  *
- *   node scripts/set-caminos-axis-mundi-texts.mjs
+ *   node scripts/set-transforma-lightcodes-texts.mjs
  */
 import { createClient } from '@sanity/client'
 import { readFileSync } from 'fs'

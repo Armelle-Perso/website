@@ -27,7 +27,8 @@ const SECTION_PHOTOS: Record<number, { src: string; width: number; height: numbe
   1: { src: '/images/paintings/creative-path/performance-le-point-fort-2014-touch.jpg', width: 1600, height: 1065 },
 }
 
-// **Series** becomes a link to the series page, *Title* becomes italics
+// **Series** becomes a link to the series page (new tab, so the reader keeps
+// their place in the text), *Title* becomes italics
 function RichLine({ text }: { text: string }) {
   const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g)
   return (
@@ -37,7 +38,7 @@ function RichLine({ text }: { text: string }) {
           const name = part.slice(2, -2)
           const slug = SERIES_LINKS[name]
           return slug ? (
-            <Link key={i} href={`/art/paintings/${slug}`} className="text-[--color-charcoal] border-b border-[--color-gold] hover:text-[--color-gold] transition-colors duration-300">
+            <Link key={i} href={`/art/paintings/${slug}`} target="_blank" rel="noopener" className="text-[--color-charcoal] border-b border-[--color-gold] hover:text-[--color-gold] transition-colors duration-300">
               {name}
             </Link>
           ) : (
