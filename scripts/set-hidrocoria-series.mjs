@@ -31,8 +31,8 @@ const block = (key, text) => [{
 }]
 
 const TEXT = {
-  description: 'Hidrocoria is the botanical name for the dispersal of seeds by water, to the place where they will take root.',
-  description_fr: "L'hydrochorie désigne, en botanique, la dispersion des graines au fil de l'eau, jusqu'à l'endroit où elles prendront racine.",
+  description: 'Hidrocoria (hydrochory) is the botanical name for the dispersal of seeds by water, to the place where they will take root.',
+  description_fr: "Hidrocoria (l'hydrochorie) désigne, en botanique, la dispersion des graines au fil de l'eau, jusqu'à l'endroit où elles prendront racine.",
   description_es: 'La hidrocoria es el nombre botánico de la dispersión de las semillas por el agua, hasta el lugar donde echarán raíces.',
 }
 
