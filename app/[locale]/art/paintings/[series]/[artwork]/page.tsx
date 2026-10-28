@@ -54,7 +54,8 @@ export async function generateMetadata({
   const data = await safeFetch<any>(artworkBySlugQuery, { seriesSlug, artworkSlug })
   if (!data?.artwork) return { title: 'Artwork not found' }
   return {
-    title: `${cleanTitle(data.artwork.title)} — ${data.title}`,
+    // A subseries (Cuadritos) is a series of its own, shown inside its parent page
+    title: `${cleanTitle(data.artwork.title)} — ${data.artwork.subseries || data.title}`,
     description: [translateMedium(data.artwork.medium, locale), !data.artwork.hideDimensions && data.artwork.dimensions, data.year].filter(Boolean).join(' · '),
   }
 }
@@ -170,7 +171,7 @@ export default async function ArtworkPage({
         <nav className="text-[10px] uppercase tracking-[0.25em] font-sans text-[--color-muted] flex items-center gap-3 min-w-0">
           <Link href="/art/paintings" className="hover:text-[--color-charcoal] transition-colors shrink-0">{tNav('paintings')}</Link>
           <span className="text-[--color-border]">/</span>
-          <Link href={`/art/paintings/${seriesSlug}`} className="hover:text-[--color-charcoal] transition-colors truncate">{artwork.subseries ? `${seriesTitle} · ${artwork.subseries}` : seriesTitle}</Link>
+          <Link href={`/art/paintings/${seriesSlug}`} className="hover:text-[--color-charcoal] transition-colors truncate">{artwork.subseries || seriesTitle}</Link>
           <span className="text-[--color-border] shrink-0">/</span>
           <span className="text-[--color-charcoal] truncate">{cleanTitle(artwork.title)}</span>
         </nav>
@@ -257,7 +258,7 @@ export default async function ArtworkPage({
                     {t('available')}
                   </p>
                   <Link
-                    href={`/contact?work=${encodeURIComponent(cleanTitle(artwork.title))}&series=${encodeURIComponent(seriesTitle)}`}
+                    href={`/contact?work=${encodeURIComponent(cleanTitle(artwork.title))}&series=${encodeURIComponent(artwork.subseries || seriesTitle)}`}
                     className="inline-block text-[11px] uppercase tracking-[0.2em] font-sans text-[--color-charcoal] border-b border-[--color-charcoal] pb-0.5 hover:text-[--color-gold] hover:border-[--color-gold] transition-colors duration-300"
                   >
                     {t('inquireAbout')}
@@ -284,7 +285,7 @@ export default async function ArtworkPage({
                 href={`/art/paintings/${seriesSlug}`}
                 className="font-serif text-lg font-light hover:text-[--color-muted] transition-colors duration-300"
               >
-                {artwork.subseries ? `${seriesTitle} · ${artwork.subseries}` : seriesTitle}
+                {artwork.subseries || seriesTitle}
               </Link>
               {seriesYear && (
                 <span className="text-[--color-muted] font-sans text-xs ml-3">— {seriesYear}</span>
