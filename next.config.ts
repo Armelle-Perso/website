@@ -58,6 +58,18 @@ const nextConfig: NextConfig = {
         destination: '/:locale/art/paintings/2014/:path*',
         permanent: true,
       },
+      // 2015-2016 split in two (Oct 2026): these works moved to Morphogenèse;
+      // the rest stays at 2015-2016, now titled Émanation.
+      {
+        source: '/art/paintings/:old(2015-2016|2015-2017)/:artwork(experiment-on-dynamic-forms|back-to-basics|second-experiment-on-dynamic-forms|archaic-jolt|auto-emergence|timeless-inner-garden|mother-of-the-universe|triptych-order-and-disorder-in-chaos|third-eye-opening|spirit-dimension|natem)',
+        destination: '/art/paintings/morphogenese-2015-2016/:artwork',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|fr|es)/art/paintings/:old(2015-2016|2015-2017)/:artwork(experiment-on-dynamic-forms|back-to-basics|second-experiment-on-dynamic-forms|archaic-jolt|auto-emergence|timeless-inner-garden|mother-of-the-universe|triptych-order-and-disorder-in-chaos|third-eye-opening|spirit-dimension|natem)',
+        destination: '/:locale/art/paintings/morphogenese-2015-2016/:artwork',
+        permanent: true,
+      },
       // Raag Bihag moved from 2015-2017 to 2018-2019 (Oct 2026); before the
       // series rename below so it wins.
       {
