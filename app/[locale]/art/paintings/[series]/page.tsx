@@ -95,24 +95,6 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
         </div>
       )}
 
-      {note && (
-        <div className="max-w-3xl mx-auto px-6 pb-14">
-          <figure>
-            {/* Every paragraph is a verbatim quotation, so each carries its
-                own quotation marks in the message strings */}
-            <blockquote className="border-l border-[--color-gold] pl-6 space-y-4 font-serif text-base md:text-lg font-light leading-relaxed text-[--color-charcoal]">
-              {note.map((para, i) => <p key={i}>{para}</p>)}
-            </blockquote>
-            <figcaption className="mt-5 pl-6 text-xs font-sans font-light italic text-[--color-muted] leading-relaxed">
-              {t(`${noteKey}_source`)}
-              {t('noteTranslated') && (
-                <span className="block not-italic mt-1">{t('noteTranslated')}</span>
-              )}
-            </figcaption>
-          </figure>
-        </div>
-      )}
-
       <section className="max-w-7xl mx-auto px-6 pb-32">
         {artworks.length > 0 ? (
           (() => {
@@ -275,6 +257,25 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
           <p className="text-[--color-muted] font-sans font-light text-center py-32">{t('noArtworks')}</p>
         )}
       </section>
+
+      {/* Monograph quotations come after the paintings, so the works are seen first */}
+      {note && (
+        <section className="border-t border-[--color-border] max-w-3xl mx-auto px-6 py-20">
+          <figure>
+            {/* Every paragraph is a verbatim quotation, so each carries its
+                own quotation marks in the message strings */}
+            <blockquote className="border-l border-[--color-gold] pl-6 space-y-4 font-serif text-base md:text-lg font-light leading-relaxed text-[--color-charcoal]">
+              {note.map((para, i) => <p key={i}>{para}</p>)}
+            </blockquote>
+            <figcaption className="mt-5 pl-6 text-xs font-sans font-light italic text-[--color-muted] leading-relaxed">
+              {t(`${noteKey}_source`)}
+              {t('noteTranslated') && (
+                <span className="block not-italic mt-1">{t('noteTranslated')}</span>
+              )}
+            </figcaption>
+          </figure>
+        </section>
+      )}
 
       {/* Behind the series — Lightcodes */}
       {slug === 'lightcodes-2021' && (
