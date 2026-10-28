@@ -3,6 +3,7 @@
  * Armelle), with its text in EN/FR/ES. Slug stays "2025-2026".
  * Previous title: "2025-2026"; previous descriptions: none.
  * The public text is deliberately metaphorical; keep it that way.
+ * 2026-10-28: first sentence corrected, the term names the trait, not the seeds.
  * Anthesis may not be the last painting of the series, so the text does not say it ends there.
  *
  *   node scripts/set-serotiny-series.mjs
@@ -33,9 +34,9 @@ const block = (key, text) => [{
 }]
 
 const TEXT = {
-  description: 'Serotiny is the botanical name for seeds that stay sealed in their cones, sometimes for years, until the heat of a fire opens them. These paintings are born of such a time. Anthesis names the moment when the flower opens.',
-  description_fr: "La sérotinie désigne, en botanique, les graines qui restent enfermées dans leurs cônes, parfois pendant des années, jusqu'à ce que la chaleur d'un feu les ouvre. Ces peintures sont nées d'une telle période. Anthesis nomme le moment où la fleur s'ouvre.",
-  description_es: 'La serotinia es el nombre botánico de las semillas que permanecen selladas en sus piñas, a veces durante años, hasta que el calor de un fuego las abre. Estas pinturas nacen de un tiempo así. Anthesis nombra el momento en que la flor se abre.',
+  description: 'Serotiny is the botanical name for the way some seeds stay sealed in their cones, sometimes for years, until the heat of a fire opens them. These paintings are born of such a time. Anthesis names the moment when the flower opens.',
+  description_fr: "La sérotinie désigne, en botanique, le fait que certaines graines restent enfermées dans leurs cônes, parfois pendant des années, jusqu'à ce que la chaleur d'un feu les ouvre. Ces peintures sont nées d'une telle période. Anthesis nomme le moment où la fleur s'ouvre.",
+  description_es: 'La serotinia es el nombre botánico del hecho de que algunas semillas permanezcan selladas en sus piñas, a veces durante años, hasta que el calor de un fuego las abra. Estas pinturas nacen de un tiempo así. Anthesis nombra el momento en que la flor se abre.',
 }
 
 async function run() {
