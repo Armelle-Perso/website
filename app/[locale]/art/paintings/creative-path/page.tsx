@@ -19,6 +19,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   }
 }
 
+// Performance photos (Paul Roquecave, Le point Fort, 2014), keyed by section:
+// the gesture beside the floor-painting paragraph, the hand in the matter
+// beside the inward turn of 2015–2016
+const SECTION_PHOTOS: Record<number, { src: string; width: number; height: number }> = {
+  0: { src: '/images/paintings/creative-path/performance-le-point-fort-2014-gesture.jpg', width: 1065, height: 1600 },
+  1: { src: '/images/paintings/creative-path/performance-le-point-fort-2014-touch.jpg', width: 1600, height: 1065 },
+}
+
 // **Series** becomes a link to the series page, *Title* becomes italics
 function RichLine({ text }: { text: string }) {
   const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g)
@@ -48,91 +56,84 @@ export default async function CreativePathPage({ params }: { params: Promise<{ l
   setRequestLocale(locale)
   const t = await getTranslations('creativePath')
   const text = CREATIVE_PATH[locale] ?? CREATIVE_PATH.en
-  const para = 'font-sans font-light text-base leading-relaxed text-[--color-charcoal]'
+  const para = 'font-serif font-light text-lg leading-relaxed text-[--color-charcoal] text-justify hyphens-auto'
 
   return (
     <>
       <PageHeader title={text.title} subtitle={t('label')} />
 
-      <figure className="max-w-lg mx-auto px-6 mb-16">
-        <Image
-          src="/images/paintings/creative-path/performance-le-point-fort-2014-listening.jpg"
-          alt={t('photoCaption')}
-          width={1065}
-          height={1600}
-          priority
-          className="w-full h-auto"
-          sizes="(max-width: 640px) 100vw, 512px"
-        />
-        <figcaption className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted] mt-3">
-          {t('photoCaption')}
-        </figcaption>
-      </figure>
-
-      <article className="max-w-3xl mx-auto px-6 pb-24">
-        <div className="space-y-5 mb-16">
+      {/* Opening text beside the photo; stacked on small screens */}
+      <div lang={locale} className="max-w-5xl mx-auto px-6 mb-16 grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-10 md:gap-14 items-start">
+        <div className="space-y-5">
           {text.intro.map((p, i) => (
-            <p key={i} className="font-serif text-lg md:text-xl font-light leading-relaxed text-[--color-charcoal]">
+            <p key={i} className="font-serif text-lg md:text-xl font-light leading-relaxed text-[--color-charcoal] text-justify hyphens-auto">
               <RichLine text={p} />
             </p>
           ))}
         </div>
+        <figure className="max-w-sm mx-auto md:mx-0">
+          <Image
+            src="/images/paintings/creative-path/performance-le-point-fort-2014-listening.jpg"
+            alt={t('photoCaption')}
+            width={1065}
+            height={1600}
+            priority
+            className="w-full h-auto"
+            sizes="(max-width: 768px) 100vw, 360px"
+          />
+          <figcaption className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted] mt-3">
+            {t('photoCaption')}
+          </figcaption>
+        </figure>
+      </div>
 
-        {text.sections.map((section, si) => (
-          <section key={section.heading} className="mb-14">
-            <h2 className="text-[10px] uppercase tracking-[0.3em] text-[--color-gold] font-sans font-light mb-6">
-              {section.heading}
-            </h2>
-            <div className="space-y-5">
-              {section.paragraphs.map((p, i) => (
-                <p key={i} className={para}>
-                  <RichLine text={p} />
-                </p>
-              ))}
-            </div>
-            {/* The floor-painting paragraph closes the first section */}
-            {si === 0 && (
-              <figure className="max-w-md mx-auto mt-12">
-                <Image
-                  src="/images/paintings/creative-path/performance-le-point-fort-2014-gesture.jpg"
-                  alt={t('photoCaption')}
-                  width={1065}
-                  height={1600}
-                  className="w-full h-auto"
-                  sizes="(max-width: 640px) 100vw, 448px"
-                />
-                <figcaption className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted] mt-3">
-                  {t('photoCaption')}
-                </figcaption>
-              </figure>
-            )}
-            {/* The hand in the matter, after the inward turn of 2015–2016 */}
-            {si === 1 && (
-              <figure className="mt-12">
-                <Image
-                  src="/images/paintings/creative-path/performance-le-point-fort-2014-touch.jpg"
-                  alt={t('photoCaption')}
-                  width={1600}
-                  height={1065}
-                  className="w-full h-auto"
-                  sizes="(max-width: 768px) 100vw, 720px"
-                />
-                <figcaption className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted] mt-3">
-                  {t('photoCaption')}
-                </figcaption>
-              </figure>
-            )}
-          </section>
-        ))}
+      {/* Same grid as the opening: text on the left, photos on the right */}
+      <article lang={locale} className="max-w-5xl mx-auto px-6 pb-24">
+        {text.sections.map((section, si) => {
+          const photo = SECTION_PHOTOS[si]
+          return (
+            <section key={section.heading} className="mb-14 grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-10 md:gap-14 items-start">
+              <div>
+                <h2 className="text-[10px] uppercase tracking-[0.3em] text-[--color-gold] font-sans font-light mb-6">
+                  {section.heading}
+                </h2>
+                <div className="space-y-5">
+                  {section.paragraphs.map((p, i) => (
+                    <p key={i} className={para}>
+                      <RichLine text={p} />
+                    </p>
+                  ))}
+                </div>
+              </div>
+              {photo && (
+                <figure className="max-w-sm mx-auto md:mx-0 md:mt-12">
+                  <Image
+                    src={photo.src}
+                    alt={t('photoCaption')}
+                    width={photo.width}
+                    height={photo.height}
+                    className="w-full h-auto"
+                    sizes="(max-width: 768px) 100vw, 360px"
+                  />
+                  <figcaption className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted] mt-3">
+                    {t('photoCaption')}
+                  </figcaption>
+                </figure>
+              )}
+            </section>
+          )
+        })}
 
-        <p className="pt-8 border-t border-[--color-border] text-xs font-sans font-light italic text-[--color-muted] leading-relaxed">
-          {text.source}
-        </p>
+        <div className="md:w-3/5">
+          <p className="pt-8 border-t border-[--color-border] text-xs font-sans font-light italic text-[--color-muted] leading-relaxed">
+            {text.source}
+          </p>
 
-        <div className="mt-16">
-          <Link href="/art/paintings" className="text-[10px] uppercase tracking-[0.25em] font-sans text-[--color-gold] hover:text-[--color-charcoal] transition-colors duration-300">
-            {t('backToSeries')}
-          </Link>
+          <div className="mt-16">
+            <Link href="/art/paintings" className="text-[10px] uppercase tracking-[0.25em] font-sans text-[--color-gold] hover:text-[--color-charcoal] transition-colors duration-300">
+              {t('backToSeries')}
+            </Link>
+          </div>
         </div>
       </article>
     </>
