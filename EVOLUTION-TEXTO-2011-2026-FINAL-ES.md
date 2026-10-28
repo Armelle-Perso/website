@@ -4,7 +4,7 @@
 
 ---
 
-Nunca he empezado una pintura con una imagen en mente. Empiezo con un proceso: pintura vertida sobre un lienzo tendido en el suelo, tinta que fragua a su propio ritmo, arena. No pienso, siento. Escucho y conecto con la energía que está presente. Canalizo la pintura, que pasa a través de mí tanto como sale de mí.
+Nunca empiezo una pintura con una imagen en mente. Empiezo con un proceso: pintura vertida sobre un lienzo tendido en el suelo, tinta que fragua a su propio ritmo, arena. No pienso, siento. Escucho y conecto con la energía que está presente. Canalizo la pintura, que pasa a través de mí tanto como sale de mí.
 
 Llevo veinte años pintando. Puestos uno al lado del otro, los nombres de estas pinturas desde 2011 cuentan una historia que no había previsto: una estrella que se forma, una célula que se organiza, una semilla que espera el fuego, un lento movimiento de la materia hacia la luz. Es también un ir y venir constante entre dos mundos: el exterior, el de los lugares, los elementos y las personas, y el interior, el del cuerpo, la energía y lo que se siente. Cada serie nace en uno y encuentra su eco en el otro.
 

@@ -32,7 +32,7 @@ export const CREATIVE_PATH: Record<string, CreativePath> = {
   "en": {
     "title": "From matter to light",
     "intro": [
-      "I have never started a painting with an image in mind. I start with a process: paint poured onto a canvas lying on the floor, ink left to set at its own pace, sand. I don't think, I feel. I listen, and connect to the energy that is present. I am channeling the painting, which comes through me as much as from me.",
+      "I never start a painting with an image in mind. I start with a process: paint poured onto a canvas lying on the floor, ink left to set at its own pace, sand. I don't think, I feel. I listen, and connect to the energy that is present. I am channeling the painting, which comes through me as much as from me.",
       "I have been painting for twenty years. Placed side by side, the names of these paintings since 2011 tell a story I had not planned: a star forming, a cell organising, a seed waiting for fire, a slow movement from matter towards light. It is also a constant back-and-forth between two worlds: the outer one, of places, elements and people, and the inner one, of the body, energy and feeling. Each series begins in one and finds its echo in the other."
     ],
     "sections": [
@@ -77,7 +77,7 @@ export const CREATIVE_PATH: Record<string, CreativePath> = {
   "fr": {
     "title": "De la matière à la lumière",
     "intro": [
-      "Je n'ai jamais commencé une peinture avec une image en tête. Je commence par un processus : la peinture versée sur une toile posée au sol, l'encre qui prend à son rythme, le sable. Je ne pense pas, je ressens. J'écoute, et je me connecte à l'énergie présente. Je canalise la peinture, qui passe par moi autant qu'elle vient de moi.",
+      "Je ne commence jamais une peinture avec une image en tête. Je commence par un processus : la peinture versée sur une toile posée au sol, l'encre qui prend à son rythme, le sable. Je ne pense pas, je ressens. J'écoute, et je me connecte à l'énergie présente. Je canalise la peinture, qui passe par moi autant qu'elle vient de moi.",
       "Je peins depuis vingt ans. Mis côte à côte, les noms de ces peintures depuis 2011 racontent une histoire que je n'avais pas prévue : une étoile qui se forme, une cellule qui s'organise, une graine qui attend le feu, un lent mouvement de la matière vers la lumière. C'est aussi un va-et-vient constant entre deux mondes : le monde extérieur, celui des lieux, des éléments et des personnes, et le monde intérieur, celui du corps, de l'énergie et du ressenti. Chaque série naît dans l'un et trouve son écho dans l'autre."
     ],
     "sections": [
@@ -122,7 +122,7 @@ export const CREATIVE_PATH: Record<string, CreativePath> = {
   "es": {
     "title": "De la materia a la luz",
     "intro": [
-      "Nunca he empezado una pintura con una imagen en mente. Empiezo con un proceso: pintura vertida sobre un lienzo tendido en el suelo, tinta que fragua a su propio ritmo, arena. No pienso, siento. Escucho y conecto con la energía que está presente. Canalizo la pintura, que pasa a través de mí tanto como sale de mí.",
+      "Nunca empiezo una pintura con una imagen en mente. Empiezo con un proceso: pintura vertida sobre un lienzo tendido en el suelo, tinta que fragua a su propio ritmo, arena. No pienso, siento. Escucho y conecto con la energía que está presente. Canalizo la pintura, que pasa a través de mí tanto como sale de mí.",
       "Llevo veinte años pintando. Puestos uno al lado del otro, los nombres de estas pinturas desde 2011 cuentan una historia que no había previsto: una estrella que se forma, una célula que se organiza, una semilla que espera el fuego, un lento movimiento de la materia hacia la luz. Es también un ir y venir constante entre dos mundos: el exterior, el de los lugares, los elementos y las personas, y el interior, el del cuerpo, la energía y lo que se siente. Cada serie nace en uno y encuentra su eco en el otro."
     ],
     "sections": [
