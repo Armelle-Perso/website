@@ -34,7 +34,7 @@ const block = (key, text) => [{
 }]
 
 const TEXT = {
-  description: 'Serotiny is the botanical name for the way some seeds stay sealed in their cones, sometimes for years, until the heat of a fire opens them. These paintings are born of such a time. Anthesis names the moment when the flower opens.',
+  description: 'Serotiny is the botanical name for the delayed release of seeds kept sealed in their cones, sometimes for years, until the heat of a fire frees them. These paintings are born of such a time. Anthesis names the moment when the flower opens.',
   description_fr: "La sérotinie désigne, en botanique, l'attente de certaines graines, enfermées dans leurs cônes parfois pendant des années, jusqu'à ce que la chaleur d'un feu les libère. Ces peintures sont nées d'une telle période. Anthesis nomme le moment où la fleur s'ouvre.",
   description_es: 'La serotinia es el nombre botánico de la espera de algunas semillas, selladas en sus piñas a veces durante años, hasta que el calor de un fuego las libera. Estas pinturas nacen de un tiempo así. Anthesis nombra el momento en que la flor se abre.',
 }
