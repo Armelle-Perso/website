@@ -10,6 +10,11 @@ const HIDDEN_SLUGS = [
   'triptych-enveloppes-solaires-1',
   'triptych-enveloppes-solaires-2',
   'triptych-enveloppes-solaires-3',
+  // Charlie Bleeding 1-3 (2015): kept with a friend in Cyprus, outside the
+  // spirit of the 2015-2016 series (per Armelle, Oct 2026)
+  'charlie-bleeding-1',
+  'charlie-bleeding-2',
+  'charlie-bleeding-3',
 ]
 const IS_SHOWN = `!(slug.current in ${JSON.stringify(HIDDEN_SLUGS)})`
 const IS_AVAILABLE = `available != false && !(slug.current in ${SOLD}) && ${IS_SHOWN}`
