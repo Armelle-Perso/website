@@ -26,6 +26,11 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Short links to the Creative path page, for Instagram captions (Oct 2026).
+      // Not permanent, so they can point elsewhere later.
+      { source: '/path', destination: '/art/paintings/creative-path', permanent: false },
+      { source: '/parcours', destination: '/fr/art/paintings/creative-path', permanent: false },
+      { source: '/camino', destination: '/es/art/paintings/creative-path', permanent: false },
       {
         source: '/research',
         destination: '/consulting/publications',
