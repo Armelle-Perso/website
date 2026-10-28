@@ -45,6 +45,9 @@ export default async function PaintingsPage({ params }: { params: Promise<{ loca
         <p className="max-w-2xl text-sm text-[--color-muted] font-sans font-light leading-relaxed">
           {t('materials')}
         </p>
+        <Link href="/art/paintings/creative-path" className="inline-block mt-3 text-[10px] uppercase tracking-[0.25em] font-sans text-[--color-gold] hover:text-[--color-charcoal] transition-colors duration-300">
+          {t('creativePathLink')}
+        </Link>
       </div>
       <section className="max-w-7xl mx-auto px-6 pt-6 pb-32">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-16">

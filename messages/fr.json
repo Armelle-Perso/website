@@ -3,6 +3,7 @@
     "art": "Art",
     "paintings": "Peintures",
     "available": "Œuvres disponibles",
+    "creativePath": "Parcours de création",
     "artInHomes": "L'art chez vous",
     "jewelry": "Bijoux",
     "multimedia": "Multimédia",
@@ -84,6 +85,7 @@
     "note_2012_2014_source": "Arthur van Hoey, « Entre abstraction lyrique et action painting », dans Armelle Boussidan, une Monographie, Galerie Le point Fort, Strasbourg, 2014",
     "noteTranslated": "",
     "subseries_cuadritos": "Cuadritos, « petits tableaux » en espagnol, vient d’un amour du minuscule : une expérimentation des très petits formats.",
+    "creativePathLink": "Lire le parcours de création →",
     "behindTheSeries": "Autour de la série",
     "lightcodes_1": "La série « lightcodes » est née en Égypte en 2021, sous les étoiles du désert du Sinaï. Dans ce lieu de constellations, de corail, de sel, de sable et de silence pur, les motifs ont trouvé leur flux et ouvert la porte à douze peintures, poursuivies dans des lieux de haute énergie comme Gizeh et Louxor.",
     "lightcodes_2": "Les codes reconfigurent mon propre champ énergétique à mesure que je les fais venir, porteurs d'informations d'autres temps et d'autres dimensions.",
@@ -95,6 +97,11 @@
     "transforma_ev2": "Ceramiq, Órgiva — un an aux côtés des céramiques de Vicente Monfort",
     "transforma_ev3": "Église de San Román, Séville — six mois, 2021",
     "cap_transformaExpo": "Exposition Transforma à Ceramiq, Órgiva"
+  },
+  "creativePath": {
+    "label": "Parcours de création",
+    "photoCaption": "Performance à la Galerie Le point Fort, Strasbourg, 16 novembre 2014. Photo : Paul Roquecave",
+    "backToSeries": "← Retour aux séries"
   },
   "available": {
     "title": "Œuvres disponibles",
