@@ -16,6 +16,11 @@ import { MISSING_SERIES } from '@/lib/missing-series'
 
 export const revalidate = 86400
 
+// One line under a subseries label, keyed by the subseries name
+const subseriesNotes: Record<string, string> = {
+  Cuadritos: 'subseries_cuadritos',
+}
+
 // Series that carry a framing text from the 2014 Galerie Le point Fort
 // monograph, keyed by series slug and mapping to a message key
 const seriesNotes: Record<string, string> = {
@@ -237,6 +242,11 @@ export default async function PaintingSeriesPage({ params }: { params: Promise<{
                       </p>
                       <div className="flex-1 h-px bg-[--color-gold] opacity-30" />
                     </div>
+                  )}
+                  {group.subseries && subseriesNotes[group.subseries] && (
+                    <p className="max-w-xl mx-auto -mt-6 mb-12 text-center font-serif italic text-sm font-light text-[--color-muted] leading-relaxed">
+                      {t(subseriesNotes[group.subseries])}
+                    </p>
                   )}
                   <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
                     {group.items.map(renderCard)}
