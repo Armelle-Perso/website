@@ -10,6 +10,9 @@ import PageHeader from '@/components/PageHeader'
 import { cleanTitle } from '@/lib/title'
 import { getMaxDiagonal, getScale } from '@/lib/dimensions'
 
+const AVAILABLE_FIRST = ['anthesis']
+const AVAILABLE_LAST = ['diemptation']
+
 export const revalidate = 86400
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -59,6 +62,11 @@ export default async function AvailablePaintingsPage({ params }: { params: Promi
       }
     }
   }
+
+  // Order tweaks for this page only (per Armelle, Oct 2026): Anthesis opens the
+  // list; Diemptation (round, kept in Dahab, hard to ship) goes to the end.
+  const rank = (slug: string) => (AVAILABLE_FIRST.includes(slug) ? -1 : AVAILABLE_LAST.includes(slug) ? 1 : 0)
+  allAvailable.sort((a, b) => rank(a.slug.current) - rank(b.slug.current))
 
   return (
     <>
