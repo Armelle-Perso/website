@@ -36,6 +36,13 @@ const nextConfig: NextConfig = {
       { source: '/path.', destination: '/art/paintings/creative-path', permanent: false },
       { source: '/parcours.', destination: '/fr/art/paintings/creative-path', permanent: false },
       { source: '/camino.', destination: '/es/art/paintings/creative-path', permanent: false },
+      // Short links to the Serotiny series (2025-2026), for the Nov 2026 Instagram post
+      { source: '/serotiny', destination: '/art/paintings/2025-2026', permanent: false },
+      { source: '/serotinie', destination: '/fr/art/paintings/2025-2026', permanent: false },
+      { source: '/serotinia', destination: '/es/art/paintings/2025-2026', permanent: false },
+      { source: '/serotiny.', destination: '/art/paintings/2025-2026', permanent: false },
+      { source: '/serotinie.', destination: '/fr/art/paintings/2025-2026', permanent: false },
+      { source: '/serotinia.', destination: '/es/art/paintings/2025-2026', permanent: false },
       {
         source: '/research',
         destination: '/consulting/publications',
