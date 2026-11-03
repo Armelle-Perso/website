@@ -31,6 +31,11 @@ const nextConfig: NextConfig = {
       { source: '/path', destination: '/art/paintings/creative-path', permanent: false },
       { source: '/parcours', destination: '/fr/art/paintings/creative-path', permanent: false },
       { source: '/camino', destination: '/es/art/paintings/creative-path', permanent: false },
+      // Same links with a trailing full stop, as when pasted at the end of a sentence
+      // (a visitor hit /path. in Nov 2026).
+      { source: '/path.', destination: '/art/paintings/creative-path', permanent: false },
+      { source: '/parcours.', destination: '/fr/art/paintings/creative-path', permanent: false },
+      { source: '/camino.', destination: '/es/art/paintings/creative-path', permanent: false },
       {
         source: '/research',
         destination: '/consulting/publications',
