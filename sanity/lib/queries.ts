@@ -91,3 +91,9 @@ export const consultingProjectsQuery = groq`*[_type == "consultingProject"] | or
 export const researchQuery = groq`*[_type == "researchItem"] | order(year desc){
   _id, title, year, language, coAuthors, publication, description, link
 }`
+
+// Every painting series and shown artwork slug, for the sitemap
+export const sitemapQuery = groq`*[_type == "paintingSeries"]{
+  "series": slug.current,
+  "artworks": artworks[${IS_SHOWN} && defined(slug.current)].slug.current
+}`

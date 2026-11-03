@@ -27,5 +27,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: AI_TRAINING_BOTS, disallow: '/' },
       { userAgent: '*', allow: '/', disallow: ['/studio', '/api'] },
     ],
+    sitemap: 'https://www.armelleboussidan.com/sitemap.xml',
   }
 }
