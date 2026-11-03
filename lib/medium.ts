@@ -13,6 +13,7 @@ const MEDIUMS: Record<string, { en?: string; fr: string; es: string }> = {
   'Linen canvas, acrylics, posca, watercolour': { fr: 'Toile de lin, acrylique, Posca, aquarelle', es: 'Lienzo de lino, acrílico, Posca, acuarela' },
   'Linen canvas, acrylics, posca and watercolour': { fr: 'Toile de lin, acrylique, Posca et aquarelle', es: 'Lienzo de lino, acrílico, Posca y acuarela' },
   'Linen canvas on plywood': { fr: 'Toile de lin sur contreplaqué', es: 'Lienzo de lino sobre contrachapado' },
+  'Red earth from El Morreón, acrylics and posca on canvas': { fr: "Terre rouge d'El Morreón, acrylique et Posca sur toile", es: 'Tierra roja de El Morreón, acrílico y Posca sobre lienzo' },
   'Lava sand, acrylics and posca on canvas': { fr: 'Sable volcanique, acrylique et Posca sur toile', es: 'Arena volcánica, acrílico y Posca sobre lienzo' },
   'Posca & acrylic on leather': { fr: 'Posca et acrylique sur cuir', es: 'Posca y acrílico sobre cuero' },
   'Posca on leather': { fr: 'Posca sur cuir', es: 'Posca sobre cuero' },
