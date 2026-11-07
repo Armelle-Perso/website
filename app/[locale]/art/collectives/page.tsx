@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import PageHeader from '@/components/PageHeader'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { M33_URL } from '@/components/LinkM33'
 
 export const revalidate = 86400
 
@@ -47,7 +48,7 @@ const collectives = [
       es: 'Taller de arte colaborativo en una antigua fábrica de motores de avión (Junkers), co-fundado con la fotógrafa Paola Guigou. Un espacio modular transformado con materiales reciclados en una colmena creativa donde cada artista tiene su propio mundo con la posibilidad de compartir proyectos.',
     },
     role: { en: 'Co-founder', fr: 'Co-fondatrice', es: 'Co-fundadora' },
-    link: 'https://www.instagram.com/atelierm33/',
+    link: M33_URL,
     images: [
       { src: '/images/collectives/m33-facade.jpg', alt: 'M33 — Junkers Factory, Strasbourg' },
       { src: '/images/collectives/m33-paola.jpg', alt: 'Setting up the studio' },

@@ -4,6 +4,7 @@ import { exhibitionsQuery } from '@/sanity/lib/queries'
 import PageHeader from '@/components/PageHeader'
 import { PortableText } from 'next-sanity'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import LinkM33 from '@/components/LinkM33'
 
 export const revalidate = 86400
 
@@ -86,14 +87,14 @@ function ExhibitionItem({ ex, locale, moreInfo, catalogue }: { ex: any; locale: 
       )}
       <div className="flex-1">
         <div className="flex flex-wrap items-start gap-3 mb-2">
-          <h3 className="font-serif text-xl">{ex.title}</h3>
+          <h3 className="font-serif text-xl"><LinkM33 text={ex.title} /></h3>
           {(typeOverrides[ex._id] ?? ex.type) && (
             <span className="text-xs border border-[--color-gold] text-[--color-gold] px-2 py-0.5 font-sans">{typeOverrides[ex._id] ?? ex.type}</span>
           )}
         </div>
         {(ex.venue || ex.city) && (
           <p className="text-sm text-[--color-muted] font-sans mb-3">
-            {[ex.venue, ex.city].filter(Boolean).join(' · ')}
+            <LinkM33 text={[ex.venue, ex.city].filter(Boolean).join(' · ')} />
           </p>
         )}
         {ex.description && (

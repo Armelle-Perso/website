@@ -7,6 +7,7 @@ import { consultingProjectsQuery, siteSettingsQuery } from '@/sanity/lib/queries
 import { urlFor } from '@/sanity/lib/image'
 import WordCloud from '@/components/WordCloud'
 import TestimonialsCarousel from '@/components/TestimonialsCarousel'
+import LinkM33, { M33_URL } from '@/components/LinkM33'
 
 export const revalidate = 86400
 
@@ -42,7 +43,7 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
     { org: 'Existence', role: t('existenceRole'), dates: t('existenceDates'), desc: t('existenceDesc'), href: 'https://existence.fr/', external: true, logo: '/logos/existence.ico' },
     { org: 'Orinko', org2: 'Vibratis', href2: 'https://vibratis.fr/', role: t('orinkoRole'), dates: t('orinkoDates'), desc: t('orinkoDesc'), href: 'https://orinko.org/', external: true, logo: '/logos/orinko.png' },
     { org: 'Sunseed Desert Technology', role: t('sunseedRole'), dates: t('sunseedDates'), desc: t('sunseedDesc'), href: 'https://www.sunseed.org.uk/', external: true, logo: '/logos/sunseed.png' },
-    { org: 'M33', role: t('m33Role'), dates: t('m33Dates'), desc: t('m33Desc'), href: 'https://www.instagram.com/atelierm33/', external: true, logo: '/logos/m33.png' },
+    { org: 'M33', role: t('m33Role'), dates: t('m33Dates'), desc: t('m33Desc'), href: M33_URL, external: true, logo: '/logos/m33.png' },
   ]
 
   const education = [
@@ -244,7 +245,7 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
                       )}
                       <span className="text-[11px] font-sans font-light text-[--color-muted]">{item.role}</span>
                     </div>
-                    <p className="mt-0.5 text-[11px] font-sans font-light text-[--color-muted] leading-relaxed">{item.desc}</p>
+                    <p className="mt-0.5 text-[11px] font-sans font-light text-[--color-muted] leading-relaxed"><LinkM33 text={item.desc} /></p>
                   </div>
                   <span className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-gold] shrink-0">
                     {item.dates}

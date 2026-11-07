@@ -1,10 +1,10 @@
 import { Metadata } from 'next'
-import { Fragment } from 'react'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import PageHeader from '@/components/PageHeader'
 import { CREATIVE_PATH, SERIES_LINKS } from '@/lib/creative-path'
+import LinkM33 from '@/components/LinkM33'
 
 export const revalidate = 86400
 
@@ -46,7 +46,7 @@ function RichLine({ text }: { text: string }) {
           )
         }
         if (part.startsWith('*')) return <em key={i}>{part.slice(1, -1)}</em>
-        return <Fragment key={i}>{part}</Fragment>
+        return <LinkM33 key={i} text={part} />
       })}
     </>
   )

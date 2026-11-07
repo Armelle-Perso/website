@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import LinkM33 from '@/components/LinkM33'
 
 type Testimonial = { quote: string; name: string; role?: string; translatedFrom?: string | null }
 
@@ -57,12 +58,12 @@ export default function TestimonialsCarousel({
         <div className="relative flex-1 max-w-4xl text-center min-h-[11rem] flex flex-col items-center justify-center">
           <figure key={index} style={{ animation: 'testimonialFade 0.6s ease' }} className="space-y-5">
             <blockquote className="font-serif text-base md:text-lg font-light leading-relaxed text-[--color-charcoal]">
-              “{current.quote}”
+              “<LinkM33 text={current.quote} />”
             </blockquote>
             <figcaption className="space-y-1">
               <span className="block text-[11px] uppercase tracking-[0.15em] text-[--color-muted] font-sans font-light">
                 {current.name}
-                {current.role ? `, ${current.role}` : ''}
+                {current.role ? <>, <LinkM33 text={current.role} /></> : ''}
               </span>
               {current.translatedFrom && (
                 <span className="block text-[10px] tracking-[0.1em] text-[--color-muted] font-sans font-light italic opacity-70">
