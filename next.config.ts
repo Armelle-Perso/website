@@ -43,6 +43,9 @@ const nextConfig: NextConfig = {
       { source: '/serotiny.', destination: '/art/paintings/2025-2026', permanent: false },
       { source: '/serotinie.', destination: '/fr/art/paintings/2025-2026', permanent: false },
       { source: '/serotinia.', destination: '/es/art/paintings/2025-2026', permanent: false },
+      // The jewellery page is no longer linked (Nov 2026); old links land on Art
+      { source: '/art/jewelry', destination: '/art', permanent: true },
+      { source: '/:locale(en|fr|es)/art/jewelry', destination: '/:locale/art', permanent: true },
       {
         source: '/research',
         destination: '/consulting/publications',
