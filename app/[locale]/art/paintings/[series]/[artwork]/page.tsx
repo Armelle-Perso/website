@@ -15,7 +15,7 @@ import { translateMedium } from '@/lib/medium'
 // sharper than any page image and than most screens, without handing out the
 // print-quality originals (3600+ px) to anyone who reads the page.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const viewerSrc = (image: any) => urlFor(image).width(2400).height(2400).fit('max').quality(90).url()
+const viewerSrc = (image: any) => urlFor(image).width(3200).height(2400).fit('max').quality(90).url()
 
 export const revalidate = 86400
 
