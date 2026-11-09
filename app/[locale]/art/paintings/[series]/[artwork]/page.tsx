@@ -15,7 +15,14 @@ import { translateMedium } from '@/lib/medium'
 // sharper than any page image and than most screens, without handing out the
 // print-quality originals (3600+ px) to anyone who reads the page.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const viewerSrc = (image: any) => urlFor(image).width(3200).height(2400).fit('max').quality(90).url()
+// Fullscreen source: constrain ONE side only. Giving both width and height makes
+// @sanity/image-url crop the picture to that box's shape (it cut wide works such as
+// the Sol del Corazón triptych).
+const viewerSrc = (image: any) => {
+  const d = imageDimensions(image)
+  const b = urlFor(image).fit('max').quality(90)
+  return (!d || d.width / d.height >= 4 / 3 ? b.width(3200) : b.height(2400)).url()
+}
 
 export const revalidate = 86400
 
