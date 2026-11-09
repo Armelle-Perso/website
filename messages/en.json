@@ -107,6 +107,8 @@
     "title": "Available works",
     "subtitle": "Art / Paintings / Available",
     "description": "Original paintings available for purchase. Each work is unique, inquire directly to arrange.",
+    "trust": "Self-taught painter exhibiting since 2011. Works in private collections worldwide, mostly in France, Spain and the UK.",
+    "trustLink": "My creative path →",
     "worksAvailable": "{count} work{count, plural, one {} other {s}} available",
     "availableInquire": "Available — inquire →",
     "interestedTitle": "Interested in a work?",

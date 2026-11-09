@@ -107,6 +107,8 @@
     "title": "Obras disponibles",
     "subtitle": "Arte / Pinturas / Disponibles",
     "description": "Pinturas originales disponibles para compra. Cada obra es única, contacta directamente para más información.",
+    "trust": "Pintora autodidacta, expone desde 2011. Obras en colecciones privadas de todo el mundo, sobre todo en Francia, España y Reino Unido.",
+    "trustLink": "Mi camino creativo →",
     "worksAvailable": "{count} obra{count, plural, one {} other {s}} disponible{count, plural, one {} other {s}}",
     "availableInquire": "Disponible — consultar →",
     "interestedTitle": "¿Te interesa una obra?",

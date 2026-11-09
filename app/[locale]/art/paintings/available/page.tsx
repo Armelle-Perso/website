@@ -77,6 +77,13 @@ export default async function AvailablePaintingsPage({ params }: { params: Promi
       />
 
       <section className="max-w-7xl mx-auto px-6 pb-32">
+        {/* Who the artist is, for buyers who arrive from a QR label (Artmadams, Nov 2026) */}
+        <p className="-mt-6 mb-14 max-w-xl font-sans font-light text-sm leading-relaxed text-[--color-charcoal]">
+          {t('trust')}{' '}
+          <Link href="/art/paintings/creative-path" className="text-[--color-gold] hover:underline whitespace-nowrap">
+            {t('trustLink')}
+          </Link>
+        </p>
         {allAvailable.length > 0 ? (
           <>
             <p className="text-[10px] uppercase tracking-[0.3em] font-sans text-[--color-gold] font-light mb-16">
