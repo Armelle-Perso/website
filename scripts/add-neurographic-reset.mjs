@@ -6,7 +6,7 @@ import { createClient } from '@sanity/client'
 import { readFileSync, createReadStream } from 'fs'
 const env = Object.fromEntries(readFileSync(new URL('../.env.local', import.meta.url), 'utf8').split('\n').filter(l => l.includes('=') && !l.startsWith('#')).map(l => { const i = l.indexOf('='); return [l.slice(0, i).trim(), l.slice(i + 1).trim()] }))
 const c = createClient({ projectId: env.NEXT_PUBLIC_SANITY_PROJECT_ID, dataset: env.NEXT_PUBLIC_SANITY_DATASET || 'production', token: env.SANITY_API_TOKEN, apiVersion: '2024-01-01', useCdn: false })
-const FILE = 'C:/Users/DELL/OneDrive/Documents/CREA/TOILES/2025/neurographic-exploration-33x27.jpg'
+const FILE = 'C:/Users/DELL/OneDrive/Documents/CREA/TOILES/2025/Neurographic-reset-33x27.jpg'
 const s = await c.fetch(`*[_id=="series-2025"][0]{artworks[]{_key, slug}}`)
 if (s.artworks.some(a => a.slug?.current === 'neurographic-reset')) { console.log('already there'); process.exit() }
 const asset = await c.assets.upload('image', createReadStream(FILE), { filename: 'neurographic-reset-33x27.jpg' })
