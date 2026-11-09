@@ -26,6 +26,9 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Old address still known to Google (Search Console 404, Nov 2026).
+      { source: '/art/collectives-studios', destination: '/art/collectives', permanent: true },
+      { source: '/:locale(fr|es)/art/collectives-studios', destination: '/:locale/art/collectives', permanent: true },
       // Short links to the Creative path page, for Instagram captions (Oct 2026).
       // Not permanent, so they can point elsewhere later.
       { source: '/path', destination: '/art/paintings/creative-path', permanent: false },

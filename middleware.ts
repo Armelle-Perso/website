@@ -18,5 +18,6 @@ export default function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next|studio|.*\\..*).*)'],
+  // opengraph-image / twitter-image are root routes: leave them alone or they 404.
+  matcher: ['/((?!api|_next|studio|opengraph-image|twitter-image|.*\\..*).*)'],
 }
