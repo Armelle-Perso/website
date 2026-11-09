@@ -6,6 +6,7 @@
 const MEDIUMS: Record<string, { en?: string; fr: string; es: string }> = {
   'Acrylics and mixed media on canvas': { fr: 'Acrylique et techniques mixtes sur toile', es: 'Acrílico y técnica mixta sobre lienzo' },
   'Acrylics on canvas': { fr: 'Acrylique sur toile', es: 'Acrílico sobre lienzo' },
+  'Acrylics and posca on canvas': { fr: 'Acrylique et Posca sur toile', es: 'Acrílico y Posca sobre lienzo' },
   'Acrylics on canvas, 80 × 80 cm': { fr: 'Acrylique sur toile, 80 × 80 cm', es: 'Acrílico sobre lienzo, 80 × 80 cm' },
   'Acrylics on linen canvas': { fr: 'Acrylique sur toile de lin', es: 'Acrílico sobre lienzo de lino' },
   'Acrylics & posca on linen canvas or papyrus': { fr: 'Acrylique et Posca sur toile de lin ou papyrus', es: 'Acrílico y Posca sobre lienzo de lino o papiro' },
