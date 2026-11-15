@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { safeFetch } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
 import { paintingSeriesAllQuery, collectivesQuery, exhibitionsQuery } from '@/sanity/lib/queries'
+import ArtWordCloud from '@/components/ArtWordCloud'
 
 export const revalidate = 86400
 
@@ -75,6 +76,11 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
             </p>
           </div>
         </div>
+      </section>
+
+      {/* Word cloud of her painting style (approach, gesture, pictorial language, colour, matter) */}
+      <section className="max-w-7xl mx-auto px-6 pb-24">
+        <ArtWordCloud locale={locale} />
       </section>
 
       {/* The catalogue's two voices, paired so the monograph is credited once */}
