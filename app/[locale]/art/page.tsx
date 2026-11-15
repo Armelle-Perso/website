@@ -74,6 +74,12 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
             <p className="text-sm text-[--color-muted] font-sans font-light leading-relaxed max-w-md">
               {t('description')}
             </p>
+            <Link href="/art/paintings" className="group inline-flex items-baseline gap-3 mt-8">
+              <span className="font-serif text-2xl font-light text-[--color-charcoal] group-hover:text-[--color-muted] transition-colors duration-300">
+                {t('paintingsLabel')}
+              </span>
+              <span className="text-xs tracking-widest text-[--color-gold] transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+            </Link>
           </div>
         </div>
       </section>
