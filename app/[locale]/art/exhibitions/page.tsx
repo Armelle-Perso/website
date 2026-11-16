@@ -25,7 +25,7 @@ const BATX_TEXT: Record<string, string> = {
   es: 'Inauguración en diciembre de 2026, fecha por confirmar.',
 }
 const extraUpcoming = (locale: string) => [
-  { _id: 'batx-2026', title: 'Semillas de luz', type: 'Café show', venue: 'Batx Santa Catalina', city: 'Palma, Mallorca',
+  { _id: 'batx-2026', title: 'Semillas de luz', type: 'Solo café show', venue: 'Batx Santa Catalina', city: 'Palma, Mallorca',
     startDate: '2026-12-01', endDate: '2027-02-01', upcoming: true, venueUrl: 'https://batxcafe.com/', description: block(BATX_TEXT[locale] || BATX_TEXT.en) },
 ]
 
