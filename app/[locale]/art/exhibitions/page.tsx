@@ -20,9 +20,9 @@ const CATALOGUE_EXHIBITION_ID = 'q7MxOP673O523e3BZ9d2Ek'
 // Upcoming shows not (yet) in Sanity, added in code. Batx: café show, date of the opening to be announced.
 const block = (text: string) => [{ _type: 'block', _key: 'b1', style: 'normal', markDefs: [], children: [{ _type: 'span', _key: 's1', text, marks: [] }] }]
 const BATX_TEXT: Record<string, string> = {
-  en: 'Opening in December 2026, date to be announced. Carrer de Despuig 63, Palma, Mallorca.',
-  fr: 'Vernissage en décembre 2026, date à venir. Carrer de Despuig 63, Palma, Mallorca.',
-  es: 'Inauguración en diciembre de 2026, fecha por confirmar. Carrer de Despuig 63, Palma, Mallorca.',
+  en: 'Opening in December 2026, date to be announced.',
+  fr: 'Vernissage en décembre 2026, date à venir.',
+  es: 'Inauguración en diciembre de 2026, fecha por confirmar.',
 }
 const extraUpcoming = (locale: string) => [
   { _id: 'batx-2026', title: 'Semillas de luz', type: 'Café show', venue: 'Batx Santa Catalina', city: 'Palma, Mallorca',
