@@ -17,6 +17,18 @@ const typeOverrides: Record<string, string> = {
 // monograph, so the entry carries a quote from it and the full reference
 const CATALOGUE_EXHIBITION_ID = 'q7MxOP673O523e3BZ9d2Ek'
 
+// Upcoming shows not (yet) in Sanity, added in code. Batx: café show, date of the opening to be announced.
+const block = (text: string) => [{ _type: 'block', _key: 'b1', style: 'normal', markDefs: [], children: [{ _type: 'span', _key: 's1', text, marks: [] }] }]
+const BATX_TEXT: Record<string, string> = {
+  en: 'Opening in December 2026, date to be announced. Carrer de Despuig 63, Palma, Mallorca.',
+  fr: 'Vernissage en décembre 2026, date à venir. Carrer de Despuig 63, Palma, Mallorca.',
+  es: 'Inauguración en diciembre de 2026, fecha por confirmar. Carrer de Despuig 63, Palma, Mallorca.',
+}
+const extraUpcoming = (locale: string) => [
+  { _id: 'batx-2026', title: 'Semillas de luz', type: 'Café show', venue: 'Batx Santa Catalina', city: 'Palma, Mallorca',
+    startDate: '2026-12-01', upcoming: true, description: block(BATX_TEXT[locale] || BATX_TEXT.en) },
+]
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
   setRequestLocale(locale)
@@ -32,7 +44,7 @@ export default async function ExhibitionsPage({ params }: { params: Promise<{ lo
   const catalogue = { source: t('catalogueSource') }
 
   const exhibitions = await safeFetch<any[]>(exhibitionsQuery)
-  const upcoming = exhibitions?.filter((e: any) => e.upcoming) || []
+  const upcoming = [...extraUpcoming(locale), ...(exhibitions?.filter((e: any) => e.upcoming) || [])]
   const past = exhibitions?.filter((e: any) => !e.upcoming) || []
 
   return (
