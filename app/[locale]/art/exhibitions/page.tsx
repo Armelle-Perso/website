@@ -26,7 +26,7 @@ const BATX_TEXT: Record<string, string> = {
 }
 const extraUpcoming = (locale: string) => [
   { _id: 'batx-2026', title: 'Semillas de luz', type: 'Café show', venue: 'Batx Santa Catalina', city: 'Palma, Mallorca',
-    startDate: '2026-12-01', endDate: '2027-02-01', upcoming: true, link: 'https://batxcafe.com/', description: block(BATX_TEXT[locale] || BATX_TEXT.en) },
+    startDate: '2026-12-01', endDate: '2027-02-01', upcoming: true, venueUrl: 'https://batxcafe.com/', description: block(BATX_TEXT[locale] || BATX_TEXT.en) },
 ]
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -106,7 +106,17 @@ function ExhibitionItem({ ex, locale, moreInfo, catalogue }: { ex: any; locale: 
         </div>
         {(ex.venue || ex.city) && (
           <p className="text-sm text-[--color-muted] font-sans mb-3">
-            <LinkM33 text={[ex.venue, ex.city].filter(Boolean).join(' · ')} />
+            {ex.venueUrl && ex.venue ? (
+              <>
+                <a href={ex.venueUrl} target="_blank" rel="noopener noreferrer"
+                  className="underline underline-offset-4 decoration-[--color-gold] hover:text-[--color-charcoal] transition-colors">
+                  {ex.venue}
+                </a>
+                {ex.city && <> · {ex.city}</>}
+              </>
+            ) : (
+              <LinkM33 text={[ex.venue, ex.city].filter(Boolean).join(' · ')} />
+            )}
           </p>
         )}
         {ex.description && (
