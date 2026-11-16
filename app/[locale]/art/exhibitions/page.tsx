@@ -26,7 +26,7 @@ const BATX_TEXT: Record<string, string> = {
 }
 const extraUpcoming = (locale: string) => [
   { _id: 'batx-2026', title: 'Semillas de luz', type: 'Café show', venue: 'Batx Santa Catalina', city: 'Palma, Mallorca',
-    startDate: '2026-12-01', upcoming: true, link: 'https://batxcafe.com/', description: block(BATX_TEXT[locale] || BATX_TEXT.en) },
+    startDate: '2026-12-01', endDate: '2027-02-01', upcoming: true, link: 'https://batxcafe.com/', description: block(BATX_TEXT[locale] || BATX_TEXT.en) },
 ]
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
