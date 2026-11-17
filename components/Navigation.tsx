@@ -19,7 +19,7 @@ export default function Navigation() {
       label: t('consulting'),
       href: '/consulting' as const,
       children: [
-        { label: t('services'), href: '/consulting#services' as const },
+        { label: t('services'), href: '/consulting' as const },
         { label: t('consultingReferences'), href: '/consulting#references' as const },
         { label: t('consultingTestimonials'), href: '/consulting#testimonials' as const },
         { label: t('consultingEducation'), href: '/consulting#education' as const },
