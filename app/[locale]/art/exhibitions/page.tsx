@@ -29,14 +29,16 @@ const BATX_TEXT: Record<string, string> = {
   es: 'Inauguración en diciembre de 2026, fecha por confirmar.',
 }
 // Past shows not in Sanity, added in code (17 Nov 2026)
-const MIX_TEXT: Record<string, string> = {
-  en: 'Organised by Mix Amylo.',
-  fr: 'Organisées par Mix Amylo.',
-  es: 'Organizadas por Mix Amylo.',
-}
+const MIX_PREFIX: Record<string, string> = { en: 'Organised by ', fr: 'Organisées par ', es: 'Organizadas por ' }
+const mixBlock = (locale: string) => [{ _type: 'block', _key: 'b1', style: 'normal', markDefs: [{ _type: 'link', _key: 'l1', href: 'https://www.mixamylo.com/' }],
+  children: [
+    { _type: 'span', _key: 's1', text: MIX_PREFIX[locale] || MIX_PREFIX.en, marks: [] },
+    { _type: 'span', _key: 's2', text: 'Mix Amylo', marks: ['l1'] },
+    { _type: 'span', _key: 's3', text: '.', marks: [] },
+  ] }]
 const extraPast = (locale: string) => [
   { _id: 'open-house-art-2023', title: 'Open House Art Exhibitions', type: 'Group Exhibitions', city: 'Orgiva, Spain',
-    startDate: '2023-01-01', description: block(MIX_TEXT[locale] || MIX_TEXT.en) },
+    startDate: '2023-01-01', description: mixBlock(locale) },
 ]
 const extraUpcoming = (locale: string) => [
   { _id: 'batx-2026', title: 'Semillas de luz', type: 'Solo café show', venue: 'Batx Santa Catalina', city: 'Palma de Mallorca, Spain',
@@ -136,7 +138,9 @@ function ExhibitionItem({ ex, locale, moreInfo, catalogue }: { ex: any; locale: 
         )}
         {ex.description && (
           <div className="prose prose-sm font-sans text-[--color-muted]">
-            <PortableText value={ex.description} />
+            <PortableText value={ex.description} components={{ marks: { link: ({ value, children }: any) => (
+              <a href={value?.href} target="_blank" rel="noopener noreferrer" className="text-[--color-gold] hover:text-[--color-charcoal] transition-colors">{children}</a>
+            ) } }} />
           </div>
         )}
         {ex.collaborators?.length > 0 && (
