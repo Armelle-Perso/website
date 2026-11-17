@@ -198,8 +198,8 @@
     "optional": "Facultatif",
     "howFoundLabel": "Comment m'avez-vous trouvée ?",
     "howFoundPlaceholder": "Instagram, bouche à oreille, une galerie…",
-    "drawnToLabel": "Qu'est-ce qui vous a attiré·e dans ce travail ?",
-    "drawnToPlaceholder": "Un sentiment, une couleur, un titre, une histoire…",
+    "drawnToLabel": "Qu'est-ce qui vous amène ?",
+    "drawnToPlaceholder": "Une œuvre, un projet, une collaboration, une intuition…",
     "error": "Quelque chose s'est mal passé. Veuillez réessayer.",
     "sending": "Envoi en cours…",
     "send": "Envoyer le message →"
