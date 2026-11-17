@@ -12,6 +12,9 @@ export const revalidate = 86400
 const typeOverrides: Record<string, string> = {
   q7MxOP673O523e3BZ9d37d: 'Residency', // Anankha (Sanity still says "Performance")
   Htvkf05gV4fJEoqSQ5BHqd: 'Duo Exhibition', // L'Atelier Restaurant 2017, with Corto Koller (side by side, not a collaboration)
+  q7MxOP673O523e3BZ9d5GA: 'Duo Exhibition', // Entélékiss 2015, four-hands paintings with Jérôme Dupré la Tour
+  Htvkf05gV4fJEoqSQ5BIWj: 'Group Exhibitions', // M33 collective 2014-2016, several shows
+  '1y7ZVPKFp3J9IOAgPaRF47': 'Group Exhibitions', // Artists Network Alpujarra, several shows
 }
 
 // Solo show at Galerie Le point Fort, 2014 — the one exhibition with a printed
