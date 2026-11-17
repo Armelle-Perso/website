@@ -11,6 +11,7 @@ export const revalidate = 86400
 // Tag corrections applied on top of Sanity data, keyed by exhibition _id
 const typeOverrides: Record<string, string> = {
   q7MxOP673O523e3BZ9d37d: 'Residency', // Anankha (Sanity still says "Performance")
+  Htvkf05gV4fJEoqSQ5BHqd: 'Duo Exhibition', // L'Atelier Restaurant 2017, with Corto Koller (side by side, not a collaboration)
 }
 
 // Solo show at Galerie Le point Fort, 2014 — the one exhibition with a printed
