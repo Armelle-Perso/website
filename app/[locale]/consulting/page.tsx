@@ -190,7 +190,7 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
       <div className="max-w-7xl mx-auto px-6 pb-32">
 
         {/* Services */}
-        <section className="mb-28 pb-28 border-b border-[--color-border]">
+        <section id="services" className="scroll-mt-24 mb-28 pb-28 border-b border-[--color-border]">
           <p className="text-[10px] uppercase tracking-[0.3em] text-[--color-gold] font-sans font-light mb-10">
             {t('servicesTitle')}
           </p>
@@ -205,7 +205,7 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
         </section>
 
         {/* Professional Path */}
-        <section className="mb-28 pb-28 border-b border-[--color-border]">
+        <section id="references" className="scroll-mt-24 mb-28 pb-28 border-b border-[--color-border]">
           <p className="text-[10px] uppercase tracking-[0.3em] text-[--color-gold] font-sans font-light mb-10">
             {t('professionalPath')}
           </p>
@@ -256,6 +256,11 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
           </div>
         </section>
 
+        {/* Testimonials, right after the references (17 Nov 2026) — rotating carousel; renders only once populated */}
+        <div id="testimonials" className="scroll-mt-24">
+          <TestimonialsCarousel testimonials={localizedTestimonials} title={t('testimonialsTitle')} />
+        </div>
+
         {/* Selected Projects (Sanity-driven) */}
         {featured.length > 0 && (
           <section className="mb-28 pb-28 border-b border-[--color-border]">
@@ -286,7 +291,7 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
         )}
 
         {/* Education & Training — 2 columns like about page */}
-        <section className="mb-28 pb-28 border-b border-[--color-border]">
+        <section id="education" className="scroll-mt-24 mb-28 pb-28 border-b border-[--color-border]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Education */}
             <div>
@@ -371,8 +376,6 @@ export default async function ConsultingPage({ params }: { params: Promise<{ loc
           </div>
         </section>
 
-        {/* Testimonials — rotating carousel; renders only once populated */}
-        <TestimonialsCarousel testimonials={localizedTestimonials} title={t('testimonialsTitle')} />
       </div>
 
       {/* CTA */}
