@@ -303,6 +303,7 @@
     "comingSoon": "Joyería próximamente."
   },
   "research": {
+    "backToConsulting": "← Volver a consulting",
     "title": "Publicaciones",
     "subtitle": "Trabajo académico",
     "intro": "Mi investigación se sitúa en la confluencia de la lingüística, la semántica computacional y las ciencias cognitivas.",

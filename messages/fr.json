@@ -303,6 +303,7 @@
     "comingSoon": "Bijoux à venir."
   },
   "research": {
+    "backToConsulting": "← Retour au consulting",
     "title": "Publications",
     "subtitle": "Travaux académiques",
     "intro": "Mes recherches se situent au croisement de la linguistique, de la sémantique computationnelle et des sciences cognitives.",

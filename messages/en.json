@@ -303,6 +303,7 @@
     "comingSoon": "Jewelry coming soon."
   },
   "research": {
+    "backToConsulting": "← Back to consulting",
     "title": "Publications",
     "subtitle": "Academic Work",
     "intro": "My research sits at the crossroads of linguistics, computational semantics, and cognitive science.",

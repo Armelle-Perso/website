@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { safeFetch } from '@/sanity/lib/client'
 import { researchQuery } from '@/sanity/lib/queries'
 import PageHeader from '@/components/PageHeader'
+import { Link } from '@/i18n/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 export const revalidate = 86400
@@ -112,6 +113,11 @@ export default async function PublicationsPage({ params }: { params: Promise<{ l
           </aside>
 
         </div>
+
+        {/* Publications are reached from Consulting: lead back there (17 Nov 2026) */}
+        <Link href="/consulting" className="inline-block mt-16 text-[10px] uppercase tracking-[0.25em] font-sans text-[--color-gold] hover:text-[--color-charcoal] transition-colors duration-300">
+          {t('backToConsulting')}
+        </Link>
       </div>
     </>
   )
