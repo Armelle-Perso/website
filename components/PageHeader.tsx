@@ -1,7 +1,7 @@
 interface PageHeaderProps {
   title: string
   subtitle?: string
-  description?: string
+  description?: React.ReactNode
   centered?: boolean
   /** Tighter vertical rhythm, for pages whose content should reach the fold */
   compact?: boolean
@@ -21,9 +21,9 @@ export default function PageHeader({ title, subtitle, description, centered = fa
           {title}
         </h1>
         {description && (
-          <p className={`${compact ? 'mt-4' : 'mt-8'} text-[--color-muted] font-sans font-light text-base max-w-xl leading-relaxed`}>
+          <div className={`${compact ? 'mt-4' : 'mt-8'} text-[--color-muted] font-sans font-light text-base max-w-xl leading-relaxed`}>
             {description}
-          </p>
+          </div>
         )}
         <div className={`${compact ? 'mt-4' : 'mt-10'} w-12 h-px bg-[--color-gold]`} />
       </div>

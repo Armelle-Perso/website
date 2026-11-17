@@ -73,25 +73,22 @@ export default async function AvailablePaintingsPage({ params }: { params: Promi
       <PageHeader
         title={t('title')}
         subtitle={t('subtitle')}
-        description={t('description')}
+        description={
+          // Price range in direct sale, a no-pressure invitation to ask, and the creative path (17 Nov 2026)
+          <>
+            <p>
+              {t('prices')}{' '}
+              <Link href="/contact" className="text-[--color-gold] hover:underline">{t('pricesLink')}</Link>{' '}
+              {t('pricesEnd')}
+            </p>
+            <p className="mt-4">
+              <Link href="/art/paintings/creative-path" className="text-[--color-gold] hover:underline whitespace-nowrap">{t('trustLink')}</Link>
+            </p>
+          </>
+        }
       />
 
-      <section className="max-w-7xl mx-auto px-6 pb-32">
-        {/* Who the artist is, for buyers who arrive from a QR label (Artmadams, Nov 2026) */}
-        <p className="-mt-6 mb-14 max-w-xl font-sans font-light text-sm leading-relaxed text-[--color-charcoal]">
-          {t('trust')}{' '}
-          <Link href="/art/paintings/creative-path" className="text-[--color-gold] hover:underline whitespace-nowrap">
-            {t('trustLink')}
-          </Link>
-        </p>
-        {/* Price range in direct sale, and a no-pressure invitation to ask (17 Nov 2026) */}
-        <p className="-mt-8 mb-14 max-w-xl font-sans font-light text-sm leading-relaxed text-[--color-charcoal]">
-          {t('prices')}{' '}
-          <Link href="/contact" className="text-[--color-gold] hover:underline">
-            {t('pricesLink')}
-          </Link>{' '}
-          {t('pricesEnd')}
-        </p>
+      <section className="max-w-7xl mx-auto px-6 pb-32 -mt-10">
         {allAvailable.length > 0 ? (
           <>
             <p className="text-[10px] uppercase tracking-[0.3em] font-sans text-[--color-gold] font-light mb-16">
