@@ -47,7 +47,7 @@ const collectives = [
       fr: 'Atelier d\'art collaboratif dans une ancienne usine de moteurs d\'avion (Junkers), co-fondé avec la photographe Paola Guigou. Un espace modulable transformé avec des matériaux recyclés en une ruche créative où chaque artiste a son propre univers avec la possibilité de partager des projets.',
       es: 'Taller de arte colaborativo en una antigua fábrica de motores de avión (Junkers), co-fundado con la fotógrafa Paola Guigou. Un espacio modular transformado con materiales reciclados en una colmena creativa donde cada artista tiene su propio mundo con la posibilidad de compartir proyectos.',
     },
-    role: { en: 'Co-founder', fr: 'Co-fondatrice', es: 'Co-fundadora' },
+    role: { en: 'Co-founder and co-president', fr: 'Co-fondatrice et co-présidente', es: 'Co-fundadora y co-presidenta' },
     link: M33_URL,
     images: [
       { src: '/images/collectives/m33-facade.jpg', alt: 'M33 — Junkers Factory, Strasbourg' },
@@ -145,11 +145,16 @@ export default async function CollectivesPage({ params }: { params: Promise<{ lo
         ))}
       </section>
 
-      {/* Residency */}
-      <section className="border-t border-[--color-border] max-w-5xl mx-auto px-6 py-20">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-[--color-gold] font-sans font-light mb-12">
-          {lang === 'fr' ? 'Résidence' : lang === 'es' ? 'Residencia' : 'Residency'}
-        </p>
+      {/* Residency: heading styled like the page title (PageHeader) */}
+      <div className="border-t border-[--color-border] pt-20 pb-16 md:pt-28 md:pb-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl font-light leading-[0.9] tracking-tight text-[--color-charcoal]">
+            {lang === 'fr' ? 'Résidence' : lang === 'es' ? 'Residencia' : 'Residency'}
+          </h2>
+          <div className="mt-10 w-12 h-px bg-[--color-gold]" />
+        </div>
+      </div>
+      <section className="max-w-5xl mx-auto px-6 pb-20">
 
         <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-16 items-start">
           <div>
