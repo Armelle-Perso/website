@@ -28,6 +28,16 @@ const BATX_TEXT: Record<string, string> = {
   fr: 'Vernissage en décembre 2026, date à venir.',
   es: 'Inauguración en diciembre de 2026, fecha por confirmar.',
 }
+// Past shows not in Sanity, added in code (17 Nov 2026)
+const MIX_TEXT: Record<string, string> = {
+  en: 'Open-house exhibitions organised by Mix Amylo.',
+  fr: 'Expositions portes ouvertes organisées par Mix Amylo.',
+  es: 'Exposiciones de puertas abiertas organizadas por Mix Amylo.',
+}
+const extraPast = (locale: string) => [
+  { _id: 'open-house-art-2023', title: 'Open House', type: 'Group Exhibitions', venue: 'Mix Amylo', city: 'Orgiva, Spain', venueUrl: 'https://www.mixamylo.com/',
+    startDate: '2023-01-01', description: block(MIX_TEXT[locale] || MIX_TEXT.en) },
+]
 const extraUpcoming = (locale: string) => [
   { _id: 'batx-2026', title: 'Semillas de luz', type: 'Solo café show', venue: 'Batx Santa Catalina', city: 'Palma, Mallorca',
     startDate: '2026-12-01', endDate: '2027-02-01', upcoming: true, venueUrl: 'https://batxcafe.com/', description: block(BATX_TEXT[locale] || BATX_TEXT.en) },
@@ -49,7 +59,8 @@ export default async function ExhibitionsPage({ params }: { params: Promise<{ lo
 
   const exhibitions = await safeFetch<any[]>(exhibitionsQuery)
   const upcoming = [...extraUpcoming(locale), ...(exhibitions?.filter((e: any) => e.upcoming) || [])]
-  const past = exhibitions?.filter((e: any) => !e.upcoming) || []
+  const past = [...(exhibitions?.filter((e: any) => !e.upcoming) || []), ...extraPast(locale)]
+    .sort((a: any, b: any) => String(b.startDate || '').localeCompare(String(a.startDate || '')))
 
   return (
     <>
