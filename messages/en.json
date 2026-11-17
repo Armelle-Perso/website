@@ -2,6 +2,7 @@
   "nav": {
     "art": "Art",
     "paintings": "Paintings",
+    "allPaintings": "All paintings",
     "available": "Available works",
     "creativePath": "Creative path",
     "artInHomes": "Art in homes",
