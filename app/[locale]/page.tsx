@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { safeFetch } from '@/sanity/lib/client'
 import { siteSettingsQuery } from '@/sanity/lib/queries'
 import { localized } from '@/sanity/lib/localize'
+import { HOME_SHOW, homeShowStatus } from '@/lib/home-show'
 
 export const revalidate = 86400
 
@@ -26,6 +27,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   const settings = await safeFetch<any>(siteSettingsQuery)
   const tagline = settings ? localized(settings, 'tagline', locale) : ''
+  const showStatus = homeShowStatus()
 
   const cards = [
     {
@@ -96,6 +98,16 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </Link>
           ))}
         </div>
+
+        {/* ── Current / upcoming show, one quiet line (lib/home-show.ts) ── */}
+        {showStatus && (
+          <Link href="/art/exhibitions" className="group text-center text-[10px] uppercase tracking-[0.2em] font-sans font-light text-[#6B6B6B] hover:text-[--color-gold] transition-colors">
+            <span className="text-[--color-gold]">{t(showStatus === 'now' ? 'nowShowing' : 'upcomingShow')}</span>
+            {' · '}<span className="font-serif normal-case italic tracking-normal text-sm text-[#1C1C1C]">{HOME_SHOW.title}</span>
+            {' · '}{HOME_SHOW.venue}{' · '}{HOME_SHOW.date[locale] || HOME_SHOW.date.en}
+            <span className="inline-block ml-2 text-[--color-gold] transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </Link>
+        )}
 
         {/* ── Quiet text links ── */}
         <div className="w-full max-w-md grid grid-cols-[1fr_auto_1fr] items-center gap-x-5 text-[10px] uppercase tracking-[0.2em] font-sans font-light text-[#6B6B6B]">
