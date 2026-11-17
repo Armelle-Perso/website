@@ -14,9 +14,9 @@ const CX = 350, CY = 300
 const R = 80
 
 const texts: Record<string, string[]> = {
-  fr: ["Énergie", "Intuition", "Canaliser", "Invisible", "Sensible", "Intime", "Art visionnaire", "Flux", "Méditation", "Cérémonie", "Cosmique", "Nature", "Plantes", "Geste", "Expressionnisme", "Action painting", "Coulures", "Mouvement", "Danse", "Corps", "Langage pictural", "Abstraction lyrique", "Biomorphisme", "Signe", "Symboles", "Vibration", "Couleur", "Contraste", "Vivacité", "Lumière", "Matière", "Texture", "Sables", "Terres", "Superpositions", "Acryliques", "Posca", "Encre", "Organique", "Minéral"],
-  en: ["Energy", "Intuition", "Channel", "Invisible", "Sensitive", "Intimate", "Visionary art", "Flow", "Meditation", "Ceremony", "Cosmic", "Nature", "Plants", "Gesture", "Expressionism", "Action painting", "Drips", "Movement", "Dance", "Body", "Pictorial language", "Lyrical abstraction", "Biomorphism", "Sign", "Symbols", "Vibrancy", "Colour", "Contrast", "Vividness", "Light", "Matter", "Texture", "Sands", "Earths", "Layering", "Acrylics", "Posca", "Ink", "Organic", "Mineral"],
-  es: ["Energía", "Intuición", "Canalizar", "Invisible", "Sensible", "Íntimo", "Arte visionario", "Flujo", "Meditación", "Ceremonia", "Cósmico", "Naturaleza", "Plantas", "Gesto", "Expresionismo", "Action painting", "Chorreados", "Movimiento", "Danza", "Cuerpo", "Lenguaje pictórico", "Abstracción lírica", "Biomorfismo", "Signo", "Símbolos", "Vibración", "Color", "Contraste", "Viveza", "Luz", "Materia", "Textura", "Arenas", "Tierras", "Capas", "Acrílicos", "Posca", "Tinta", "Orgánico", "Mineral"],
+  fr: ["Énergie", "Intuition", "Canaliser", "Invisible", "Sensible", "Intime", "Art visionnaire", "Flux", "Méditation", "Cérémonie", "Cosmique", "Nature", "Plantes", "Geste", "Expressionnisme", "Action painting", "Coulures", "Mouvement", "Danse", "Corps", "Langage pictural", "Abstraction lyrique", "Biomorphisme", "Signe", "Symboles", "Vibration", "Couleur", "Contraste", "Vivacité", "Lumière", "Matière", "Texture", "Sables", "Terres", "Superpositions", "Acryliques", "Posca", "Encre", "Organique", "Minéral", "Conscience"],
+  en: ["Energy", "Intuition", "Channel", "Invisible", "Sensitive", "Intimate", "Visionary art", "Flow", "Meditation", "Ceremony", "Cosmic", "Nature", "Plants", "Gesture", "Expressionism", "Action painting", "Drips", "Movement", "Dance", "Body", "Pictorial language", "Lyrical abstraction", "Biomorphism", "Sign", "Symbols", "Vibrancy", "Colour", "Contrast", "Vividness", "Light", "Matter", "Texture", "Sands", "Earths", "Layering", "Acrylics", "Posca", "Ink", "Organic", "Mineral", "Consciousness"],
+  es: ["Energía", "Intuición", "Canalizar", "Invisible", "Sensible", "Íntimo", "Arte visionario", "Flujo", "Meditación", "Ceremonia", "Cósmico", "Naturaleza", "Plantas", "Gesto", "Expresionismo", "Action painting", "Chorreados", "Movimiento", "Danza", "Cuerpo", "Lenguaje pictórico", "Abstracción lírica", "Biomorfismo", "Signo", "Símbolos", "Vibración", "Color", "Contraste", "Viveza", "Luz", "Materia", "Textura", "Arenas", "Tierras", "Capas", "Acrílicos", "Posca", "Tinta", "Orgánico", "Mineral", "Conciencia"],
 }
 
 interface WL { x: number; y: number; size: number; font: string; color: string; opacity: number; rotate: number }
@@ -61,11 +61,13 @@ const W: WL[] = [
   { x: 623, y: 391, size: 12, font: 'sans', color: '--color-muted', opacity: 0.65, rotate: 0 },
   { x: 124, y: 471, size: 12, font: 'serif', color: '--color-muted', opacity: 0.65, rotate: 3 },
   { x: 126, y: 129, size: 12, font: 'sans', color: '--color-muted', opacity: 0.65, rotate: -3 },
+  // Consciousness (added 17 Nov 2026), just under Energy
+  { x: 350, y: 345, size: 18, font: 'serif', color: '--color-charcoal', opacity: 0.85, rotate: 0 },
 ]
 // category of each word (0 approach, 1 gesture, 2 pictorial language, 3 colour, 4 matter)
-const CAT: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+const CAT: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0]
 // constellation of each category across the whole circle
-const E: [number, number][] = [[4, 9], [9, 1], [1, 7], [7, 5], [5, 0], [0, 8], [8, 10], [10, 2], [2, 12], [12, 3], [3, 6], [6, 11], [11, 4], [17, 18], [18, 13], [13, 15], [15, 14], [14, 16], [16, 19], [19, 17], [22, 23], [23, 24], [24, 20], [20, 21], [21, 22], [29, 27], [27, 25], [25, 28], [28, 26], [26, 29], [34, 39], [39, 35], [35, 36], [36, 37], [37, 32], [32, 30], [30, 31], [31, 33], [33, 38], [38, 34]]
+const E: [number, number][] = [[4, 9], [9, 1], [1, 7], [7, 5], [5, 0], [0, 8], [8, 10], [10, 2], [2, 12], [12, 3], [3, 6], [6, 11], [11, 4], [0, 40], [40, 8], [17, 18], [18, 13], [13, 15], [15, 14], [14, 16], [16, 19], [19, 17], [22, 23], [23, 24], [24, 20], [20, 21], [21, 22], [29, 27], [27, 25], [25, 28], [28, 26], [26, 29], [34, 39], [39, 35], [35, 36], [36, 37], [37, 32], [32, 30], [30, 31], [31, 33], [33, 38], [38, 34]]
 
 // ─── Geometry: Metatron's cube and what it contains ─────────
 function hexRing(r: number) {

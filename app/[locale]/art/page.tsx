@@ -94,7 +94,7 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
       </section>
 
       {/* Word cloud of her painting style (approach, gesture, pictorial language, colour, matter) */}
-      <section className="max-w-7xl mx-auto px-6 pb-24">
+      <section id="style" className="max-w-7xl mx-auto px-6 pb-24 scroll-mt-16">
         <ArtWordCloud locale={locale} />
       </section>
 
