@@ -89,7 +89,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             </span>
           </Link>
           <Link
-            href="/art/paintings"
+            href="/art"
             className="group block border border-[--color-border] p-8 hover:border-[--color-gold] transition-colors duration-300"
           >
             <h3 className="font-serif text-2xl font-light text-[--color-charcoal] mb-2 group-hover:text-[--color-gold] transition-colors">

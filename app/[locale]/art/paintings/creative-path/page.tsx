@@ -130,7 +130,14 @@ export default async function CreativePathPage({ params }: { params: Promise<{ l
             {text.source}
           </p>
 
-          <div className="mt-16">
+          <Link href="/art/paintings/available" className="group inline-flex items-baseline gap-3 mt-16">
+            <span className="font-serif text-2xl font-light text-[--color-charcoal] group-hover:text-[--color-muted] transition-colors duration-300">
+              {t('seeAvailable').replace(' →', '')}
+            </span>
+            <span className="text-xs tracking-widest text-[--color-gold] transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+          </Link>
+
+          <div className="mt-10">
             <Link href="/art/paintings" className="text-[10px] uppercase tracking-[0.25em] font-sans text-[--color-gold] hover:text-[--color-charcoal] transition-colors duration-300">
               {t('backToSeries')}
             </Link>
