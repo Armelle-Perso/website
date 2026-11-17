@@ -73,7 +73,7 @@ export default async function ExhibitionsPage({ params }: { params: Promise<{ lo
         subtitle={t('subtitle')}
         description={t('description')}
       />
-      <section className="max-w-5xl mx-auto px-6 py-16">
+      <section className="max-w-5xl mx-auto px-6 -mt-6 pb-16">
         {upcoming.length > 0 && (
           <div className="mb-16">
             <h2 className="font-serif text-3xl mb-8 pb-4 border-b border-[--color-border]">{t('upcoming')}</h2>
