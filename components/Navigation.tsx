@@ -19,13 +19,12 @@ export default function Navigation() {
       label: t('art'),
       href: '/art' as const,
       children: [
-        { label: t('paintings'), href: '/art/paintings' as const, sub: [
-          { label: t('creativePath'), href: '/art/paintings/creative-path' as const },
-          { label: t('available'), href: '/art/paintings/available' as const },
-          { label: t('artInHomes'), href: '/art/paintings/people' as const },
-        ]},
-        { label: t('collectives'), href: '/art/collectives' as const },
+        { label: t('paintings'), href: '/art/paintings' as const },
+        { label: t('available'), href: '/art/paintings/available' as const },
+        { label: t('creativePath'), href: '/art/paintings/creative-path' as const },
         { label: t('exhibitions'), href: '/art/exhibitions' as const },
+        { label: t('artInHomes'), href: '/art/paintings/people' as const },
+        { label: t('collectives'), href: '/art/collectives' as const },
         { label: t('shop'), href: '/shop' as const },
       ],
     },
