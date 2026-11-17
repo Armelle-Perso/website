@@ -73,10 +73,11 @@ export default async function AvailablePaintingsPage({ params }: { params: Promi
       <PageHeader
         title={t('title')}
         subtitle={t('subtitle')}
+        compact
         description={
           // Price range in direct sale and a no-pressure invitation to ask (17 Nov 2026)
           <>
-            <p>
+            <p className="text-sm">
               {t('prices')}{' '}
               <Link href="/contact" className="text-[--color-gold] hover:underline">{t('pricesLink')}</Link>{' '}
               {t('pricesEnd')}
@@ -85,10 +86,10 @@ export default async function AvailablePaintingsPage({ params }: { params: Promi
         }
       />
 
-      <section className="max-w-7xl mx-auto px-6 pb-32 -mt-10">
+      <section className="max-w-7xl mx-auto px-6 pb-32 pt-8">
         {allAvailable.length > 0 ? (
           <>
-            <p className="text-[10px] uppercase tracking-[0.3em] font-sans text-[--color-gold] font-light mb-16">
+            <p className="text-[10px] uppercase tracking-[0.3em] font-sans text-[--color-gold] font-light mb-8">
               {t('worksAvailable', { count: allAvailable.length })}
             </p>
 
