@@ -10,11 +10,19 @@ export default function Navigation() {
   const pathname = usePathname()
   const t = useTranslations('nav')
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [artOpen, setArtOpen] = useState(false)
+  // Which mobile submenu is open (Art or Consulting), one at a time
+  const [openMenu, setOpenMenu] = useState<string | null>(null)
 
   const navLinks = [
     { label: t('about'), href: '/about' as const },
-    { label: t('consulting'), href: '/consulting' as const },
+    {
+      label: t('consulting'),
+      href: '/consulting' as const,
+      children: [
+        { label: t('services'), href: '/consulting' as const },
+        { label: t('research'), href: '/consulting/publications' as const },
+      ],
+    },
     {
       label: t('art'),
       href: '/art' as const,
@@ -116,14 +124,14 @@ export default function Navigation() {
                       {link.label}
                     </Link>
                     <button
-                      onClick={() => setArtOpen(!artOpen)}
+                      onClick={() => setOpenMenu(openMenu === link.href ? null : link.href)}
                       className="px-3 py-3 text-[--color-muted]"
                       aria-label="Toggle submenu"
                     >
-                      {artOpen ? '−' : '+'}
+                      {openMenu === link.href ? '−' : '+'}
                     </button>
                   </div>
-                  {artOpen && (
+                  {openMenu === link.href && (
                     <ul className="py-2 pl-4">
                       {link.children.map((child: any) => (
                         <li key={child.href}>
