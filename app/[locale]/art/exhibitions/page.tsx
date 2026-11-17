@@ -15,6 +15,7 @@ const typeOverrides: Record<string, string> = {
   q7MxOP673O523e3BZ9d5GA: 'Duo Exhibition', // Entélékiss 2015, four-hands paintings with Jérôme Dupré la Tour
   Htvkf05gV4fJEoqSQ5BIWj: 'Group Exhibitions', // M33 collective 2014-2016, several shows
   '1y7ZVPKFp3J9IOAgPaRF47': 'Group Exhibitions', // Artists Network Alpujarra, several shows
+  Htvkf05gV4fJEoqSQ5BJUF: 'Group Exhibitions', // The Lost Room collective 2011, several shows
 }
 
 // Solo show at Galerie Le point Fort, 2014 — the one exhibition with a printed
