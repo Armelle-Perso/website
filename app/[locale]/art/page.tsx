@@ -40,11 +40,11 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
   const collectivesFallback = '/images/collectives/m33-facade.jpg'
   const exhibitionsFallback = '/images/paintings/transforma/exhibition.jpg'
 
-  const artSections: { label: string; desc?: string; href: string; image: any; fallbackSrc: string; objectPosition?: string }[] = [
-    { label: t('paintingsLabel'), desc: t('paintingsDesc'), href: '/art/paintings', image: paintingsCover, fallbackSrc: '/images/available-cover.jpg' },
+  const artSections: { label: string; href: string; image: any; fallbackSrc: string; objectPosition?: string }[] = [
+    { label: t('paintingsLabel'), href: '/art/paintings', image: paintingsCover, fallbackSrc: '/images/available-cover.jpg' },
     { label: tNav('creativePath'), href: '/art/paintings/creative-path', image: null, fallbackSrc: '/images/paintings/creative-path/performance-le-point-fort-2014-gesture.jpg', objectPosition: 'center 30%' },
-    { label: t('collectivesLabel'), desc: t('collectivesDesc'), href: '/art/collectives', image: collectivesCover, fallbackSrc: collectivesFallback },
-    { label: t('exhibitionsLabel'), desc: t('exhibitionsDesc'), href: '/art/exhibitions', image: exhibitionsCover, fallbackSrc: exhibitionsFallback, objectPosition: '32% center' },
+    { label: t('collectivesLabel'), href: '/art/collectives', image: collectivesCover, fallbackSrc: collectivesFallback },
+    { label: t('exhibitionsLabel'), href: '/art/exhibitions', image: exhibitionsCover, fallbackSrc: exhibitionsFallback, objectPosition: '32% center' },
   ]
 
   return (
@@ -121,12 +121,12 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
       </section>
 
       {/* Category cards */}
-      <section className="max-w-7xl mx-auto px-6 pb-32">
+      <section id="sections" className="max-w-7xl mx-auto px-6 pb-32 scroll-mt-20">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 max-w-4xl mx-auto">
           {artSections.map((section) => (
             <Link key={section.href} href={section.href} className="group block">
               <div className="flex items-baseline justify-between gap-4 mb-4">
-                <h2 className="font-serif text-lg lg:text-xl font-light leading-tight text-[--color-charcoal] group-hover:text-[--color-muted] transition-colors duration-300">
+                <h2 className="font-serif text-lg font-light leading-tight whitespace-nowrap text-[--color-charcoal] group-hover:text-[--color-muted] transition-colors duration-300">
                   {section.label}
                 </h2>
                 <span className="text-xs tracking-widest text-[--color-gold] transition-transform duration-300 group-hover:translate-x-1.5">
@@ -152,11 +152,6 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
                   </div>
                 )}
               </div>
-              {section.desc && (
-                <p className="pt-4 text-xs font-sans font-light text-[--color-muted] leading-relaxed">
-                  {section.desc}
-                </p>
-              )}
             </Link>
           ))}
         </div>
