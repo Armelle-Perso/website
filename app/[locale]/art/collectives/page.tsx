@@ -41,7 +41,7 @@ const collectives = [
   {
     name: 'M33',
     location: { en: 'Strasbourg, France', fr: 'Strasbourg, France', es: 'Estrasburgo, Francia' },
-    years: '2014',
+    years: '2014–2016',
     description: {
       en: 'Collaborative art studio in a former aircraft engine factory (Junkers), co-founded with photographer Paola Guigou. A modular space transformed with recycled materials into a creative hive where each artist has their own world with the potential to share projects.',
       fr: 'Atelier d\'art collaboratif dans une ancienne usine de moteurs d\'avion (Junkers), co-fondé avec la photographe Paola Guigou. Un espace modulable transformé avec des matériaux recyclés en une ruche créative où chaque artiste a son propre univers avec la possibilité de partager des projets.',
