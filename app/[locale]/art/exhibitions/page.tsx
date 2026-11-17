@@ -3,6 +3,7 @@ import { safeFetch } from '@/sanity/lib/client'
 import { exhibitionsQuery } from '@/sanity/lib/queries'
 import PageHeader from '@/components/PageHeader'
 import { PortableText } from 'next-sanity'
+import AvailableWorksLink from '@/components/AvailableWorksLink'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import LinkM33 from '@/components/LinkM33'
 
@@ -94,6 +95,8 @@ export default async function ExhibitionsPage({ params }: { params: Promise<{ lo
         {!exhibitions?.length && (
           <p className="text-[--color-muted] font-sans text-center py-20">{t('comingSoon')}</p>
         )}
+
+        <AvailableWorksLink className="mt-20" />
       </section>
     </>
   )

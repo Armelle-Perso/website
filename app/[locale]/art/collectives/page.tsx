@@ -3,6 +3,7 @@ import Image from 'next/image'
 import PageHeader from '@/components/PageHeader'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { M33_URL } from '@/components/LinkM33'
+import AvailableWorksLink from '@/components/AvailableWorksLink'
 
 export const revalidate = 86400
 
@@ -194,6 +195,8 @@ export default async function CollectivesPage({ params }: { params: Promise<{ lo
             />
           </div>
         </div>
+
+        <AvailableWorksLink className="mt-20" />
       </section>
     </>
   )
