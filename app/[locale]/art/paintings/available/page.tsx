@@ -84,6 +84,14 @@ export default async function AvailablePaintingsPage({ params }: { params: Promi
             {t('trustLink')}
           </Link>
         </p>
+        {/* Price range in direct sale, and a no-pressure invitation to ask (17 Nov 2026) */}
+        <p className="-mt-8 mb-14 max-w-xl font-sans font-light text-sm leading-relaxed text-[--color-charcoal]">
+          {t('prices')}{' '}
+          <Link href="/contact" className="text-[--color-gold] hover:underline">
+            {t('pricesLink')}
+          </Link>{' '}
+          {t('pricesEnd')}
+        </p>
         {allAvailable.length > 0 ? (
           <>
             <p className="text-[10px] uppercase tracking-[0.3em] font-sans text-[--color-gold] font-light mb-16">
