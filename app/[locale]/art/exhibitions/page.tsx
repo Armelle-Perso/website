@@ -30,12 +30,12 @@ const BATX_TEXT: Record<string, string> = {
 }
 // Past shows not in Sanity, added in code (17 Nov 2026)
 const MIX_TEXT: Record<string, string> = {
-  en: 'Open-house exhibitions organised by Mix Amylo.',
-  fr: 'Expositions portes ouvertes organisées par Mix Amylo.',
-  es: 'Exposiciones de puertas abiertas organizadas por Mix Amylo.',
+  en: 'Organised by Mix Amylo.',
+  fr: 'Organisées par Mix Amylo.',
+  es: 'Organizadas por Mix Amylo.',
 }
 const extraPast = (locale: string) => [
-  { _id: 'open-house-art-2023', title: 'Open House', type: 'Group Exhibitions', venue: 'Mix Amylo', city: 'Orgiva, Spain', venueUrl: 'https://www.mixamylo.com/',
+  { _id: 'open-house-art-2023', title: 'Open House Art Exhibitions', type: 'Group Exhibitions', city: 'Orgiva, Spain',
     startDate: '2023-01-01', description: block(MIX_TEXT[locale] || MIX_TEXT.en) },
 ]
 const extraUpcoming = (locale: string) => [
