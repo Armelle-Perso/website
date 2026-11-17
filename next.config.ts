@@ -40,12 +40,12 @@ const nextConfig: NextConfig = {
       { source: '/parcours.', destination: '/fr/art/paintings/creative-path', permanent: false },
       { source: '/camino.', destination: '/es/art/paintings/creative-path', permanent: false },
       // Short links to the Serotiny series (2025-2026), for the Nov 2026 Instagram post
-      { source: '/serotiny', destination: '/art/paintings/2025-2026', permanent: false },
-      { source: '/serotinie', destination: '/fr/art/paintings/2025-2026', permanent: false },
-      { source: '/serotinia', destination: '/es/art/paintings/2025-2026', permanent: false },
-      { source: '/serotiny.', destination: '/art/paintings/2025-2026', permanent: false },
-      { source: '/serotinie.', destination: '/fr/art/paintings/2025-2026', permanent: false },
-      { source: '/serotinia.', destination: '/es/art/paintings/2025-2026', permanent: false },
+      { source: '/serotiny', destination: '/art/paintings/serotiny-2025-2026', permanent: false },
+      { source: '/serotinie', destination: '/fr/art/paintings/serotiny-2025-2026', permanent: false },
+      { source: '/serotinia', destination: '/es/art/paintings/serotiny-2025-2026', permanent: false },
+      { source: '/serotiny.', destination: '/art/paintings/serotiny-2025-2026', permanent: false },
+      { source: '/serotinie.', destination: '/fr/art/paintings/serotiny-2025-2026', permanent: false },
+      { source: '/serotinia.', destination: '/es/art/paintings/serotiny-2025-2026', permanent: false },
       // The jewellery page is no longer linked (Nov 2026); old links land on Art
       { source: '/art/jewelry', destination: '/art', permanent: true },
       { source: '/:locale(en|fr|es)/art/jewelry', destination: '/:locale/art', permanent: true },
@@ -63,22 +63,22 @@ const nextConfig: NextConfig = {
       // of the old series goes to 2014.
       {
         source: '/art/paintings/2012-2014/:slug(devil-s-dare|freedom-of-speech|innocence|ishtar|primordia|profil|signs|terra|terre-d-eau|you-can-fly)',
-        destination: '/art/paintings/2012-2013/:slug',
+        destination: '/art/paintings/axis-mundi-2012-2013/:slug',
         permanent: true,
       },
       {
         source: '/:locale(en|fr|es)/art/paintings/2012-2014/:slug(devil-s-dare|freedom-of-speech|innocence|ishtar|primordia|profil|signs|terra|terre-d-eau|you-can-fly)',
-        destination: '/:locale/art/paintings/2012-2013/:slug',
+        destination: '/:locale/art/paintings/axis-mundi-2012-2013/:slug',
         permanent: true,
       },
       {
         source: '/art/paintings/2012-2014/:path*',
-        destination: '/art/paintings/2014/:path*',
+        destination: '/art/paintings/nebula-2014/:path*',
         permanent: true,
       },
       {
         source: '/:locale(en|fr|es)/art/paintings/2012-2014/:path*',
-        destination: '/:locale/art/paintings/2014/:path*',
+        destination: '/:locale/art/paintings/nebula-2014/:path*',
         permanent: true,
       },
       // 2015-2016 split in two (Oct 2026): these works moved to Morphogenèse;
@@ -97,36 +97,54 @@ const nextConfig: NextConfig = {
       // series rename below so it wins.
       {
         source: '/art/paintings/2015-2017/raag-bihag-album-cover',
-        destination: '/art/paintings/2018-2019/raag-bihag-album-cover',
+        destination: '/art/paintings/hidrocoria-2018-2019/raag-bihag-album-cover',
         permanent: true,
       },
       {
         source: '/:locale(en|fr|es)/art/paintings/2015-2017/raag-bihag-album-cover',
-        destination: '/:locale/art/paintings/2018-2019/raag-bihag-album-cover',
+        destination: '/:locale/art/paintings/hidrocoria-2018-2019/raag-bihag-album-cover',
         permanent: true,
       },
       // Series slug renamed 2015-2017 -> 2015-2016 (Oct 2026)
       {
         source: '/art/paintings/2015-2017/:path*',
-        destination: '/art/paintings/2015-2016/:path*',
+        destination: '/art/paintings/emanation-2015-2016/:path*',
         permanent: true,
       },
       {
         source: '/:locale(en|fr|es)/art/paintings/2015-2017/:path*',
-        destination: '/:locale/art/paintings/2015-2016/:path*',
+        destination: '/:locale/art/paintings/emanation-2015-2016/:path*',
         permanent: true,
       },
       // Series slug renamed 2025 -> 2025-2026 (Oct 2026); keep old links working.
       {
         source: '/art/paintings/2025/:path*',
-        destination: '/art/paintings/2025-2026/:path*',
+        destination: '/art/paintings/serotiny-2025-2026/:path*',
         permanent: true,
       },
       {
         source: '/:locale(en|fr|es)/art/paintings/2025/:path*',
-        destination: '/:locale/art/paintings/2025-2026/:path*',
+        destination: '/:locale/art/paintings/serotiny-2025-2026/:path*',
         permanent: true,
       },
+      // Series slugs now carry the series name, like the newer ones (17 Nov 2026):
+      // 2011 -> prakriti-2011, 2012-2013 -> axis-mundi-2012-2013, 2014 -> nebula-2014,
+      // 2015-2016 -> emanation-2015-2016, 2018-2019 -> hidrocoria-2018-2019,
+      // 2022-2023 -> diffraction-2022-2023, 2025-2026 -> serotiny-2025-2026.
+      { source: '/art/paintings/2011/:path*', destination: '/art/paintings/prakriti-2011/:path*', permanent: true },
+      { source: '/:locale(en|fr|es)/art/paintings/2011/:path*', destination: '/:locale/art/paintings/prakriti-2011/:path*', permanent: true },
+      { source: '/art/paintings/2012-2013/:path*', destination: '/art/paintings/axis-mundi-2012-2013/:path*', permanent: true },
+      { source: '/:locale(en|fr|es)/art/paintings/2012-2013/:path*', destination: '/:locale/art/paintings/axis-mundi-2012-2013/:path*', permanent: true },
+      { source: '/art/paintings/2014/:path*', destination: '/art/paintings/nebula-2014/:path*', permanent: true },
+      { source: '/:locale(en|fr|es)/art/paintings/2014/:path*', destination: '/:locale/art/paintings/nebula-2014/:path*', permanent: true },
+      { source: '/art/paintings/2015-2016/:path*', destination: '/art/paintings/emanation-2015-2016/:path*', permanent: true },
+      { source: '/:locale(en|fr|es)/art/paintings/2015-2016/:path*', destination: '/:locale/art/paintings/emanation-2015-2016/:path*', permanent: true },
+      { source: '/art/paintings/2018-2019/:path*', destination: '/art/paintings/hidrocoria-2018-2019/:path*', permanent: true },
+      { source: '/:locale(en|fr|es)/art/paintings/2018-2019/:path*', destination: '/:locale/art/paintings/hidrocoria-2018-2019/:path*', permanent: true },
+      { source: '/art/paintings/2022-2023/:path*', destination: '/art/paintings/diffraction-2022-2023/:path*', permanent: true },
+      { source: '/:locale(en|fr|es)/art/paintings/2022-2023/:path*', destination: '/:locale/art/paintings/diffraction-2022-2023/:path*', permanent: true },
+      { source: '/art/paintings/2025-2026/:path*', destination: '/art/paintings/serotiny-2025-2026/:path*', permanent: true },
+      { source: '/:locale(en|fr|es)/art/paintings/2025-2026/:path*', destination: '/:locale/art/paintings/serotiny-2025-2026/:path*', permanent: true },
     ]
   },
 }

@@ -24,7 +24,7 @@ const subseriesNotes: Record<string, string> = {
 // Series that carry a framing text from the 2014 Galerie Le point Fort
 // monograph, keyed by series slug and mapping to a message key
 const seriesNotes: Record<string, string> = {
-  '2014': 'note_2012_2014',
+  'nebula-2014': 'note_2012_2014',
 }
 
 export async function generateStaticParams() {

@@ -12,20 +12,20 @@ export type CreativePath = {
 
 // Series name as written in the text -> series slug
 export const SERIES_LINKS: Record<string, string> = {
-  Prakriti: '2011',
+  Prakriti: 'prakriti-2011',
   Endorphines: 'endorphines-2012',
-  'Axis Mundi': '2012-2013',
-  Nebula: '2014',
-  'Émanation': '2015-2016',
+  'Axis Mundi': 'axis-mundi-2012-2013',
+  Nebula: 'nebula-2014',
+  'Émanation': 'emanation-2015-2016',
   'Morphogenèse': 'morphogenese-2015-2016',
   Caminos: 'caminos-2017-2018',
-  Hidrocoria: '2018-2019',
-  Cuadritos: '2018-2019',
+  Hidrocoria: 'hidrocoria-2018-2019',
+  Cuadritos: 'hidrocoria-2018-2019',
   Transforma: 'transforma-2020',
   Lightcodes: 'lightcodes-2021',
-  Diffraction: '2022-2023',
+  Diffraction: 'diffraction-2022-2023',
   'Inner Landscapes': 'inner-landscapes-2023',
-  Serotiny: '2025-2026',
+  Serotiny: 'serotiny-2025-2026',
 }
 
 export const CREATIVE_PATH: Record<string, CreativePath> = {
