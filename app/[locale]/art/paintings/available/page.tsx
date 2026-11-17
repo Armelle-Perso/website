@@ -74,15 +74,12 @@ export default async function AvailablePaintingsPage({ params }: { params: Promi
         title={t('title')}
         subtitle={t('subtitle')}
         description={
-          // Price range in direct sale, a no-pressure invitation to ask, and the creative path (17 Nov 2026)
+          // Price range in direct sale and a no-pressure invitation to ask (17 Nov 2026)
           <>
             <p>
               {t('prices')}{' '}
               <Link href="/contact" className="text-[--color-gold] hover:underline">{t('pricesLink')}</Link>{' '}
               {t('pricesEnd')}
-            </p>
-            <p className="mt-4">
-              <Link href="/art/paintings/creative-path" className="text-[--color-gold] hover:underline whitespace-nowrap">{t('trustLink')}</Link>
             </p>
           </>
         }
