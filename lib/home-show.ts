@@ -3,7 +3,7 @@
 // Turn on with `onHome: true` once the date is confirmed. The line switches
 // from "Coming up" to "Now showing" at `start` and disappears after `end`.
 export const HOME_SHOW = {
-  onHome: true, // Batx: opening date confirmed by Jess on 18 Nov 2026
+  onHome: false, // switched off 18 Nov 2026 (her call: not needed on the home page)
   title: 'Semillas de luz',
   venue: 'Batx Santa Catalina, Palma',
   start: '2026-12-03',
