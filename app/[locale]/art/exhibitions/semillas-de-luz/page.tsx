@@ -40,10 +40,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const t = T[locale] || T.en
   const description = `${t.kind} · Armelle Boussidan · Batx Santa Catalina, Palma · ${t.opening}: ${t.openingDate} · ${t.free}`
-  const image = { url: '/images/exhibitions/semillas-de-luz-og.jpg', width: 1200, height: 630, alt: 'Semillas de luz' }
+  // Absolute www URL: the bare domain redirects, and WhatsApp does not follow redirects for preview images
+  const image = { url: 'https://www.armelleboussidan.com/images/exhibitions/semillas-de-luz-og.jpg', width: 1200, height: 630, alt: 'Semillas de luz', type: 'image/jpeg' }
+  const pageUrl = `https://www.armelleboussidan.com${locale === 'en' ? '' : '/' + locale}/art/exhibitions/semillas-de-luz`
   return {
     title: 'Semillas de luz', description,
-    openGraph: { title: 'Semillas de luz · Armelle Boussidan', description, images: [image], type: 'website' },
+    openGraph: { title: 'Semillas de luz · Armelle Boussidan', description, url: pageUrl, siteName: 'Armelle Boussidan', images: [image], type: 'website' },
     twitter: { card: 'summary_large_image', title: 'Semillas de luz · Armelle Boussidan', description, images: [image.url] },
   }
 }

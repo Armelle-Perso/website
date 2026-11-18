@@ -19,7 +19,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://armelleboussidan.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.armelleboussidan.com'),
   title: { default: 'Armelle Boussidan', template: '%s | Armelle Boussidan' },
   description: 'Artist and consultant based in Strasbourg. Paintings, jewelry, multimedia, translation and facilitation.',
   icons: {
