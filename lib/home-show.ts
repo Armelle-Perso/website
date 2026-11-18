@@ -3,15 +3,15 @@
 // Turn on with `onHome: true` once the date is confirmed. The line switches
 // from "Coming up" to "Now showing" at `start` and disappears after `end`.
 export const HOME_SHOW = {
-  onHome: false, // Batx: waiting for the signed contract and the opening date (17 Nov 2026)
+  onHome: true, // Batx: opening date confirmed by Jess on 18 Nov 2026
   title: 'Semillas de luz',
   venue: 'Batx Santa Catalina, Palma',
-  start: '2026-12-01',
+  start: '2026-12-03',
   end: '2027-02-01',
   date: {
-    en: 'December 2026',
-    fr: 'décembre 2026',
-    es: 'diciembre de 2026',
+    en: 'opening Thu 3 December, 6 pm',
+    fr: 'vernissage jeudi 3 décembre, 18 h',
+    es: 'inauguración jueves 3 de diciembre, 18 h',
   } as Record<string, string>,
 }
 

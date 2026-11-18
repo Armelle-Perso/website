@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Armelle Boussidan//Semillas de luz//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:semillas-de-luz-2026-12-03@armelleboussidan.com
+DTSTAMP:20261118T120000Z
+DTSTART:20261203T170000Z
+DTEND:20261203T200000Z
+SUMMARY:Semillas de luz · Armelle Boussidan (inauguración)
+DESCRIPTION:Exposición de pintura de Armelle Boussidan. Entrada libre. https://www.armelleboussidan.com/semillas
+LOCATION:Batx Santa Catalina\, Carrer de Despuig 63\, Palma
+URL:https://www.armelleboussidan.com/semillas
+END:VEVENT
+END:VCALENDAR

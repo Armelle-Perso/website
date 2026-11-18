@@ -101,7 +101,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
         {/* ── Current / upcoming show, one quiet line (lib/home-show.ts) ── */}
         {showStatus && (
-          <Link href="/art/exhibitions" className="group text-center text-[10px] uppercase tracking-[0.2em] font-sans font-light text-[#6B6B6B] hover:text-[--color-gold] transition-colors">
+          <Link href="/art/exhibitions/semillas-de-luz" className="group text-center text-[10px] uppercase tracking-[0.2em] font-sans font-light text-[#6B6B6B] hover:text-[--color-gold] transition-colors">
             <span className="text-[--color-gold]">{t(showStatus === 'now' ? 'nowShowing' : 'upcomingShow')}</span>
             {' · '}<span className="font-serif normal-case italic tracking-normal text-sm text-[#1C1C1C]">{HOME_SHOW.title}</span>
             {' · '}{HOME_SHOW.venue}{' · '}{HOME_SHOW.date[locale] || HOME_SHOW.date.en}

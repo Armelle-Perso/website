@@ -50,9 +50,6 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               {t('title')}
             </h1>
             <div className="w-8 h-px bg-[--color-gold] mb-6" />
-            <p className="text-[10px] uppercase tracking-[0.3em] text-[--color-gold] font-sans font-light mb-6">
-              {t('artistConsultant')}
-            </p>
             {(() => {
               const bio = localized(settings, 'bio', locale)
               return bio ? (
