@@ -58,8 +58,8 @@ export default async function SemillasDeLuzPage({ params }: { params: Promise<{ 
   const btn = 'inline-flex items-center gap-2 border border-[--color-border] px-5 py-3 text-xs uppercase tracking-[0.18em] font-sans text-[--color-charcoal] hover:border-[--color-gold] hover:text-[--color-gold] transition-colors'
   return (
     <section className="max-w-6xl mx-auto px-6 pt-12 pb-24 md:pt-16">
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-10 md:gap-16 items-start">
-        <div>
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-10 md:gap-x-16 md:gap-y-0 items-start">
+        <div className="md:col-start-1 md:row-start-1">
           <p className="text-[10px] uppercase tracking-[0.3em] text-[--color-muted] font-sans font-light mb-6">{t.kind} · Armelle Boussidan</p>
           <h1 className="font-serif text-5xl md:text-7xl font-light leading-[0.9] tracking-tight text-[--color-charcoal] mb-8">Semillas de luz</h1>
           <div className="w-12 h-px bg-[--color-gold] mb-8" />
@@ -79,8 +79,13 @@ export default async function SemillasDeLuzPage({ params }: { params: Promise<{ 
             {' · '}
             <a href={ICS} download className="text-[--color-gold] hover:underline">{t.other}</a>
           </p>
+        </div>
+        <Image src="/images/exhibitions/semillas-de-luz-flyer.jpg" alt={t.flyerAlt} width={1080} height={1350}
+          className="md:col-start-2 md:row-start-1 md:row-span-2 w-full md:w-auto h-auto md:max-h-[calc(100svh-8rem)] md:ml-auto shadow-sm" sizes="(max-width: 768px) 100vw, 560px" priority />
+        {/* Map + link to the artist: under the info on desktop, after the flyer on phones */}
+        <div className="md:col-start-1 md:row-start-2">
           {/* Small map of Santa Catalina (OpenStreetMap, pin on Batx, harbour and cathedral); opens Google Maps */}
-          <a href={MAPS} target="_blank" rel="noopener noreferrer" className="block mt-8 max-w-[320px] group">
+          <a href={MAPS} target="_blank" rel="noopener noreferrer" className="block md:mt-8 max-w-[320px] group">
             <Image src="/images/exhibitions/semillas-de-luz-plano.jpg" alt={t.mapAlt} width={1305} height={846}
               className="w-full h-auto border border-[--color-border] group-hover:border-[--color-gold] transition-colors" sizes="320px" />
           </a>
@@ -89,8 +94,6 @@ export default async function SemillasDeLuzPage({ params }: { params: Promise<{ 
             <span className="text-xs tracking-widest text-[--color-gold] transition-transform duration-300 group-hover:translate-x-1.5">→</span>
           </Link>
         </div>
-        <Image src="/images/exhibitions/semillas-de-luz-flyer.jpg" alt={t.flyerAlt} width={1080} height={1350}
-          className="w-full md:w-auto h-auto md:max-h-[calc(100svh-8rem)] md:ml-auto shadow-sm" sizes="(max-width: 768px) 100vw, 560px" priority />
       </div>
 
     </section>
