@@ -82,6 +82,9 @@ const mixBlock = (locale: string) => [{ _type: 'block', _key: 'b1', style: 'norm
 const extraPast = (locale: string) => [
   { _id: 'open-house-art-2023', title: 'Open House Art Exhibitions', type: 'Group Exhibitions', city: 'Orgiva, Spain',
     startDate: '2023-01-01', description: mixBlock(locale) },
+  // Art walk, 3 Aug 2019, 7 venues, 20+ artists (poster: CREA\EXPOS\EXPOS_Collectives\Poster POP-UP POLOPOS.png)
+  { _id: 'pop-up-polopos-2019', title: 'Pop-Up Polopos, Paseo del Arte', type: 'Group Exhibition', city: 'Polopos, Spain',
+    startDate: '2019-08-03' },
 ]
 const extraUpcoming = (locale: string) => [
   { _id: 'batx-2026', title: 'Semillas de luz', type: 'Solo café show', venue: 'Batx Santa Catalina', city: 'Palma de Mallorca, Spain',
