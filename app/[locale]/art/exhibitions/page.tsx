@@ -85,7 +85,7 @@ const extraPast = (locale: string) => [
 ]
 const extraUpcoming = (locale: string) => [
   { _id: 'batx-2026', title: 'Semillas de luz', type: 'Solo café show', venue: 'Batx Santa Catalina', city: 'Palma de Mallorca, Spain',
-    startDate: '2026-12-03', upcoming: true, venueUrl: 'https://batxcafe.com/', pageUrl: '/art/exhibitions/semillas-de-luz', description: block(BATX_TEXT[locale] || BATX_TEXT.en) },
+    startDate: '2026-12-03', endDate: '2027' /* year only: no fixed end date, up in 2027 */, upcoming: true, venueUrl: 'https://batxcafe.com/', pageUrl: '/art/exhibitions/semillas-de-luz', description: block(BATX_TEXT[locale] || BATX_TEXT.en) },
 ]
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
