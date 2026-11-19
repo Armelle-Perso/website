@@ -25,9 +25,9 @@ const typeOverrides: Record<string, string> = {
 // The gallery's name is always written "Le point Fort".
 const TYPE_L: Record<string, Record<string, string>> = {
   fr: { 'Solo Exhibition': 'Exposition personnelle', 'Group Exhibition': 'Exposition collective', 'Group Exhibitions': 'Expositions collectives',
-    'Duo Exhibition': 'Exposition en duo', 'Art Fair': "Salon d'art", Charity: 'Caritatif', Residency: 'Résidence' },
+    'Duo Exhibition': 'Exposition en duo', 'Art Fair': "Salon d'art", Charity: 'Caritatif', Residency: 'Résidence', 'Solo café show': 'Exposition personnelle en café' },
   es: { 'Solo Exhibition': 'Exposición individual', 'Group Exhibition': 'Exposición colectiva', 'Group Exhibitions': 'Exposiciones colectivas',
-    'Duo Exhibition': 'Exposición a dúo', 'Art Fair': 'Feria de arte', Charity: 'Benéfico', Residency: 'Residencia' },
+    'Duo Exhibition': 'Exposición a dúo', 'Art Fair': 'Feria de arte', Charity: 'Benéfico', Residency: 'Residencia', 'Solo café show': 'Exposición individual en café' },
 }
 const COUNTRY_L: Record<string, [RegExp, string][]> = {
   fr: [[/\bSpain\b/, 'Espagne'], [/\bCyprus\b/, 'Chypre'], [/\bUK\b/, 'Royaume-Uni'], [/^Sevilla\b/, 'Séville']],
