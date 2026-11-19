@@ -50,6 +50,9 @@ const DESC_L: Record<string, Record<string, string>> = {
 }
 const WITH_L: Record<string, string> = { en: 'with', fr: 'avec', es: 'con' }
 const pointFort = (v?: string) => v?.replace(/Le Point Fort/g, 'Le point Fort')
+const TITLE_L: Record<string, Record<string, string>> = {
+  '1y7ZVPKFp3J9IOAgPaRF47': { fr: 'Artists Network Alpujarra — Expositions collectives', es: 'Artists Network Alpujarra — Exposiciones colectivas' },
+}
 const VENUE_L: Record<string, Record<string, string>> = {
   fr: { 'Various venues': 'Lieux divers' },
   es: { 'Various venues': 'Varios lugares' },
@@ -61,7 +64,7 @@ function localizeEx(ex: any, locale: string) {
   const desc = DESC_L[ex._id]?.[locale]
   return {
     ...ex,
-    title: pointFort(ex.title),
+    title: TITLE_L[ex._id]?.[locale] ?? pointFort(ex.title),
     venue: (VENUE_L[locale] || {})[ex.venue] ?? pointFort(ex.venue),
     city,
     type: (TYPE_L[locale] || {})[type] ?? type,
