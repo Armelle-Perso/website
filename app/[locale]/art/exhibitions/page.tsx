@@ -42,9 +42,18 @@ const DESC_L: Record<string, Record<string, string>> = {
   q7MxOP673O523e3BZ9d37d: { fr: 'Cérémonie prismatique en direct.', es: 'Ceremonia prismática en directo.' },
   Htvkf05gV4fJEoqSQ5BK8t: { fr: 'Association Ithaque.', es: 'Asociación Ithaque.' },
   Htvkf05gV4fJEoqSQ5BKbv: { fr: 'Recherche contre le cancer du sein.', es: 'Investigación contra el cáncer de mama.' },
+  // From the 2018 CV (CREA\CV_bio-Portfolios\CVpeinture-ArmelleBoussidan2018.pdf), added 19 Nov 2026
+  Gd6YsNZdRpmvsYg22dzX4G: { en: 'Member of the organising team (editorial design). Funded by the Cypriot Ministry of Culture, in partnership with the Institut français de Chypre.',
+    fr: "Membre de l'équipe organisatrice (conception éditoriale). Financée par le ministère de la Culture chypriote, en partenariat avec l'Institut français de Chypre.",
+    es: 'Miembro del equipo organizador (concepción editorial). Financiada por el Ministerio de Cultura de Chipre, en colaboración con el Institut français de Chypre.' },
+  q7MxOP673O523e3BZ9d2Ek: { en: 'First artist exhibited in the new gallery.', fr: 'Première artiste exposée dans la nouvelle galerie.', es: 'Primera artista expuesta en la nueva galería.' },
 }
 const WITH_L: Record<string, string> = { en: 'with', fr: 'avec', es: 'con' }
 const pointFort = (v?: string) => v?.replace(/Le Point Fort/g, 'Le point Fort')
+const VENUE_L: Record<string, Record<string, string>> = {
+  fr: { 'Various venues': 'Lieux divers' },
+  es: { 'Various venues': 'Varios lugares' },
+}
 function localizeEx(ex: any, locale: string) {
   const type = typeOverrides[ex._id] ?? ex.type
   let city: string | undefined = ex.city
@@ -53,7 +62,7 @@ function localizeEx(ex: any, locale: string) {
   return {
     ...ex,
     title: pointFort(ex.title),
-    venue: pointFort(ex.venue),
+    venue: (VENUE_L[locale] || {})[ex.venue] ?? pointFort(ex.venue),
     city,
     type: (TYPE_L[locale] || {})[type] ?? type,
     description: desc ? block(desc) : ex.description,
