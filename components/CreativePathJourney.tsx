@@ -255,14 +255,23 @@ function startJourney(root: HTMLElement, props: Props): () => void {
   }
 
   let shown = -1, labTimer = 0
+  let curI = -1, prevC: Ch | null = null, prevT = 1, lastT = 0, fadeT0 = 0
   function render(x: number) {
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0)
     ctx.clearRect(0, 0, W, H)
     x = clamp(x, 0, N - 0.0001)
-    const i = Math.floor(x), t = x - i, c = CH[i], pc = CH[i - 1]
-    const FADE = c.p.fade || 0.42
-    if (pc && pc.p !== c.p && t < FADE) { const k = smooth(t / FADE); draw(pc.p, camera(pc, 1), 1 - k); draw(c.p, camera(c, t), k) }
-    else draw(c.p, camera(c, t), 1)
+    const i = Math.floor(x), t = x - i, c = CH[i]
+    // the dissolve runs in time (about 1.5 s), not with the scroll: two images never stay overlaid
+    const now = performance.now()
+    if (i !== curI) {
+      if (curI >= 0 && CH[curI].p !== c.p) { prevC = CH[curI]; prevT = lastT; fadeT0 = now }
+      curI = i
+    }
+    lastT = t
+    const fadeMs = reduce ? 1 : 1500 * ((c.p.fade || 0.42) / 0.42)
+    const k = prevC ? smooth(clamp((now - fadeT0) / fadeMs)) : 1
+    if (prevC && k < 1) { draw(prevC.p, camera(prevC, prevT), 1 - k); draw(c.p, camera(c, t), k) }
+    else { prevC = null; draw(c.p, camera(c, t), 1) }
     if (i !== shown) {
       shown = i
       CH.forEach((dd, j) => dd.els.forEach(e => e.classList.toggle('reading', j === i)))
