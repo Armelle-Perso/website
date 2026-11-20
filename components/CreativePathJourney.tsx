@@ -68,7 +68,8 @@ export default function CreativePathJourney(props: Props) {
   useEffect(() => {
     const el = root.current
     if (!el) return
-    return startJourney(el, props)
+    // never let the animation break the page: if anything fails, the text stays readable on its own
+    try { return startJourney(el, props) } catch (e) { console.error('Creative path journey:', e); el.classList.add('cpj-static') }
     // the page is static per locale: run once
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -387,13 +388,16 @@ function startJourney(root: HTMLElement, props: Props): () => void {
 
   let cur = 0, raf = 0
   function frame() {
+    try { step() } catch (e) { console.error('Creative path journey:', e); root.classList.add('cpj-static'); return }
+    raf = requestAnimationFrame(frame)
+  }
+  function step() {
     const tg = reading()
     cur = (reduce || q.get('x') !== null || +r('full').style.opacity > 0.85) ? tg : cur + (tg - cur) * 0.022
     render(cur)
     tint(cur)
     chapters()
     r('bar').style.width = (clamp(scrollY / (document.documentElement.scrollHeight - innerHeight)) * 100) + '%'
-    raf = requestAnimationFrame(frame)
   }
   function resize() {
     DPR = Math.min(devicePixelRatio || 1, 2)

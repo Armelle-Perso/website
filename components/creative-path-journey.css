@@ -47,3 +47,8 @@
   .cpj .text { padding-top: 6vh; }
   .cpj .text p.body { margin-bottom: 10vh; }
 }
+/* fallback if the animation cannot run: plain reading page */
+.cpj.cpj-static .frame-col, .cpj.cpj-static .full, .cpj.cpj-static .bar { display: none; }
+.cpj.cpj-static .wrap { grid-template-columns: minmax(0, 720px); justify-content: center; }
+.cpj.cpj-static .gap { height: auto; padding-top: 8vh; }
+.cpj.cpj-static .text p.body, .cpj.cpj-static .text p.body.last { margin-bottom: 6vh; }
