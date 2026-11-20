@@ -40,10 +40,12 @@
 .cpj .label .cap { letter-spacing: .2em; }
 .cpj .label a { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--color-gold); text-decoration: none; white-space: nowrap; }
 @media (max-width: 900px) {
-  .cpj .wrap { grid-template-columns: 1fr; gap: 0; }
-  .cpj .frame-col { order: -1; position: sticky; top: 56px; z-index: 5; background: var(--cpj-tint); height: 44vh; }
-  .cpj .frame { position: relative; top: 0; height: calc(44vh - 48px); margin-top: 8px; }
-  .cpj .label { bottom: -36px; }
+  .cpj .wrap { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .cpj .frame-col, .cpj .text { min-width: 0; }
+  .cpj .frame-col { order: -1; position: sticky; top: 56px; z-index: 5; background: var(--cpj-tint); height: 46vh; }
+  .cpj .frame { position: relative; top: 0; height: calc(46vh - 72px); margin-top: 8px; }
+  /* the caption hangs below the image and may take two or three lines */
+  .cpj .label { top: calc(100% + 8px); bottom: auto; flex-wrap: wrap; row-gap: 2px; line-height: 1.45; }
   .cpj .text { padding-top: 6vh; }
   .cpj .text p.body { margin-bottom: 10vh; }
 }
