@@ -1,0 +1,49 @@
+/* Creative path journey: the paintings follow the reading (scoped to .cpj) */
+.cpj { --cpj-tint: var(--color-cream); }
+.cpj * { box-sizing: border-box; }
+.cpj .bar { position: fixed; top: 56px; left: 0; height: 1px; width: 0; background: var(--color-gold); z-index: 40; }
+.cpj .full { position: fixed; inset: 0; z-index: 30; pointer-events: none; opacity: 0; overflow: hidden; background: #000; }
+.cpj .full .img { position: absolute; inset: -4%; background-size: cover; background-position: center; background-repeat: no-repeat; will-change: transform; }
+.cpj .full .bgblur { inset: -10%; filter: blur(40px) brightness(.55) saturate(1.2); opacity: 0; transition: opacity .4s; }
+.cpj .full .shade { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,.05), rgba(0,0,0,.45)); }
+.cpj .full .ttl { position: absolute; left: 0; right: 0; bottom: 14vh; text-align: center; padding: 0 24px; color: #FAF9F6; text-shadow: 0 2px 24px rgba(0,0,0,.55); }
+.cpj .full .ttl small { display: block; font: 300 10px var(--font-sans); letter-spacing: .3em; text-transform: uppercase; margin-bottom: 18px; color: #EDE0CC; }
+.cpj .full .ttl span { font-family: var(--font-serif); font-weight: 300; font-size: clamp(40px, 6.5vw, 84px); line-height: 1; }
+.cpj .wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: minmax(0, 560px) 1fr; gap: 64px; }
+.cpj .sub { font: 300 10px var(--font-sans); letter-spacing: .3em; text-transform: uppercase; color: var(--color-muted); margin: 0 0 32px; }
+.cpj h1 { font-family: var(--font-serif); font-weight: 300; font-size: clamp(48px, 6vw, 72px); line-height: .9; letter-spacing: -.01em; margin: 0; color: var(--color-charcoal); }
+.cpj .rule { width: 48px; height: 1px; background: var(--color-gold); margin: 40px 0 0; }
+.cpj .text { padding: 14vh 0 24vh; }
+.cpj .head { margin-bottom: 10vh; }
+.cpj .text p.body { font-family: var(--font-serif); font-weight: 300; font-size: 18px; line-height: 1.65; text-align: justify; hyphens: auto; margin: 0 0 14vh; color: var(--color-charcoal); }
+.cpj .text p.intro { font-size: 20px; }
+.cpj .text p.body.last { margin-bottom: 34vh; }
+.cpj h2 { font: 300 10px var(--font-sans); letter-spacing: .3em; text-transform: uppercase; color: var(--color-gold); margin: 0 0 24px; }
+.cpj .gap { position: relative; height: 110vh; display: flex; align-items: flex-end; }
+.cpj .gap.interlude { height: 95vh; }
+.cpj .gap h2 { margin: 0 0 24px; }
+.cpj .text a.series { color: var(--color-charcoal); text-decoration: none; border-bottom: 1px solid var(--color-gold); transition: color .3s; }
+.cpj .text a.series:hover, .cpj .text span.c.reading a.series { color: var(--color-gold); }
+.cpj .text p.tbc { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 24px; letter-spacing: .02em; color: var(--color-gold); margin: -6vh 0 16vh; }
+.cpj .src { border-top: 1px solid var(--color-border); padding-top: 32px; font-size: 12px; font-style: italic; color: var(--color-muted); line-height: 1.6; margin: 0; }
+.cpj .see { display: inline-flex; align-items: baseline; gap: 12px; margin-top: 64px; text-decoration: none; }
+.cpj .see span:first-child { font-family: var(--font-serif); font-size: 24px; font-weight: 300; color: var(--color-charcoal); transition: color .3s; }
+.cpj .see span:last-child { font-size: 12px; letter-spacing: .15em; color: var(--color-gold); transition: transform .3s; }
+.cpj .see:hover span:first-child { color: var(--color-muted); }
+.cpj .see:hover span:last-child { transform: translateX(6px); }
+.cpj .frame-col { position: relative; }
+.cpj .frame { position: sticky; top: calc(56px + 6vh); height: calc(100vh - 56px - 16vh); }
+.cpj canvas { width: 100%; height: 100%; display: block; }
+.cpj .label { position: absolute; left: 0; right: 0; bottom: -44px; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; transition: opacity .9s; }
+.cpj .label .t { font-family: var(--font-serif); font-size: 16px; font-weight: 300; color: var(--color-charcoal); }
+.cpj .label .m, .cpj .label .cap { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--color-muted); }
+.cpj .label .cap { letter-spacing: .2em; }
+.cpj .label a { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--color-gold); text-decoration: none; white-space: nowrap; }
+@media (max-width: 900px) {
+  .cpj .wrap { grid-template-columns: 1fr; gap: 0; }
+  .cpj .frame-col { order: -1; position: sticky; top: 56px; z-index: 5; background: var(--cpj-tint); height: 44vh; }
+  .cpj .frame { position: relative; top: 0; height: calc(44vh - 48px); margin-top: 8px; }
+  .cpj .label { bottom: -36px; }
+  .cpj .text { padding-top: 6vh; }
+  .cpj .text p.body { margin-bottom: 10vh; }
+}
