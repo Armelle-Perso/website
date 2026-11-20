@@ -42,10 +42,14 @@
 @media (max-width: 900px) {
   .cpj .wrap { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .cpj .frame-col, .cpj .text { min-width: 0; }
-  .cpj .frame-col { order: -1; position: sticky; top: 56px; z-index: 5; background: var(--cpj-tint); height: 46vh; }
-  .cpj .frame { position: relative; top: 0; height: calc(46vh - 72px); margin-top: 8px; }
+  /* the image area stays on top while the text scrolls under it, closed by a gold line */
+  .cpj .frame-col { order: -1; position: sticky; top: 56px; z-index: 5; background: var(--cpj-tint); height: 50vh; border-bottom: 1px solid var(--color-gold); }
+  .cpj .frame { position: relative; top: 0; height: calc(50vh - 104px); margin-top: 8px; }
   /* the caption hangs below the image and may take two or three lines */
-  .cpj .label { top: calc(100% + 8px); bottom: auto; flex-wrap: wrap; row-gap: 2px; line-height: 1.45; }
+  .cpj .label { top: calc(100% + 8px); bottom: auto; flex-wrap: wrap; column-gap: 12px; row-gap: 3px; line-height: 1.4; }
+  .cpj .label > div { flex: 1 1 100%; }
+  .cpj .label .t { font-size: 15px; }
+  .cpj .label .m, .cpj .label .cap, .cpj .label a { font-size: 9px; letter-spacing: .1em; }
   .cpj .text { padding-top: 6vh; }
   .cpj .text p.body { margin-bottom: 10vh; }
 }
