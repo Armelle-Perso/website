@@ -18,7 +18,7 @@ export type JourneyLayout = {
 export const JOURNEY_IMAGES: Record<string, JourneyImage> = {
  "animalitos": {
   "t": "Animalitos",
-  "s": "Hidrocoria",
+  "s": "Cuadritos",
   "years": "2018–2019",
   "ss": "hidrocoria-2018-2019",
   "sl": "animalitos",

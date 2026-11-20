@@ -307,7 +307,11 @@ function startJourney(root: HTMLElement, props: Props): () => void {
         if (!active) { pp.lt = null; continue }
         if (pp.tx == null) pp.tx = pp.m0
         let reached = pp.m0
-        for (let j = pp.m0; j < pp.end; j++) if (CH[j].els[0].getBoundingClientRect().top < innerHeight * 0.38) reached = j
+        for (let j = pp.m0; j < pp.end; j++) {
+          // a new paragraph counts as reached once it is in the reading zone; inside a paragraph, once its series name is well above the middle
+          const e = CH[j].els[0], startsPara = e.parentElement?.firstElementChild === e
+          if (e.getBoundingClientRect().top < innerHeight * (startsPara ? 0.55 : 0.38)) reached = j
+        }
         pp.tx = Math.max(pp.tx, reached)
         if (scrollY < lastY - 0.5) {
           let back = pp.m0
@@ -317,7 +321,9 @@ function startJourney(root: HTMLElement, props: Props): () => void {
         const dt = pp.lt ? Math.min(0.1, (now - pp.lt) / 1000) : 0; pp.lt = now
         const j = Math.min(pp.end - 1, Math.floor(pp.tx))
         pp.tx = Math.min(pp.end - 0.001, pp.tx + dt / pp.dur[j - pp.m0])
-        while (Math.floor(pp.tx) > pp.m0 && CH[Math.floor(pp.tx)].els[0].getBoundingClientRect().top > innerHeight * 0.9) pp.tx = Math.floor(pp.tx) - 0.001
+        // never ahead of text that is not on screen (a new paragraph may start anywhere on screen)
+        const ahead = (n: number) => { const e = CH[n].els[0]; return e.getBoundingClientRect().top > innerHeight * (e.parentElement?.firstElementChild === e ? 1 : 0.9) }
+        while (Math.floor(pp.tx) > pp.m0 && ahead(Math.floor(pp.tx))) pp.tx = Math.floor(pp.tx) - 0.001
         if (x >= pp.m0 - 1 && x < pp.end) x = pp.tx
       }
     }
