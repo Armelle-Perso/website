@@ -13,6 +13,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { localizedField } from '@/sanity/lib/localize'
 import { getMaxDiagonal, getScale } from '@/lib/dimensions'
 import { MISSING_SERIES } from '@/lib/missing-series'
+import { ogFromSanity } from '@/lib/og'
 
 export const revalidate = 86400
 
@@ -41,9 +42,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { series: slug } = await params
   const data = await safeFetch<any>(paintingSeriesBySlugQuery, { slug })
   if (!data) return { title: 'Series not found' }
+  const description = `Painting series: ${data.title}${data.year ? ` (${data.year})` : ''}`
+  // preview image: the featured work, else the first one
+  const cover = (data.artworks || []).find((a: any) => a.featured && a.image)?.image || (data.artworks || []).find((a: any) => a.image)?.image
   return {
     title: data.title,
-    description: `Painting series: ${data.title}${data.year ? ` (${data.year})` : ''}`,
+    description,
+    ...ogFromSanity(cover, `${data.title} · Armelle Boussidan`, description),
   }
 }
 

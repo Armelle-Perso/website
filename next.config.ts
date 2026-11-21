@@ -31,14 +31,23 @@ const nextConfig: NextConfig = {
       { source: '/:locale(fr|es)/art/collectives-studios', destination: '/:locale/art/collectives', permanent: true },
       // Short links to the Creative path page, for Instagram captions (Oct 2026).
       // Not permanent, so they can point elsewhere later.
-      { source: '/path', destination: '/art/paintings/creative-path', permanent: false },
-      { source: '/parcours', destination: '/fr/art/paintings/creative-path', permanent: false },
-      { source: '/camino', destination: '/es/art/paintings/creative-path', permanent: false },
+      // Nov 2026: these three pages moved from /art/paintings/... to /art/... (old links, Google, printed QR codes keep working)
+      { source: '/art/paintings/creative-path', destination: '/art/creative-path', permanent: true },
+      { source: '/:locale(en|fr|es)/art/paintings/creative-path', destination: '/:locale/art/creative-path', permanent: true },
+      { source: '/art/paintings/available', destination: '/art/available', permanent: true },
+      { source: '/:locale(en|fr|es)/art/paintings/available', destination: '/:locale/art/available', permanent: true },
+      { source: '/art/paintings/people', destination: '/art/in-homes', permanent: true },
+      { source: '/shop', destination: '/art/shop', permanent: true },
+      { source: '/:locale(en|fr|es)/shop', destination: '/:locale/art/shop', permanent: true },
+      { source: '/:locale(en|fr|es)/art/paintings/people', destination: '/:locale/art/in-homes', permanent: true },
+      { source: '/path', destination: '/art/creative-path', permanent: false },
+      { source: '/parcours', destination: '/fr/art/creative-path', permanent: false },
+      { source: '/camino', destination: '/es/art/creative-path', permanent: false },
       // Same links with a trailing full stop, as when pasted at the end of a sentence
       // (a visitor hit /path. in Nov 2026).
-      { source: '/path.', destination: '/art/paintings/creative-path', permanent: false },
-      { source: '/parcours.', destination: '/fr/art/paintings/creative-path', permanent: false },
-      { source: '/camino.', destination: '/es/art/paintings/creative-path', permanent: false },
+      { source: '/path.', destination: '/art/creative-path', permanent: false },
+      { source: '/parcours.', destination: '/fr/art/creative-path', permanent: false },
+      { source: '/camino.', destination: '/es/art/creative-path', permanent: false },
       // Short links to the Serotiny series (2025-2026), for the Nov 2026 Instagram post
       { source: '/serotiny', destination: '/art/paintings/serotiny-2025-2026', permanent: false },
       { source: '/serotinie', destination: '/fr/art/paintings/serotiny-2025-2026', permanent: false },

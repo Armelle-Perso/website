@@ -117,7 +117,7 @@ export default function CreativePathJourney(props: Props) {
           })}
           <p className="tbc">{labels.tbc}</p>
           <p className="src">{source}</p>
-          <a className="see" href={`${P}/art/paintings/available`}>
+          <a className="see" href={`${P}/art/available`}>
             <span>{labels.seeAvailable.replace(' →', '')}</span><span>→</span>
           </a>
         </main>

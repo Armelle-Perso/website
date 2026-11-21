@@ -6,7 +6,7 @@ import { Link } from '@/i18n/navigation'
 export default async function AvailableWorksLink({ className = '' }: { className?: string }) {
   const t = await getTranslations('creativePath')
   return (
-    <Link href="/art/paintings/available" className={`group inline-flex items-baseline gap-3 ${className}`}>
+    <Link href="/art/available" className={`group inline-flex items-baseline gap-3 ${className}`}>
       <span className="font-serif text-2xl font-light text-[--color-charcoal] group-hover:text-[--color-muted] transition-colors duration-300">
         {t('seeAvailable').replace(' →', '')}
       </span>

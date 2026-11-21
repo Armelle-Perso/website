@@ -10,6 +10,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { MISSING_SERIES } from '@/lib/missing-series'
 import { cleanTitle } from '@/lib/title'
 import { translateMedium } from '@/lib/medium'
+import { ogFromSanity } from '@/lib/og'
 
 // Full-screen viewer images: capped at 2400 px on the longest side, which is
 // sharper than any page image and than most screens, without handing out the
@@ -67,11 +68,10 @@ export async function generateMetadata({
   const { locale, series: seriesSlug, artwork: artworkSlug } = await params
   const data = await safeFetch<any>(artworkBySlugQuery, { seriesSlug, artworkSlug })
   if (!data?.artwork) return { title: 'Artwork not found' }
-  return {
-    // A subseries (Cuadritos) is a series of its own, shown inside its parent page
-    title: `${cleanTitle(data.artwork.title)} — ${data.artwork.subseries || data.title}`,
-    description: [translateMedium(data.artwork.medium, locale), !data.artwork.hideDimensions && data.artwork.dimensions, data.year].filter(Boolean).join(' · '),
-  }
+  // A subseries (Cuadritos) is a series of its own, shown inside its parent page
+  const title = `${cleanTitle(data.artwork.title)} — ${data.artwork.subseries || data.title}`
+  const description = [translateMedium(data.artwork.medium, locale), !data.artwork.hideDimensions && data.artwork.dimensions, data.year].filter(Boolean).join(' · ')
+  return { title, description, ...ogFromSanity(data.artwork.image, `${title} · Armelle Boussidan`, description, true) }
 }
 
 export default async function ArtworkPage({
@@ -349,7 +349,7 @@ export default async function ArtworkPage({
         <ContextualSwitch
           available={
             <Link
-              href="/art/paintings/available"
+              href="/art/available"
               className="text-[10px] uppercase tracking-[0.25em] font-sans text-[--color-muted] hover:text-[--color-charcoal] transition-colors duration-300"
             >
               {t('backToAvailable')}

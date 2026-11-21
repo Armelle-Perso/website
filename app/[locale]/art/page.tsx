@@ -42,7 +42,7 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
 
   const artSections: { label: string; href: string; image: any; fallbackSrc: string; objectPosition?: string }[] = [
     { label: t('paintingsLabel'), href: '/art/paintings', image: paintingsCover, fallbackSrc: '/images/available-cover.jpg' },
-    { label: tNav('creativePath'), href: '/art/paintings/creative-path', image: null, fallbackSrc: '/images/paintings/creative-path/performance-le-point-fort-2014-gesture.jpg', objectPosition: 'center 30%' },
+    { label: tNav('creativePath'), href: '/art/creative-path', image: null, fallbackSrc: '/images/paintings/creative-path/performance-le-point-fort-2014-gesture.jpg', objectPosition: 'center 30%' },
     { label: t('collectivesLabel'), href: '/art/collectives', image: collectivesCover, fallbackSrc: collectivesFallback },
     { label: t('exhibitionsLabel'), href: '/art/exhibitions', image: exhibitionsCover, fallbackSrc: exhibitionsFallback, objectPosition: '32% center' },
   ]
@@ -79,7 +79,7 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
             <div className="flex flex-col items-start gap-3 mt-8">
               {[
                 { href: '/art/paintings', label: t('paintingsLabel') },
-                { href: '/art/paintings/creative-path', label: tNav('creativePath') },
+                { href: '/art/creative-path', label: tNav('creativePath') },
               ].map(l => (
                 <Link key={l.href} href={l.href} className="group inline-flex items-baseline gap-3">
                   <span className="font-serif text-2xl font-light text-[--color-charcoal] group-hover:text-[--color-muted] transition-colors duration-300">

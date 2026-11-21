@@ -45,7 +45,7 @@ export default async function PaintingsPage({ params }: { params: Promise<{ loca
         <p className="max-w-2xl text-sm text-[--color-muted] font-sans font-light leading-relaxed">
           {t('materials')}
         </p>
-        <Link href="/art/paintings/creative-path" className="inline-block mt-5 font-serif text-xl md:text-2xl font-light text-[--color-charcoal] border-b border-[--color-gold] pb-1 hover:text-[--color-gold] transition-colors duration-300">
+        <Link href="/art/creative-path" className="inline-block mt-5 font-serif text-xl md:text-2xl font-light text-[--color-charcoal] border-b border-[--color-gold] pb-1 hover:text-[--color-gold] transition-colors duration-300">
           {t('creativePathLink')}
         </Link>
       </div>
@@ -54,7 +54,7 @@ export default async function PaintingsPage({ params }: { params: Promise<{ loca
 
           {/* ── Available Works — pinned first ── */}
           {totalAvailable > 0 && (
-            <Link href="/art/paintings/available" className="group flex flex-col items-center text-center">
+            <Link href="/art/available" className="group flex flex-col items-center text-center">
               <div className="w-full aspect-square overflow-hidden rounded-full bg-[--color-gold-light] mb-6 relative">
                 {/* Cover image from first available painting */}
                 <Image
