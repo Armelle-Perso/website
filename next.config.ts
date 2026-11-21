@@ -40,19 +40,20 @@ const nextConfig: NextConfig = {
       { source: '/shop', destination: '/art/shop', permanent: true },
       { source: '/:locale(en|fr|es)/shop', destination: '/:locale/art/shop', permanent: true },
       { source: '/:locale(en|fr|es)/art/paintings/people', destination: '/:locale/art/in-homes', permanent: true },
-      { source: '/path', destination: '/art/creative-path', permanent: false },
+      // English shortcuts go through /en/ so French- or Spanish-speaking browsers are not switched to their language
+      { source: '/path', destination: '/en/art/creative-path', permanent: false },
       { source: '/parcours', destination: '/fr/art/creative-path', permanent: false },
       { source: '/camino', destination: '/es/art/creative-path', permanent: false },
       // Same links with a trailing full stop, as when pasted at the end of a sentence
       // (a visitor hit /path. in Nov 2026).
-      { source: '/path.', destination: '/art/creative-path', permanent: false },
+      { source: '/path.', destination: '/en/art/creative-path', permanent: false },
       { source: '/parcours.', destination: '/fr/art/creative-path', permanent: false },
       { source: '/camino.', destination: '/es/art/creative-path', permanent: false },
       // Short links to the Serotiny series (2025-2026), for the Nov 2026 Instagram post
-      { source: '/serotiny', destination: '/art/paintings/serotiny-2025-2026', permanent: false },
+      { source: '/serotiny', destination: '/en/art/paintings/serotiny-2025-2026', permanent: false },
       { source: '/serotinie', destination: '/fr/art/paintings/serotiny-2025-2026', permanent: false },
       { source: '/serotinia', destination: '/es/art/paintings/serotiny-2025-2026', permanent: false },
-      { source: '/serotiny.', destination: '/art/paintings/serotiny-2025-2026', permanent: false },
+      { source: '/serotiny.', destination: '/en/art/paintings/serotiny-2025-2026', permanent: false },
       { source: '/serotinie.', destination: '/fr/art/paintings/serotiny-2025-2026', permanent: false },
       { source: '/serotinia.', destination: '/es/art/paintings/serotiny-2025-2026', permanent: false },
       // Short link for the QR code on the Semillas de luz flyer (Batx, Dec 2026): Spanish page by default
