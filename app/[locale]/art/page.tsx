@@ -7,6 +7,7 @@ import { urlFor } from '@/sanity/lib/image'
 import { paintingSeriesAllQuery, collectivesQuery, exhibitionsQuery } from '@/sanity/lib/queries'
 import ArtWordCloud from '@/components/ArtWordCloud'
 import ArtQuotes from '@/components/ArtQuotes'
+import Reveal from '@/components/Reveal'
 
 export const revalidate = 86400
 
@@ -81,13 +82,15 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
               {[
                 { href: '/art/paintings', label: t('paintingsLabel') },
                 { href: '/art/creative-path', label: tNav('creativePath') },
-              ].map(l => (
-                <Link key={l.href} href={l.href} className="group inline-flex items-baseline gap-3">
+              ].map((l, i) => (
+                <Reveal key={l.href} delay={500 + i * 500}>
+                <Link href={l.href} className="group inline-flex items-baseline gap-3">
                   <span className="font-serif text-2xl font-light text-[--color-charcoal] group-hover:text-[--color-muted] transition-colors duration-300">
                     {l.label}
                   </span>
                   <span className="text-xs tracking-widest text-[--color-gold] transition-transform duration-300 group-hover:translate-x-1.5">→</span>
                 </Link>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -111,8 +114,9 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
       {/* Category cards */}
       <section id="sections" className="max-w-7xl mx-auto px-6 pb-32 scroll-mt-20">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 max-w-4xl mx-auto">
-          {artSections.map((section) => (
-            <Link key={section.href} href={section.href} className="group block">
+          {artSections.map((section, i) => (
+            <Reveal key={section.href} delay={i * 350}>
+            <Link href={section.href} className="group block">
               <div className="flex items-baseline justify-between gap-4 mb-4">
                 <h2 className="font-serif text-lg font-light leading-tight whitespace-nowrap text-[--color-charcoal] group-hover:text-[--color-muted] transition-colors duration-300">
                   {section.label}
@@ -141,6 +145,7 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
                 )}
               </div>
             </Link>
+            </Reveal>
           ))}
         </div>
       </section>
