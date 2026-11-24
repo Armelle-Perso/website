@@ -171,7 +171,7 @@ export default function FullscreenImage({ slides, index, children, hrefs }: Full
   }, [hrefs, index, router])
 
   const zoomed = view.s > 1
-  const btn = 'flex items-center justify-center h-9 min-w-9 px-2 bg-black/55 backdrop-blur-sm text-white hover:bg-black/75 transition-colors disabled:opacity-30'
+  const btn = 'flex items-center justify-center h-8 min-w-8 px-1.5 text-[--color-muted] hover:text-[--color-gold] transition-colors disabled:opacity-30 disabled:hover:text-[--color-muted]'
 
   return (
     <>
@@ -200,17 +200,17 @@ export default function FullscreenImage({ slides, index, children, hrefs }: Full
           </div>
         </div>
 
-        {/* controls: zoom out / in, full screen */}
-        <div className="absolute bottom-2 right-2 flex gap-px ">
-          {zoomed && (
-            <button type="button" className={btn} onClick={() => zoomCentre(1 / STEP)} aria-label={t('zoomOut')}>
+        {/* controls under the painting: zoom out / in, full screen */}
+        <div className="mt-3 flex justify-end items-center gap-1">
+          {(
+            <button type="button" className={btn} onClick={() => zoomCentre(1 / STEP)} disabled={!zoomed} aria-label={t('zoomOut')}>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" /></svg>
             </button>
           )}
           <button type="button" className={btn} onClick={() => zoomCentre(STEP)} disabled={view.s >= MAX} aria-label={t('zoomIn')}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3v10" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" /></svg>
           </button>
-          <button type="button" className={`${btn} gap-2 pr-3`} onClick={openViewer} aria-label={t('fullscreen')}>
+          <button type="button" className={`${btn} gap-2 ml-2`} onClick={openViewer} aria-label={t('fullscreen')}>
             <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
             <span className="font-sans text-[10px] uppercase tracking-[0.18em]">{t('fullscreen')}</span>
           </button>
