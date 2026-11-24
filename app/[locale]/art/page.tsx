@@ -101,8 +101,11 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
 
       {/* The catalogue's two voices, each filling the screen in turn while scrolling */}
       <ArtQuotes
-        quotes={[{ text: t('quote'), author: t('quoteAuthor') }, { text: t('quote2'), author: t('quote2Author') }]}
-        source={t('quotesSource')}
+        quotes={locale === 'en'
+          // EN: first quote only, its source under Arthur's name (her choice, 24 Nov 2026)
+          ? [{ text: t('quote'), author: t('quoteAuthor'), note: t('quotesSource') }]
+          : [{ text: t('quote'), author: t('quoteAuthor') }, { text: t('quote2'), author: t('quote2Author') }]}
+        source={locale === 'en' ? undefined : t('quotesSource')}
       />
 
       {/* Category cards */}

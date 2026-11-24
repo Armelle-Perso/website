@@ -7,7 +7,7 @@ import { useEffect, useRef } from 'react'
  * A quote is fully visible and full size when centred, and fades and shrinks
  * as it moves away. Written straight to the style, no re-render.
  */
-export default function ArtQuotes({ quotes, source }: { quotes: { text: string; author: string }[]; source: string }) {
+export default function ArtQuotes({ quotes, source }: { quotes: { text: string; author: string; note?: string }[]; source?: string }) {
   const refs = useRef<(HTMLElement | null)[]>([])
 
   useEffect(() => {
@@ -44,12 +44,15 @@ export default function ArtQuotes({ quotes, source }: { quotes: { text: string; 
             <figcaption className="mt-8 text-[10px] md:text-xs uppercase tracking-[0.25em] font-sans font-light text-[--color-muted]">
               {q.author}
             </figcaption>
+            {q.note && (
+              <p className="mt-3 text-xs font-sans font-light italic text-[--color-muted] leading-relaxed">{q.note}</p>
+            )}
           </figure>
         </div>
       ))}
-      <p className="max-w-4xl mx-auto -mt-16 pb-24 text-center text-xs font-sans font-light italic text-[--color-muted] leading-relaxed">
+      {source && <p className="max-w-4xl mx-auto -mt-16 pb-24 text-center text-xs font-sans font-light italic text-[--color-muted] leading-relaxed">
         {source}
-      </p>
+      </p>}
     </section>
   )
 }
