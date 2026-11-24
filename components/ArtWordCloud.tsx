@@ -149,12 +149,12 @@ export default function ArtWordCloud({ locale }: { locale: string }) {
     const path = neighbours[i]
     const n = path.length
     const seg = 100 / (n + 2)
-    const stops = [`0%,${Math.round(seg * 0.4)}%{transform:translate(0px,0px) scale(1)}`]
+    const stops = [`0%{transform:translate(0px,0px) scale(1)}`]  // moves from the first second, no initial pause
     path.forEach((tIdx, j) => {
       const dx = ((W[tIdx].x - w.x) * 0.5).toFixed(1)
       const dy = ((W[tIdx].y - w.y) * 0.5).toFixed(1)
       const sc = (j + i) % 2 ? '0.88' : '1.25'
-      stops.push(`${Math.round(seg * (j + 1))}%,${Math.round(seg * (j + 1.4))}%{transform:translate(${dx}px,${dy}px) scale(${sc})}`)
+      stops.push(`${Math.round(seg * (j + 1))}%,${Math.round(seg * (j + 1.15))}%{transform:translate(${dx}px,${dy}px) scale(${sc})}`)
     })
     stops.push(`${Math.round(seg * (n + 1))}%,100%{transform:translate(0px,0px) scale(1)}`)
     return `@keyframes awc-d${i}{${stops.join('')}}`
@@ -257,7 +257,7 @@ export default function ArtWordCloud({ locale }: { locale: string }) {
             fontSize={w.size} fontFamily={w.font === 'serif' ? SERIF : SANS} fontWeight={300}
             transform={`rotate(${w.rotate}, ${w.x}, ${w.y})`}
             style={{ fill: `var(${w.color})`, opacity: visible ? w.opacity : 0, transition: `opacity 1s ease ${0.4 + i * 0.04}s`,
-              animation: visible ? `awc-d${i} ${260 + (i % 6) * 10}s ease-in-out infinite` : 'none' }}>
+              animation: visible ? `awc-d${i} ${260 + (i % 6) * 10}s ease-in-out -${(i * 7) % 40}s infinite` : 'none' }}>
             {t[i]}
           </text>
         ))}
