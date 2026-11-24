@@ -105,10 +105,11 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
       {/* The catalogue's two voices, each filling the screen in turn while scrolling */}
       <ArtQuotes
         quotes={locale === 'en'
-          // EN: first quote only, its source under Arthur's name (her choice, 24 Nov 2026)
+          // EN: first quote only; the monograph source under each author's name (her choice, 24 Nov 2026)
           ? [{ text: t('quote'), author: t('quoteAuthor'), note: t('quotesSource') }]
-          : [{ text: t('quote'), author: t('quoteAuthor') }, { text: t('quote2'), author: t('quote2Author') }]}
-        source={locale === 'en' ? undefined : t('quotesSource')}
+          : [{ text: t('quote'), author: t('quoteAuthor'), note: t('quotesSource') }, { text: t('quote2'), author: t('quote2Author'), note: t('quotesSource'),
+              // second quote: Endorphines 3 (her choice, 24 Nov 2026); first quote: Endorphines 1
+              bg: 'https://cdn.sanity.io/images/pyibu0t8/production/b0a6d3b9e0619f18c58a761316c515ac951cc43e-2352x2352.jpg?w=1920&q=75&fm=jpg' }]}
         bg="https://cdn.sanity.io/images/pyibu0t8/production/449fdbd6162e723b3a7b7225fdc48c1444f4b217-2366x2366.jpg?w=1920&q=75&fm=jpg"
       />
 

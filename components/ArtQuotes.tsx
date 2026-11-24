@@ -7,7 +7,7 @@ import { useEffect, useRef } from 'react'
  * A quote is fully visible and full size when centred, and fades and shrinks
  * as it moves away. Written straight to the style, no re-render.
  */
-export default function ArtQuotes({ quotes, source, bg }: { quotes: { text: string; author: string; note?: string }[]; source?: string; bg?: string }) {
+export default function ArtQuotes({ quotes, source, bg }: { quotes: { text: string; author: string; note?: string; bg?: string }[]; source?: string; bg?: string }) {
   const refs = useRef<(HTMLElement | null)[]>([])
   const bgRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -39,9 +39,9 @@ export default function ArtQuotes({ quotes, source, bg }: { quotes: { text: stri
     <section>
       {quotes.map((q, i) => (
         <div key={i} className="relative min-h-[100svh] flex items-center justify-center px-6 overflow-hidden">
-          {bg && (
+          {(q.bg || bg) && (
             <div ref={el => { bgRefs.current[i] = el }} aria-hidden className="absolute inset-0 pointer-events-none"
-              style={{ opacity: 0, maskImage: 'linear-gradient(transparent, #000 35%, #000 65%, transparent)', WebkitMaskImage: 'linear-gradient(transparent, #000 35%, #000 65%, transparent)', background: `linear-gradient(color-mix(in srgb, var(--color-cream) 80%, transparent), color-mix(in srgb, var(--color-cream) 80%, transparent)), url(${bg}) center / cover` }} />
+              style={{ opacity: 0, maskImage: 'linear-gradient(transparent, #000 35%, #000 65%, transparent)', WebkitMaskImage: 'linear-gradient(transparent, #000 35%, #000 65%, transparent)', background: `linear-gradient(color-mix(in srgb, var(--color-cream) 80%, transparent), color-mix(in srgb, var(--color-cream) 80%, transparent)), url(${q.bg || bg}) center / cover` }} />
           )}
           <figure ref={el => { refs.current[i] = el }} className="relative max-w-4xl text-center will-change-transform">
             <div className="w-8 h-px bg-[--color-gold] mx-auto mb-10" />
