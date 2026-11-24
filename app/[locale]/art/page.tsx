@@ -6,6 +6,7 @@ import { safeFetch } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
 import { paintingSeriesAllQuery, collectivesQuery, exhibitionsQuery } from '@/sanity/lib/queries'
 import ArtWordCloud from '@/components/ArtWordCloud'
+import ArtQuotes from '@/components/ArtQuotes'
 
 export const revalidate = 86400
 
@@ -98,27 +99,11 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
         <ArtWordCloud locale={locale} />
       </section>
 
-      {/* The catalogue's two voices, paired so the monograph is credited once */}
-      <section className="max-w-7xl mx-auto px-6 pb-24">
-        <div className="max-w-5xl mx-auto">
-          <div className="w-8 h-px bg-[--color-gold] mb-10" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
-            {([['quote', 'quoteAuthor'], ['quote2', 'quote2Author']] as const).map(([q, author]) => (
-              <figure key={q}>
-                <blockquote className="font-serif text-lg md:text-xl font-light italic leading-snug text-[--color-charcoal]">
-                  {t(q)}
-                </blockquote>
-                <figcaption className="mt-4 text-[10px] uppercase tracking-[0.2em] font-sans font-light text-[--color-muted]">
-                  {t(author)}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-          <p className="mt-10 text-xs font-sans font-light italic text-[--color-muted] leading-relaxed">
-            {t('quotesSource')}
-          </p>
-        </div>
-      </section>
+      {/* The catalogue's two voices, each filling the screen in turn while scrolling */}
+      <ArtQuotes
+        quotes={[{ text: t('quote'), author: t('quoteAuthor') }, { text: t('quote2'), author: t('quote2Author') }]}
+        source={t('quotesSource')}
+      />
 
       {/* Category cards */}
       <section id="sections" className="max-w-7xl mx-auto px-6 pb-32 scroll-mt-20">
