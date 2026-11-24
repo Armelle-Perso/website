@@ -230,7 +230,8 @@ export default async function ArtworkPage({
 
           {/* Details */}
           <div className="lg:sticky lg:top-28">
-            {seriesYear && (
+            {/* series years, unless the Year field below already says the same */}
+            {seriesYear && String(seriesYear).trim() !== String(artwork.year || seriesYear).trim() && (
               <p className="text-[10px] uppercase tracking-[0.3em] text-[--color-gold] font-sans font-light mb-6">
                 {seriesYear}
               </p>

@@ -210,9 +210,8 @@ export default function FullscreenImage({ slides, index, children, hrefs }: Full
           <button type="button" className={btn} onClick={() => zoomCentre(STEP)} disabled={view.s >= MAX} aria-label={t('zoomIn')}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3v10" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" /></svg>
           </button>
-          <button type="button" className={`${btn} gap-2 ml-2`} onClick={openViewer} aria-label={t('fullscreen')}>
+          <button type="button" className={`${btn} ml-1`} onClick={openViewer} aria-label={t('fullscreen')} title={t('fullscreen')}>
             <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            <span className="font-sans text-[10px] uppercase tracking-[0.18em]">{t('fullscreen')}</span>
           </button>
         </div>
       </div>
