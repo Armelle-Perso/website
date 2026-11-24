@@ -156,7 +156,10 @@
   },
   "artworkNav": {
     "previous": "Anterior",
-    "next": "Siguiente"
+    "next": "Siguiente",
+    "fullscreen": "Pantalla completa",
+    "zoomIn": "Ampliar",
+    "zoomOut": "Reducir"
   },
   "about": {
     "title": "Sobre mí",

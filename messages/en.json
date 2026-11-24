@@ -156,7 +156,10 @@
   },
   "artworkNav": {
     "previous": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "fullscreen": "Full screen",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out"
   },
   "about": {
     "title": "About",
