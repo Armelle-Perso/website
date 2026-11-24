@@ -108,6 +108,7 @@ const neighbours = W.map((_, i) => {
 
 export default function ArtWordCloud({ locale }: { locale: string }) {
   const svgRef = useRef<SVGSVGElement>(null)
+  const wrapRef = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
   const t = texts[locale] || texts.en
 
@@ -119,6 +120,29 @@ export default function ArtWordCloud({ locale }: { locale: string }) {
     }, { threshold: 0.1 })
     obs.observe(svg)
     return () => obs.disconnect()
+  }, [])
+
+  // Scroll zoom: full size when the cloud is centred in the screen, smaller
+  // as it moves away (up or down). Written straight to the style, no re-render.
+  useEffect(() => {
+    const el = wrapRef.current
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const MIN = 0.45
+    let raf = 0
+    const update = () => {
+      raf = 0
+      const r = el.getBoundingClientRect()
+      const vh = window.innerHeight
+      const d = Math.abs(r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2)  // 0 centred, 1 off screen
+      const k = Math.min(1, d)
+      const e = 1 - k * k * (3 - 2 * k)   // smooth
+      el.style.transform = `scale(${(MIN + (1 - MIN) * e).toFixed(3)})`
+    }
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update) }
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); if (raf) cancelAnimationFrame(raf) }
   }, [])
 
   const drift = W.map((w, i) => {
@@ -144,7 +168,7 @@ export default function ArtWordCloud({ locale }: { locale: string }) {
   const fade = (delay: number) => ({ opacity: visible ? 1 : 0, transition: `opacity 2s ease ${delay}s` })
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div ref={wrapRef} className="w-full max-w-2xl mx-auto origin-center will-change-transform">
       <style>{`
         ${drift}
         ${travel}
