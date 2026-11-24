@@ -109,6 +109,7 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
           ? [{ text: t('quote'), author: t('quoteAuthor'), note: t('quotesSource') }]
           : [{ text: t('quote'), author: t('quoteAuthor') }, { text: t('quote2'), author: t('quote2Author') }]}
         source={locale === 'en' ? undefined : t('quotesSource')}
+        bg="https://cdn.sanity.io/images/pyibu0t8/production/449fdbd6162e723b3a7b7225fdc48c1444f4b217-2366x2366.jpg?w=1920&q=75&fm=jpg"
       />
 
       {/* Category cards */}
