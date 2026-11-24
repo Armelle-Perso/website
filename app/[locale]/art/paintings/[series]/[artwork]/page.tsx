@@ -5,12 +5,13 @@ import { notFound } from 'next/navigation'
 import { safeFetch } from '@/sanity/lib/client'
 import { urlFor, imageDimensions } from '@/sanity/lib/image'
 import { artworkBySlugQuery, paintingSeriesAllQuery, paintingSeriesBySlugQuery, availableNavQuery, allArtworkSlidesQuery, availableSlidesQuery } from '@/sanity/lib/queries'
-import { ContextualArtworkNav, ContextualArtworkCounter, ContextualFullscreenImage, ContextualSwitch, type NavData, type CountData, type SlidesData } from '@/components/ArtworkContext'
+import { ContextualArtworkNav, ContextualArtworkCounter, ContextualFullscreenImage, ContextualSwitch, ContextualNextCard, ContextualSwipeHint, type NavData, type CountData, type SlidesData } from '@/components/ArtworkContext'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { MISSING_SERIES } from '@/lib/missing-series'
 import { cleanTitle } from '@/lib/title'
 import { translateMedium } from '@/lib/medium'
 import { ogFromSanity } from '@/lib/og'
+import OnShowLine from '@/components/OnShowLine'
 
 // Full-screen viewer images: capped at 2400 px on the longest side, which is
 // sharper than any page image and than most screens, without handing out the
@@ -130,6 +131,12 @@ export default async function ArtworkPage({
     return { slides, hrefs, index: Math.max(0, index) }
   }
 
+  // small images for the "Next painting" card
+  const thumbs = new Map<string, string>()
+  for (const s of (allSlides || [])) for (const item of (s.items || [])) {
+    if (item.image) thumbs.set(`${s.seriesSlug}/${item.slug.current}`, urlFor(item.image).width(320).quality(80).url())
+  }
+
   // Navigate across all available artworks
   const flat: { title: string; seriesSlug: string; artworkSlug: string }[] = []
   for (const s of (navData || [])) {
@@ -145,6 +152,7 @@ export default async function ArtworkPage({
     nextHref: nextItem ? `/art/paintings/${nextItem.seriesSlug}/${nextItem.artworkSlug}?from=available` : null,
     prevTitle: cleanTitle(prevItem?.title) || null,
     nextTitle: cleanTitle(nextItem?.title) || null,
+    nextThumb: nextItem ? thumbs.get(`${nextItem.seriesSlug}/${nextItem.artworkSlug}`) || null : null,
   }
   const availableCount: CountData | null = idx >= 0 ? { current: idx + 1, total: flat.length } : null
 
@@ -165,6 +173,7 @@ export default async function ArtworkPage({
     nextHref: next ? `/art/paintings/${next.seriesSlug}/${next.artworkSlug}` : null,
     prevTitle: cleanTitle(prev?.title) || null,
     nextTitle: cleanTitle(next?.title) || null,
+    nextThumb: next ? thumbs.get(`${next.seriesSlug}/${next.artworkSlug}`) || null : null,
   }
 
   // The counter still reports the position inside this series
@@ -198,8 +207,8 @@ export default async function ArtworkPage({
         <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-20 items-start">
 
           {/* Image */}
-          <div className="flex justify-center">
-            {artwork.image ? (
+          <div className="flex flex-col items-center">
+            {artwork.image ? (<>
               <ContextualFullscreenImage series={buildSlides(allSlides, false)} available={buildSlides(availableSlides, true)}>
                 <Image
                   src={urlFor(artwork.image).width(1400).url()}
@@ -211,7 +220,8 @@ export default async function ArtworkPage({
                   sizes="(max-width: 1024px) 100vw, 60vw"
                 />
               </ContextualFullscreenImage>
-            ) : (
+              <ContextualSwipeHint series={seriesNav} available={availableNav} />
+            </>) : (
               <div className="aspect-[4/3] flex items-center justify-center text-[--color-muted] font-serif text-2xl">
                 {cleanTitle(artwork.title)}
               </div>
@@ -278,6 +288,7 @@ export default async function ArtworkPage({
                   >
                     {t('inquireAbout')}
                   </Link>
+                  <OnShowLine artworkSlug={artworkSlug} locale={locale} />
                 </div>
               ) : artwork.available === false ? (
                 <p className="text-[10px] uppercase tracking-[0.2em] font-sans text-[--color-muted]">
@@ -343,6 +354,9 @@ export default async function ArtworkPage({
           </figure>
         </div>
       )}
+
+      {/* Phones: what comes next, at the bottom of the page */}
+      <ContextualNextCard series={seriesNav} available={availableNav} />
 
       {/* Bottom: back link */}
       <div className="border-t border-[--color-border] max-w-7xl mx-auto px-6 py-12 pb-24 flex items-center justify-center">

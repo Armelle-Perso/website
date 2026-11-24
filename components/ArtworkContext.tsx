@@ -9,12 +9,15 @@ import { ReactNode, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import ArtworkNav from './ArtworkNav'
 import FullscreenImage from './FullscreenImage'
+import NextPaintingCard from './NextPaintingCard'
+import SwipeHint from './SwipeHint'
 
 export interface NavData {
   prevHref: string | null
   prevTitle: string | null
   nextHref: string | null
   nextTitle: string | null
+  nextThumb?: string | null
 }
 
 export interface CountData {
@@ -105,4 +108,21 @@ export function ContextualFullscreenImage(props: Both<SlidesData> & { children: 
       <FullscreenInner {...props} />
     </Suspense>
   )
+}
+
+function NextInner({ series, available }: Both<NavData>) {
+  const nav = useFromAvailable() ? available : series
+  return <NextPaintingCard href={nav.nextHref} title={nav.nextTitle} thumb={nav.nextThumb || null} />
+}
+
+export function ContextualNextCard(props: Both<NavData>) {
+  return (
+    <Suspense fallback={<NextPaintingCard href={props.series.nextHref} title={props.series.nextTitle} thumb={props.series.nextThumb || null} />}>
+      <NextInner {...props} />
+    </Suspense>
+  )
+}
+
+export function ContextualSwipeHint({ series }: Both<NavData>) {
+  return <SwipeHint enabled={!!(series.nextHref || series.prevHref)} />
 }

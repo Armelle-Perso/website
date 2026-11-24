@@ -159,7 +159,9 @@
     "next": "Suivant",
     "fullscreen": "Plein écran",
     "zoomIn": "Zoomer",
-    "zoomOut": "Dézoomer"
+    "zoomOut": "Dézoomer",
+    "nextPainting": "Peinture suivante",
+    "swipeHint": "Glissez pour voir la peinture suivante"
   },
   "about": {
     "title": "À propos",

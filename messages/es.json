@@ -159,7 +159,9 @@
     "next": "Siguiente",
     "fullscreen": "Pantalla completa",
     "zoomIn": "Ampliar",
-    "zoomOut": "Reducir"
+    "zoomOut": "Reducir",
+    "nextPainting": "Siguiente pintura",
+    "swipeHint": "Desliza para ver la siguiente pintura"
   },
   "about": {
     "title": "Sobre mí",
