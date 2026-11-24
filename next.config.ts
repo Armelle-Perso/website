@@ -4,6 +4,8 @@ import createNextIntlPlugin from 'next-intl/plugin'
 const withNextIntl = createNextIntlPlugin()
 
 const nextConfig: NextConfig = {
+  // dev only: lets her phone on the home Wi-Fi load the local test site
+  allowedDevOrigins: ['192.168.18.28'],
   images: {
     remotePatterns: [
       {

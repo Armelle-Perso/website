@@ -29,6 +29,43 @@ export default function ArtworkNav({ prevHref, prevTitle, nextHref, nextTitle }:
     return () => window.removeEventListener('keydown', onKey)
   }, [prevHref, nextHref, router])
 
+  // Swipe navigation on touch screens: swipe left = next, swipe right = previous.
+  // Only a clear, quick, mostly horizontal one-finger swipe counts, so vertical
+  // scrolling and pinch-zoom are untouched. Touches starting at the screen edges
+  // are left to the phone's own back gesture. Inactive while the lightbox is open.
+  useEffect(() => {
+    const EDGE = 24, MIN_DX = 60, MAX_MS = 700
+    let sx = 0, sy = 0, st = 0, tracking = false
+    const onStart = (e: TouchEvent) => {
+      tracking = false
+      if (e.touches.length !== 1 || isLightboxOpen()) return
+      const t = e.touches[0]
+      if (t.clientX < EDGE || t.clientX > window.innerWidth - EDGE) return
+      const el = e.target as HTMLElement | null
+      if (el?.closest('input, textarea, select, [data-no-swipe]')) return
+      sx = t.clientX; sy = t.clientY; st = Date.now(); tracking = true
+    }
+    const onEnd = (e: TouchEvent) => {
+      if (!tracking) return
+      tracking = false
+      if (isLightboxOpen() || (window.visualViewport && window.visualViewport.scale > 1.01)) return
+      const t = e.changedTouches[0]
+      const dx = t.clientX - sx, dy = t.clientY - sy
+      if (Date.now() - st > MAX_MS || Math.abs(dx) < MIN_DX || Math.abs(dx) < Math.abs(dy) * 1.8) return
+      if (dx < 0 && nextHref) router.push(nextHref)
+      if (dx > 0 && prevHref) router.push(prevHref)
+    }
+    const onCancel = () => { tracking = false }
+    window.addEventListener('touchstart', onStart, { passive: true })
+    window.addEventListener('touchend', onEnd, { passive: true })
+    window.addEventListener('touchcancel', onCancel, { passive: true })
+    return () => {
+      window.removeEventListener('touchstart', onStart)
+      window.removeEventListener('touchend', onEnd)
+      window.removeEventListener('touchcancel', onCancel)
+    }
+  }, [prevHref, nextHref, router])
+
   return (
     <>
       {/* ── Left / Prev ── */}
