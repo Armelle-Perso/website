@@ -75,9 +75,17 @@ export default async function ArtPage({ params }: { params: Promise<{ locale: st
               {t('title')}
             </h1>
             <div className="w-8 h-px bg-[--color-gold] mb-6" />
-            <p className="text-sm text-[--color-muted] font-sans font-light leading-relaxed max-w-md">
-              {t('description')}
-            </p>
+            {/* two paragraphs: the painting, then 'Self-taught painter…' (her ask, 25 Nov 2026) */}
+            {(() => {
+              const d = t('description')
+              const cut = d.search(/Self-taught|Peintre autodidacte|Pintora autodidacta/)
+              const parts = cut > 0 ? [d.slice(0, cut).trim(), d.slice(cut)] : [d]
+              return parts.map((p, i) => (
+                <p key={i} className={`text-sm text-[--color-muted] font-sans font-light leading-relaxed max-w-md text-justify hyphens-auto ${i ? 'mt-4' : ''}`}>
+                  {p}
+                </p>
+              ))
+            })()}
             <div className="flex flex-col items-start gap-3 mt-8">
               {[
                 { href: '/art/paintings', label: t('paintingsLabel') },
