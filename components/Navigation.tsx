@@ -29,6 +29,7 @@ export default function Navigation() {
       label: t('art'),
       href: '/art' as const,
       children: [
+        { label: t('artHome'), href: '/art' as const },
         { label: t('allPaintings'), href: '/art/paintings' as const },
         { label: t('available'), href: '/art/available' as const },
         { label: t('creativePath'), href: '/art/creative-path' as const },
