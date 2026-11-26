@@ -119,6 +119,12 @@ const nextConfig: NextConfig = {
         destination: '/:locale/art/paintings/hidrocoria-2018-2019/raag-bihag-album-cover',
         permanent: true,
       },
+      // Joy moved to the Nebula 2014 series: must come before the generic 2015-2017 rule
+      // (Search Console 404, 21 Nov 2026)
+      { source: '/art/paintings/2015-2017/joy', destination: '/art/paintings/nebula-2014/joy', permanent: true },
+      { source: '/:locale(en|fr|es)/art/paintings/2015-2017/joy', destination: '/:locale/art/paintings/nebula-2014/joy', permanent: true },
+      { source: '/art/paintings/emanation-2015-2016/joy', destination: '/art/paintings/nebula-2014/joy', permanent: true },
+      { source: '/:locale(en|fr|es)/art/paintings/emanation-2015-2016/joy', destination: '/:locale/art/paintings/nebula-2014/joy', permanent: true },
       // Series slug renamed 2015-2017 -> 2015-2016 (Oct 2026)
       {
         source: '/art/paintings/2015-2017/:path*',
